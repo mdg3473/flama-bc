@@ -1,5 +1,6 @@
 import heroImg from "@/assets/hero-flama.jpg";
 import { ArrowDown } from "lucide-react";
+import { FireText } from "./FireText";
 
 export const Hero = () => {
   return (
@@ -31,7 +32,9 @@ export const Hero = () => {
 
         <h1 className="font-display text-7xl sm:text-8xl md:text-[10rem] lg:text-[14rem] leading-[0.85] tracking-tight">
           <span className="block text-foreground">ARDE</span>
-          <span className="block text-flame animate-flicker">FLAMA</span>
+          <span className="block text-flame cursor-pointer">
+            <FireText text="FLAMA" />
+          </span>
           <span className="block text-stroke">NA RUA</span>
         </h1>
 
