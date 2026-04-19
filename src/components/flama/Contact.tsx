@@ -1,5 +1,5 @@
 import { Instagram, Youtube, MessageCircle, MapPin } from "lucide-react";
-import { FlameLogo } from "./FlameLogo";
+import flamaLogo from "@/assets/flama-logo.png";
 
 export const Contact = () => (
   <section id="contato" className="relative py-24 md:py-32 bg-gradient-to-b from-background to-card overflow-hidden">

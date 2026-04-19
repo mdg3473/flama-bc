@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { FlameLogo } from "./FlameLogo";
+import flamaLogo from "@/assets/flama-logo.png";
 import { Menu, X } from "lucide-react";
 
 const links = [
@@ -28,9 +28,15 @@ export const Navbar = () => {
       }`}
     >
       <nav className="container flex items-center justify-between py-4">
-        <a href="#top" className="flex items-center gap-2 group">
-          <FlameLogo className="h-9 w-9 animate-flicker" />
-          <span className="font-display text-2xl tracking-wider">FLAMA</span>
+        <a href="#top" className="flex items-center gap-3 group">
+          <img
+            src={flamaLogo}
+            alt="FLAMA logo"
+            width={48}
+            height={48}
+            className="h-11 w-11 object-contain animate-flicker transition-transform group-hover:rotate-6"
+          />
+          <span className="font-display text-2xl tracking-wider hidden sm:inline">FLAMA</span>
         </a>
 
         <ul className="hidden lg:flex items-center gap-8">
