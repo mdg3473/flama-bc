@@ -13,15 +13,33 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        display: ['"Bebas Neue"', '"Archivo Black"', 'sans-serif'],
+        sans: ['Inter', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'monospace'],
+      },
+      backgroundImage: {
+        'gradient-flame': 'var(--gradient-flame)',
+        'gradient-burn': 'var(--gradient-burn)',
+        'gradient-radial': 'var(--gradient-radial)',
+      },
+      boxShadow: {
+        flame: 'var(--shadow-flame)',
+        glow: 'var(--shadow-glow)',
+        hard: 'var(--shadow-hard)',
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        ember: "hsl(var(--ember))",
+        spark: "hsl(var(--spark))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
+          glow: "hsl(var(--primary-glow))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",

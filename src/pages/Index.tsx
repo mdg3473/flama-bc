@@ -1,16 +1,27 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Navbar } from "@/components/flama/Navbar";
+import { Hero } from "@/components/flama/Hero";
+import { Marquee } from "@/components/flama/Marquee";
+import { About } from "@/components/flama/About";
+import { Sermons } from "@/components/flama/Sermons";
+import { Devotional } from "@/components/flama/Devotional";
+import { Gallery } from "@/components/flama/Gallery";
+import { Shop } from "@/components/flama/Shop";
+import { Contact } from "@/components/flama/Contact";
 
-// IMPORTANT: Fully REPLACE this with your own code
-const PlaceholderIndex = () => {
-  // PLACEHOLDER: Replace this entire return statement with the user's app.
-  // The inline background color is intentionally not part of the design system.
+const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center" style={{ backgroundColor: '#fcfbf8' }}>
-      <img data-lovable-blank-page-placeholder="REMOVE_THIS" src="/placeholder.svg" alt="Your app will live here!" />
-    </div>
+    <main className="min-h-screen bg-background text-foreground">
+      <Navbar />
+      <Hero />
+      <Marquee />
+      <About />
+      <Sermons />
+      <Devotional />
+      <Gallery />
+      <Shop />
+      <Contact />
+    </main>
   );
 };
-
-const Index = PlaceholderIndex;
 
 export default Index;
