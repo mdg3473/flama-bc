@@ -53,7 +53,7 @@ export const Contact = () => (
     {/* Footer */}
     <footer className="container mt-24 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
       <div className="flex items-center gap-2">
-        <FlameLogo className="h-6 w-6" />
+        <img src={flamaLogo} alt="FLAMA" width={32} height={32} className="h-7 w-7 object-contain" />
         <span className="mono text-xs text-muted-foreground tracking-widest">
           © {new Date().getFullYear()} FLAMA · MINISTÉRIO JOVEM
         </span>
