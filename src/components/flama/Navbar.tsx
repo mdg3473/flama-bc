@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import flamaLogo from "@/assets/flama-logo.png";
 import { Menu, X } from "lucide-react";
 
 const links = [
@@ -23,20 +22,12 @@ export const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-[56px] md:top-[64px] left-0 right-0 z-50 transition-all duration-300 ${
         scrolled ? "bg-background/85 backdrop-blur-md border-b border-border" : "bg-transparent"
       }`}
     >
       <nav className="container flex items-center justify-between py-4">
-        <a href="#top" className="flex items-center gap-3 group">
-          <img
-            src={flamaLogo}
-            alt="FLAMA logo"
-            width={120}
-            height={80}
-            className="h-12 w-auto object-contain animate-flicker transition-transform group-hover:rotate-3"
-          />
-        </a>
+        <span className="font-display text-xl tracking-[0.3em] text-foreground/70">/ MENU</span>
 
         <ul className="hidden lg:flex items-center gap-8">
           {links.map((l) => (

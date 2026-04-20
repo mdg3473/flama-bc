@@ -25,15 +25,7 @@ export const Hero = () => {
 
       {/* Content */}
       <div className="container relative z-10 pb-20 md:pb-32">
-        <h1 className="font-display text-7xl sm:text-8xl md:text-[10rem] lg:text-[14rem] leading-[0.85] tracking-tight">
-          <span className="block text-background drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]">ARDE</span>
-          <span className="block text-flame cursor-pointer">
-            <FireText text="FLAMA" />
-          </span>
-          <span className="block text-stroke-light">NA RUA</span>
-        </h1>
-
-        <p className="mt-8 max-w-xl text-base md:text-lg text-background/90 leading-relaxed">
+        <p className="max-w-xl text-base md:text-lg text-background/90 leading-relaxed">
           Somos uma geração que recusa o morno. Encontramos Jesus no asfalto, no barulho,
           na vida real — e levamos esse fogo pra onde a gente vai.
         </p>
