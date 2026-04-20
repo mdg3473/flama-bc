@@ -1,6 +1,5 @@
 import heroImg from "@/assets/balloons-bg.jpg";
 import { ArrowDown } from "lucide-react";
-import { FireText } from "./FireText";
 
 export const Hero = () => {
   return (
