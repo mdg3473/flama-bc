@@ -1,4 +1,4 @@
-import heroImg from "@/assets/hero-flama.jpg";
+import heroImg from "@/assets/balloons-bg.jpg";
 import { ArrowDown } from "lucide-react";
 import { FireText } from "./FireText";
 
@@ -8,7 +8,7 @@ export const Hero = () => {
       {/* Background image */}
       <img
         src={heroImg}
-        alt="Jovens da FLAMA adorando com chamas ao fundo"
+        alt="Jovens da FLAMA com balões coloridos numa noite de adoração"
         width={1920}
         height={1280}
         className="absolute inset-0 w-full h-full object-cover scale-105"
@@ -25,11 +25,6 @@ export const Hero = () => {
 
       {/* Content */}
       <div className="container relative z-10 pb-20 md:pb-32">
-        <div className="mono text-xs md:text-sm text-primary tracking-[0.4em] mb-6 flex items-center gap-3">
-          <span className="h-px w-10 bg-primary" />
-          MINISTÉRIO JOVEM · EST. 2024
-        </div>
-
         <h1 className="font-display text-7xl sm:text-8xl md:text-[10rem] lg:text-[14rem] leading-[0.85] tracking-tight">
           <span className="block text-background drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]">ARDE</span>
           <span className="block text-flame cursor-pointer">
