@@ -2,6 +2,7 @@ import s1 from "@/assets/sermon-1.jpg";
 import s2 from "@/assets/sermon-2.jpg";
 import s3 from "@/assets/sermon-3.jpg";
 import { Play, Clock } from "lucide-react";
+import { usePopIn } from "@/hooks/usePopIn";
 
 const sermons = [
   { img: s1, title: "Não tenha medo do fogo", speaker: "Pr. Lucas Mendes", duration: "42 min", tag: "Avivamento" },
@@ -25,11 +26,22 @@ export const Sermons = () => (
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {sermons.map((s) => (
-          <article
-            key={s.title}
-            className="group relative overflow-hidden border-2 border-border hover:border-primary bg-background cursor-pointer transition-all"
-          >
+        {sermons.map((s, i) => (
+          <SermonCard key={s.title} sermon={s} index={i} />
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+const SermonCard = ({ sermon: s, index }: { sermon: typeof sermons[number]; index: number }) => {
+  const pop = usePopIn<HTMLElement>();
+  return (
+    <article
+      ref={pop.ref}
+      style={{ transitionDelay: `${index * 100}ms` }}
+      className={`${pop.className} group relative overflow-hidden border-2 border-border hover:border-primary bg-background cursor-pointer transition-all`}
+    >
             <div className="relative aspect-[4/5] overflow-hidden">
               <img
                 src={s.img}
@@ -58,9 +70,6 @@ export const Sermons = () => (
                 <span className="flex items-center gap-1.5 mono"><Clock size={14} /> {s.duration}</span>
               </div>
             </div>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
-);
+    </article>
+  );
+};

@@ -1,4 +1,6 @@
 import { Flame, Users, Heart } from "lucide-react";
+import { usePopIn } from "@/hooks/usePopIn";
+import balloonsBg from "@/assets/balloons-bg.jpg";
 
 const pillars = [
   { icon: Flame, title: "Avivamento", text: "Buscamos a presença de Deus de forma autêntica, sem fórmula pronta." },
@@ -8,7 +10,15 @@ const pillars = [
 
 export const About = () => (
   <section id="sobre" className="relative py-24 md:py-32 overflow-hidden">
-    <div className="container grid lg:grid-cols-2 gap-16 items-center">
+    {/* Balloons background — subtle */}
+    <img
+      src={balloonsBg}
+      alt=""
+      aria-hidden="true"
+      className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none"
+    />
+    <div className="absolute inset-0 bg-gradient-to-b from-background via-background/85 to-background pointer-events-none" />
+    <div className="container relative grid lg:grid-cols-2 gap-16 items-center">
       <div>
         <div className="mono text-xs text-primary tracking-[0.4em] mb-4">/ 01 — SOBRE</div>
         <h2 className="font-display text-5xl md:text-7xl leading-[0.9] mb-6">
@@ -26,17 +36,25 @@ export const About = () => (
 
       <div className="grid gap-4">
         {pillars.map((p, i) => (
-          <div
-            key={p.title}
-            className="group relative p-6 md:p-8 border-2 border-border bg-card hover:border-primary transition-all hover:-translate-y-1 hover:shadow-flame"
-          >
-            <div className="absolute top-4 right-6 mono text-xs text-muted-foreground">0{i + 1}</div>
-            <p.icon className="h-10 w-10 text-primary mb-4 group-hover:animate-flicker" />
-            <h3 className="font-display text-3xl tracking-wider mb-2">{p.title}</h3>
-            <p className="text-muted-foreground">{p.text}</p>
-          </div>
+          <PillarCard key={p.title} pillar={p} index={i} />
         ))}
       </div>
     </div>
   </section>
 );
+
+const PillarCard = ({ pillar: p, index: i }: { pillar: (typeof pillars)[number]; index: number }) => {
+  const pop = usePopIn<HTMLDivElement>();
+  return (
+    <div
+      ref={pop.ref}
+      style={{ transitionDelay: `${i * 120}ms` }}
+      className={`${pop.className} group relative p-6 md:p-8 border-2 border-border bg-card hover:border-primary transition-all hover:-translate-y-1 hover:shadow-flame`}
+    >
+      <div className="absolute top-4 right-6 mono text-xs text-muted-foreground">0{i + 1}</div>
+      <p.icon className="h-10 w-10 text-primary mb-4 group-hover:animate-flicker" />
+      <h3 className="font-display text-3xl tracking-wider mb-2">{p.title}</h3>
+      <p className="text-muted-foreground">{p.text}</p>
+    </div>
+  );
+};
