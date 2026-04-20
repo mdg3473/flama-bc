@@ -109,6 +109,11 @@
     color: transparent;
   }
 
+  .text-stroke-light {
+    -webkit-text-stroke: 2px hsl(var(--background));
+    color: transparent;
+  }
+
   .grain::before {
     content: '';
     position: absolute;
