@@ -14,9 +14,9 @@ export const Hero = () => {
         className="absolute inset-0 w-full h-full object-cover scale-105"
       />
       {/* Overlays */}
-      <div className="absolute inset-0 bg-background/60" />
-      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
-      <div className="absolute inset-0 bg-gradient-radial opacity-60" />
+      <div className="absolute inset-0 bg-foreground/55" />
+      <div className="absolute inset-0 bg-gradient-to-t from-background via-background/30 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-radial opacity-40" />
       <div className="grain absolute inset-0" />
 
       {/* Caution tape */}
@@ -31,14 +31,14 @@ export const Hero = () => {
         </div>
 
         <h1 className="font-display text-7xl sm:text-8xl md:text-[10rem] lg:text-[14rem] leading-[0.85] tracking-tight">
-          <span className="block text-foreground">ARDE</span>
+          <span className="block text-background drop-shadow-[0_4px_12px_rgba(0,0,0,0.6)]">ARDE</span>
           <span className="block text-flame cursor-pointer">
             <FireText text="FLAMA" />
           </span>
-          <span className="block text-stroke">NA RUA</span>
+          <span className="block text-stroke-light">NA RUA</span>
         </h1>
 
-        <p className="mt-8 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
+        <p className="mt-8 max-w-xl text-base md:text-lg text-background/90 leading-relaxed">
           Somos uma geração que recusa o morno. Encontramos Jesus no asfalto, no barulho,
           na vida real — e levamos esse fogo pra onde a gente vai.
         </p>
@@ -53,7 +53,7 @@ export const Hero = () => {
           </a>
           <a
             href="#sermoes"
-            className="inline-flex items-center gap-3 px-7 py-4 border-2 border-foreground text-foreground font-bold uppercase tracking-widest text-sm hover:bg-foreground hover:text-background transition-colors"
+            className="inline-flex items-center gap-3 px-7 py-4 border-2 border-background text-background font-bold uppercase tracking-widest text-sm hover:bg-background hover:text-foreground transition-colors"
           >
             Ver sermões
           </a>
