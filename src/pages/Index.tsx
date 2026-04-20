@@ -1,3 +1,4 @@
+import { TopBar } from "@/components/flama/TopBar";
 import { Navbar } from "@/components/flama/Navbar";
 import { Hero } from "@/components/flama/Hero";
 import { Marquee } from "@/components/flama/Marquee";
@@ -11,6 +12,7 @@ import { Contact } from "@/components/flama/Contact";
 const Index = () => {
   return (
     <main className="min-h-screen bg-background text-foreground">
+      <TopBar />
       <Navbar />
       <Hero />
       <Marquee />
