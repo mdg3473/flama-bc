@@ -32,11 +32,10 @@ export const Navbar = () => {
           <img
             src={flamaLogo}
             alt="FLAMA logo"
-            width={48}
-            height={48}
-            className="h-11 w-11 object-contain animate-flicker transition-transform group-hover:rotate-6"
+            width={120}
+            height={80}
+            className="h-12 w-auto object-contain animate-flicker transition-transform group-hover:rotate-3"
           />
-          <span className="font-display text-2xl tracking-wider hidden sm:inline">FLAMA</span>
         </a>
 
         <ul className="hidden lg:flex items-center gap-8">
