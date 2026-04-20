@@ -22,19 +22,19 @@ export const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-[88px] md:top-[120px] left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         scrolled ? "bg-background/85 backdrop-blur-md border-b border-border" : "bg-transparent"
       }`}
     >
-      <nav className="container flex items-center justify-between py-4">
-        <span className="font-display text-xl tracking-[0.3em] text-foreground/70">/ MENU</span>
-
-        <ul className="hidden lg:flex items-center gap-8">
+      <nav className="container flex items-center justify-end py-4">
+        <ul className="hidden lg:flex items-center gap-8 mr-6">
           {links.map((l) => (
             <li key={l.href}>
               <a
                 href={l.href}
-                className="text-sm font-semibold uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors"
+                className={`text-sm font-semibold uppercase tracking-widest transition-colors hover:text-primary ${
+                  scrolled ? "text-muted-foreground" : "text-background drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
+                }`}
               >
                 {l.label}
               </a>
@@ -42,16 +42,11 @@ export const Navbar = () => {
           ))}
         </ul>
 
-        <a
-          href="#contato"
-          className="hidden lg:inline-flex items-center px-5 py-2.5 bg-primary text-primary-foreground font-bold uppercase text-sm tracking-wider hover:bg-primary-glow transition-colors shadow-hard hover:translate-x-1 hover:translate-y-1 hover:shadow-none duration-150"
-        >
-          Faça parte
-        </a>
-
         <button
           aria-label="menu"
-          className="lg:hidden text-foreground"
+          className={`lg:hidden transition-colors ${
+            scrolled ? "text-foreground" : "text-background drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
+          }`}
           onClick={() => setOpen(!open)}
         >
           {open ? <X size={28} /> : <Menu size={28} />}
