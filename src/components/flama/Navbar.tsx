@@ -22,7 +22,7 @@ export const Navbar = () => {
 
   return (
     <header
-      className={`fixed top-[56px] md:top-[64px] left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-[88px] md:top-[120px] left-0 right-0 z-50 transition-all duration-300 ${
         scrolled ? "bg-background/85 backdrop-blur-md border-b border-border" : "bg-transparent"
       }`}
     >

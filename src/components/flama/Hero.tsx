@@ -18,10 +18,6 @@ export const Hero = () => {
       <div className="absolute inset-0 bg-gradient-radial opacity-40" />
       <div className="grain absolute inset-0" />
 
-      {/* Caution tape */}
-      <div className="absolute top-24 -left-10 right-0 caution-tape h-6 -rotate-2 opacity-80" />
-      <div className="absolute top-32 -left-10 right-0 h-px bg-primary/40 -rotate-2" />
-
       {/* Content */}
       <div className="container relative z-10 pb-20 md:pb-32">
         <p className="max-w-xl text-base md:text-lg text-background/90 leading-relaxed">
@@ -45,9 +41,6 @@ export const Hero = () => {
           </a>
         </div>
       </div>
-
-      {/* Bottom marquee */}
-      <div className="absolute bottom-0 left-0 right-0 caution-tape h-5 z-20" />
     </section>
   );
 };
