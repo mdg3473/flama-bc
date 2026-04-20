@@ -5,15 +5,15 @@ import flamaLogo from "@/assets/flama-logo.png";
  * Stays out of the way of the rest of the layout.
  */
 export const TopBar = () => (
-  <div className="fixed top-0 left-0 right-0 z-[60] bg-background/90 backdrop-blur-md border-b border-border">
-    <div className="container flex items-center justify-center py-2">
+  <div className="fixed top-0 left-0 right-0 z-[60] bg-background border-b border-border">
+    <div className="container flex items-center justify-center py-3 md:py-4">
       <a href="#top" aria-label="FLAMA — início">
         <img
           src={flamaLogo}
           alt="FLAMA"
-          width={160}
-          height={80}
-          className="h-10 md:h-12 w-auto object-contain animate-flicker"
+          width={280}
+          height={160}
+          className="h-20 md:h-28 w-auto object-contain animate-flicker"
         />
       </a>
     </div>
