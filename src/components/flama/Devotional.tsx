@@ -1,4 +1,5 @@
 import { BookOpen, Calendar } from "lucide-react";
+import { usePopIn } from "@/hooks/usePopIn";
 
 export const Devotional = () => {
   const today = new Date().toLocaleDateString("pt-BR", {
@@ -6,6 +7,7 @@ export const Devotional = () => {
     day: "numeric",
     month: "long",
   });
+  const pop = usePopIn<HTMLDivElement>();
 
   return (
     <section id="devocional" className="relative py-24 md:py-32 overflow-hidden">
@@ -22,7 +24,7 @@ export const Devotional = () => {
           </div>
 
           {/* Card */}
-          <div className="lg:col-span-10 relative">
+          <div ref={pop.ref} className={`${pop.className} lg:col-span-10 relative`}>
             <div className="absolute -top-3 -left-3 right-3 bottom-3 border-2 border-primary -z-0" />
             <div className="relative bg-card border-2 border-border p-8 md:p-14">
               <div className="flex items-center gap-2 mono text-xs text-muted-foreground mb-8 uppercase tracking-widest">
