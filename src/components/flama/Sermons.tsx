@@ -5,7 +5,7 @@ import { Play, Clock } from "lucide-react";
 import { usePopIn } from "@/hooks/usePopIn";
 
 const sermons = [
-  { img: s1, title: "Não tenha medo do fogo", speaker: "Pr. Lucas Mendes", duration: "42 min", tag: "Avivamento" },
+  { img: s1, title: "Não tenha medo do fogo", speaker: "Léo Crocoli", duration: "42 min", tag: "Avivamento" },
   { img: s2, title: "A geração do deserto", speaker: "Pra. Ana Beatriz", duration: "38 min", tag: "Identidade" },
   { img: s3, title: "Quando Deus silencia", speaker: "Pr. Caio Ribeiro", duration: "51 min", tag: "Fé" },
 ];
