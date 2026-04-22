@@ -11,7 +11,7 @@ const products = [
 ];
 
 export const Shop = () => (
-  <section id="loja" className="relative py-24 md:py-32 overflow-hidden">
+  <section id="loja" className="relative py-24 md:py-32 overflow-hidden bg-background/80 backdrop-blur-sm">
     <div className="container">
       <div className="flex flex-wrap items-end justify-between gap-6 mb-14">
         <div className="text-left">

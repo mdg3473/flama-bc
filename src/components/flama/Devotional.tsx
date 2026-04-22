@@ -10,7 +10,7 @@ export const Devotional = () => {
   const pop = usePopIn<HTMLDivElement>();
 
   return (
-    <section id="devocional" className="relative py-24 md:py-32 overflow-hidden">
+    <section id="devocional" className="relative py-24 md:py-32 overflow-hidden bg-background/80 backdrop-blur-sm">
       <div className="absolute inset-0 bg-gradient-radial opacity-40" />
       <div className="container relative">
         <div className="grid lg:grid-cols-12 gap-10 items-stretch">
