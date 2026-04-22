@@ -28,7 +28,7 @@ const ContactCard = ({
 };
 
 export const Contact = () => (
-  <section id="contato" className="relative py-24 md:py-32 bg-gradient-to-b from-background to-card overflow-hidden">
+  <section id="contato" className="relative py-24 md:py-32 bg-background/85 backdrop-blur-sm overflow-hidden">
     <div className="absolute inset-0 bg-gradient-radial opacity-50" />
     <div className="container relative">
       <div className="text-left mb-16">

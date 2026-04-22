@@ -11,7 +11,7 @@ const sermons = [
 ];
 
 export const Sermons = () => (
-  <section id="sermoes" className="relative py-24 md:py-32 bg-card/40 border-y border-border">
+  <section id="sermoes" className="relative py-24 md:py-32 bg-background/80 backdrop-blur-sm border-y border-border">
     <div className="container">
       <div className="flex flex-wrap items-end justify-between gap-6 mb-14">
         <div className="text-left">
