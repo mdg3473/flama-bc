@@ -3,7 +3,7 @@ import flamaLogo from "@/assets/flama-logo.png";
 
 export const Hero = () => {
   return (
-    <section id="top" className="relative min-h-screen w-full overflow-hidden">
+    <section id="top" className="relative h-[85vh] w-full overflow-hidden">
       {/* Background image */}
       <img
         src={heroImg}

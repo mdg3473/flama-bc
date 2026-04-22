@@ -1,6 +1,5 @@
 import { Flame, Users, Heart } from "lucide-react";
 import { usePopIn } from "@/hooks/usePopIn";
-import balloonsBg from "@/assets/balloons-bg.jpg";
 
 const pillars = [
   { icon: Flame, title: "Avivamento", text: "Buscamos a presença de Deus de forma autêntica, sem fórmula pronta." },
@@ -9,19 +8,10 @@ const pillars = [
 ];
 
 export const About = () => (
-  <section id="sobre" className="relative py-24 md:py-32 overflow-hidden">
-    {/* Balloons background — subtle */}
-    <img
-      src={balloonsBg}
-      alt=""
-      aria-hidden="true"
-      className="absolute inset-0 w-full h-full object-cover opacity-15 pointer-events-none"
-    />
-    <div className="absolute inset-0 bg-gradient-to-b from-background via-background/85 to-background pointer-events-none" />
+  <section id="sobre" className="relative py-24 md:py-32 overflow-hidden bg-background/80 backdrop-blur-sm">
     <div className="container relative grid lg:grid-cols-2 gap-16 items-center">
       <div>
-        <div className="mono text-xs text-primary tracking-[0.4em] mb-4">/ 01 — SOBRE</div>
-        <h2 className="font-display text-5xl md:text-7xl leading-[0.9] mb-6">
+        <h2 className="font-display text-5xl md:text-7xl leading-[0.9] mb-6 text-left">
           QUEM NÓS <span className="text-flame">SOMOS</span>
         </h2>
         <p className="text-muted-foreground text-lg leading-relaxed mb-6">

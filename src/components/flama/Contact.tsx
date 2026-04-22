@@ -28,17 +28,16 @@ const ContactCard = ({
 };
 
 export const Contact = () => (
-  <section id="contato" className="relative py-24 md:py-32 bg-gradient-to-b from-background to-card overflow-hidden">
+  <section id="contato" className="relative py-24 md:py-32 bg-background/85 backdrop-blur-sm overflow-hidden">
     <div className="absolute inset-0 bg-gradient-radial opacity-50" />
     <div className="container relative">
-      <div className="text-center mb-16">
-        <div className="mono text-xs text-primary tracking-[0.4em] mb-4">/ 07 — VEM COM A GENTE</div>
+      <div className="text-left mb-16">
         <h2 className="font-display text-6xl md:text-9xl leading-[0.85]">
           A CHAMA <br />
           <span className="text-flame">PRECISA DE</span> <br />
           <span className="glitch">VOCÊ.</span>
         </h2>
-        <p className="text-muted-foreground mt-8 max-w-xl mx-auto text-lg">
+        <p className="text-muted-foreground mt-8 max-w-xl text-lg">
           Toda quarta às 19h30 e domingo às 18h. Traz um amigo. Vem como você é.
         </p>
       </div>
