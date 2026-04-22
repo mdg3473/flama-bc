@@ -32,7 +32,7 @@ export const Contact = () => (
     <div className="absolute inset-0 bg-gradient-radial opacity-50" />
     <div className="container relative">
       <div className="text-center mb-16">
-        <div className="mono text-xs text-primary tracking-[0.4em] mb-4">/ 06 — VEM COM A GENTE</div>
+        <div className="mono text-xs text-primary tracking-[0.4em] mb-4">/ 07 — VEM COM A GENTE</div>
         <h2 className="font-display text-6xl md:text-9xl leading-[0.85]">
           A CHAMA <br />
           <span className="text-flame">PRECISA DE</span> <br />

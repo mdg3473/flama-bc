@@ -7,6 +7,7 @@ const links = [
   { href: "#devocional", label: "Devocional" },
   { href: "#galeria", label: "Galeria" },
   { href: "#loja", label: "Loja" },
+  { href: "#community", label: "Community" },
   { href: "#contato", label: "Contato" },
 ];
 
