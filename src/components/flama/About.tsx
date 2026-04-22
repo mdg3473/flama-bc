@@ -22,7 +22,7 @@ export const About = () => (
       <div>
         <div className="mono text-xs text-primary tracking-[0.4em] mb-4">/ 01 — SOBRE</div>
         <h2 className="font-display text-5xl md:text-7xl leading-[0.9] mb-6">
-          UM MINISTÉRIO <span className="text-flame">PRA QUEM</span> NÃO SE CONFORMA.
+          QUEM NÓS <span className="text-flame">SOMOS</span>
         </h2>
         <p className="text-muted-foreground text-lg leading-relaxed mb-6">
           A FLAMA nasceu do desejo de uma juventude que cansou de viver pela metade. A gente acredita
