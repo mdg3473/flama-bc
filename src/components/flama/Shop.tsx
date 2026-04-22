@@ -14,8 +14,7 @@ export const Shop = () => (
   <section id="loja" className="relative py-24 md:py-32 overflow-hidden">
     <div className="container">
       <div className="flex flex-wrap items-end justify-between gap-6 mb-14">
-        <div>
-          <div className="mono text-xs text-primary tracking-[0.4em] mb-4">/ 05 — LOJA</div>
+        <div className="text-left">
           <h2 className="font-display text-5xl md:text-7xl leading-[0.9]">
             VESTE <span className="text-flame">A CHAMA</span>
           </h2>

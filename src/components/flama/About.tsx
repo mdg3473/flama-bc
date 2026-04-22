@@ -20,8 +20,7 @@ export const About = () => (
     <div className="absolute inset-0 bg-gradient-to-b from-background via-background/85 to-background pointer-events-none" />
     <div className="container relative grid lg:grid-cols-2 gap-16 items-center">
       <div>
-        <div className="mono text-xs text-primary tracking-[0.4em] mb-4">/ 01 — SOBRE</div>
-        <h2 className="font-display text-5xl md:text-7xl leading-[0.9] mb-6">
+        <h2 className="font-display text-5xl md:text-7xl leading-[0.9] mb-6 text-left">
           QUEM NÓS <span className="text-flame">SOMOS</span>
         </h2>
         <p className="text-muted-foreground text-lg leading-relaxed mb-6">

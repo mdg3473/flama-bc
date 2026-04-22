@@ -15,8 +15,7 @@ export const Devotional = () => {
       <div className="container relative">
         <div className="grid lg:grid-cols-12 gap-10 items-stretch">
           {/* Left vertical label */}
-          <div className="lg:col-span-2 flex lg:flex-col items-center justify-between gap-4">
-            <div className="mono text-xs text-primary tracking-[0.4em]">/ 03</div>
+          <div className="lg:col-span-2 flex lg:flex-col items-start justify-start gap-4">
             <div className="hidden lg:block writing-vertical font-display text-6xl tracking-widest text-muted-foreground/40" style={{ writingMode: 'vertical-rl' }}>
               DEVOCIONAL
             </div>

@@ -6,8 +6,7 @@ export const Gallery = () => {
   return (
     <section id="galeria" className="relative py-24 md:py-32 bg-card/40 border-y border-border">
       <div className="container">
-        <div className="mb-14">
-          <div className="mono text-xs text-primary tracking-[0.4em] mb-4">/ 04 — GALERIA</div>
+        <div className="mb-14 text-left">
           <h2 className="font-display text-5xl md:text-7xl leading-[0.9] text-foreground">
             MOMENTS
           </h2>
