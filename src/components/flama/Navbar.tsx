@@ -28,24 +28,9 @@ export const Navbar = () => {
       }`}
     >
       <nav className="container flex items-center justify-end py-4">
-        <ul className="hidden lg:flex items-center gap-8 mr-6">
-          {links.map((l) => (
-            <li key={l.href}>
-              <a
-                href={l.href}
-                className={`text-sm font-semibold uppercase tracking-widest transition-colors hover:text-primary ${
-                  scrolled ? "text-muted-foreground" : "text-background drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
-                }`}
-              >
-                {l.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-
         <button
           aria-label="menu"
-          className={`lg:hidden transition-colors ${
+          className={`transition-colors ${
             scrolled ? "text-foreground" : "text-background drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
           }`}
           onClick={() => setOpen(!open)}
@@ -55,7 +40,7 @@ export const Navbar = () => {
       </nav>
 
       {open && (
-        <div className="lg:hidden bg-background/95 backdrop-blur-lg border-t border-border">
+        <div className="bg-background/95 backdrop-blur-lg border-t border-border">
           <ul className="container py-6 flex flex-col gap-4">
             {links.map((l) => (
               <li key={l.href}>
