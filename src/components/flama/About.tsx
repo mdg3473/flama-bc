@@ -30,6 +30,7 @@ export const About = () => (
           <PillarCard key={p.title} pillar={p} index={i} />
         ))}
       </div>
+      </div>
     </div>
   </section>
 );
