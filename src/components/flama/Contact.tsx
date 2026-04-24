@@ -32,12 +32,12 @@ export const Contact = () => (
     <div className="absolute inset-0 bg-gradient-radial opacity-50" />
     <div className="container relative">
       <div className="text-center mb-16">
-        <h2 className="font-display text-6xl md:text-9xl leading-[0.85]">
+        <h2 className="font-display text-6xl md:text-9xl leading-[0.85] text-white">
           A CHAMA <br />
           <span className="text-flame">PRECISA DE</span> <br />
           <span className="glitch">VOCÊ.</span>
         </h2>
-        <p className="text-muted-foreground mt-8 max-w-xl mx-auto text-lg">
+        <p className="text-white/80 mt-8 max-w-xl mx-auto text-lg">
           Toda quarta às 19h30 e domingo às 18h. Traz um amigo. Vem como você é.
         </p>
       </div>
