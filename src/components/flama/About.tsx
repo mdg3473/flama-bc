@@ -10,7 +10,7 @@ const pillars = [
 export const About = () => (
   <section id="sobre" className="relative py-24 md:py-32 overflow-hidden">
     <div className="container relative">
-      <h2 className="font-display text-5xl md:text-7xl leading-[0.9] mb-12 text-center">
+      <h2 className="font-display text-5xl md:text-7xl leading-[0.9] mb-12 text-center text-white">
         QUEM NÓS <span className="text-flame">SOMOS</span>
       </h2>
       <div className="grid lg:grid-cols-2 gap-16 items-center">

@@ -14,7 +14,7 @@ export const Sermons = () => (
   <section id="sermoes" className="relative py-24 md:py-32 border-y border-border">
     <div className="container">
       <div className="mb-14 text-center">
-        <h2 className="font-display text-5xl md:text-7xl leading-[0.9]">
+        <h2 className="font-display text-5xl md:text-7xl leading-[0.9] text-white">
           PALAVRA <span className="text-flame">QUE QUEIMA</span>
         </h2>
         <a href="#" className="inline-block mt-4 mono text-sm tracking-widest text-primary hover:underline underline-offset-4">

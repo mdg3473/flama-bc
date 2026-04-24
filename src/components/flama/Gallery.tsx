@@ -7,7 +7,7 @@ export const Gallery = () => {
     <section id="galeria" className="relative py-24 md:py-32 border-y border-border">
       <div className="container">
         <div className="mb-14 text-center">
-          <h2 className="font-display text-5xl md:text-7xl leading-[0.9] text-foreground">
+          <h2 className="font-display text-5xl md:text-7xl leading-[0.9] text-white">
             MOMENTS
           </h2>
         </div>

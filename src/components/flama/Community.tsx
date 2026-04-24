@@ -8,7 +8,7 @@ export const Community = () => {
       <div className="absolute inset-0 bg-gradient-radial opacity-40 pointer-events-none" />
       <div className="container relative">
         <div className="mb-14 text-center">
-          <h2 className="font-display text-5xl md:text-7xl leading-[0.9]">
+          <h2 className="font-display text-5xl md:text-7xl leading-[0.9] text-white">
             UM ESPAÇO <span className="text-flame">PRA CHAMAR</span> DE NOSSO
           </h2>
         </div>
