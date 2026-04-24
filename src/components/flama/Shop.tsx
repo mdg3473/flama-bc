@@ -14,10 +14,10 @@ export const Shop = () => (
   <section id="loja" className="relative py-24 md:py-32 overflow-hidden">
     <div className="container">
       <div className="mb-14 text-center">
-        <h2 className="font-display text-5xl md:text-7xl leading-[0.9]">
+        <h2 className="font-display text-5xl md:text-7xl leading-[0.9] text-white">
           VESTE <span className="text-flame">A CHAMA</span>
         </h2>
-        <p className="text-muted-foreground mt-4 max-w-md mx-auto">
+        <p className="text-white/80 mt-4 max-w-md mx-auto">
           Mercadoria oficial da FLAMA. Cada peça apoia diretamente os projetos sociais do ministério.
         </p>
       </div>
