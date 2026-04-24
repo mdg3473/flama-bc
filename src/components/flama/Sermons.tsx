@@ -11,7 +11,7 @@ const sermons = [
 ];
 
 export const Sermons = () => (
-  <section id="sermoes" className="relative py-24 md:py-32 bg-background/80 backdrop-blur-sm border-y border-border">
+  <section id="sermoes" className="relative py-24 md:py-32 border-y border-border">
     <div className="container">
       <div className="mb-14 text-center">
         <h2 className="font-display text-5xl md:text-7xl leading-[0.9]">
