@@ -7,7 +7,7 @@ export const Community = () => {
     <section id="community" className="relative py-24 md:py-32 overflow-hidden bg-background/80 backdrop-blur-sm">
       <div className="absolute inset-0 bg-gradient-radial opacity-40 pointer-events-none" />
       <div className="container relative">
-        <div className="mb-14 text-left">
+        <div className="mb-14 text-center">
           <h2 className="font-display text-5xl md:text-7xl leading-[0.9]">
             UM ESPAÇO <span className="text-flame">PRA CHAMAR</span> DE NOSSO
           </h2>

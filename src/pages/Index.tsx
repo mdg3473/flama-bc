@@ -19,7 +19,7 @@ const Index = () => {
         className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url(${balloonsBg})` }}
       />
-      <div aria-hidden="true" className="fixed inset-0 -z-10 bg-background/70" />
+      {/* No overlay — keep balloons image fully visible */}
 
       <Navbar />
       <Hero />
