@@ -4,7 +4,7 @@ import { usePopIn } from "@/hooks/usePopIn";
 export const Community = () => {
   const pop = usePopIn<HTMLDivElement>();
   return (
-    <section id="community" className="relative py-24 md:py-32 overflow-hidden bg-background/80 backdrop-blur-sm">
+    <section id="community" className="relative py-24 md:py-32 overflow-hidden">
       <div className="absolute inset-0 bg-gradient-radial opacity-40 pointer-events-none" />
       <div className="container relative">
         <div className="mb-14 text-center">

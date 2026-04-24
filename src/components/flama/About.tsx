@@ -8,7 +8,7 @@ const pillars = [
 ];
 
 export const About = () => (
-  <section id="sobre" className="relative py-24 md:py-32 overflow-hidden bg-background/80 backdrop-blur-sm">
+  <section id="sobre" className="relative py-24 md:py-32 overflow-hidden">
     <div className="container relative">
       <h2 className="font-display text-5xl md:text-7xl leading-[0.9] mb-12 text-center">
         QUEM NÓS <span className="text-flame">SOMOS</span>
