@@ -1,21 +1,9 @@
-import heroImg from "@/assets/balloons-bg.jpg";
 import flamaLogo from "@/assets/flama-logo.png";
 
 export const Hero = () => {
   return (
     <section id="top" className="relative h-[85vh] w-full overflow-hidden">
-      {/* Background image */}
-      <img
-        src={heroImg}
-        alt="Jovens da FLAMA com balões coloridos numa noite de adoração"
-        width={1920}
-        height={1280}
-        className="absolute inset-0 w-full h-full object-cover scale-105"
-      />
-      {/* Overlays */}
-      <div className="absolute inset-0 bg-foreground/35" />
-      <div className="absolute inset-0 bg-gradient-to-b from-background/20 via-transparent to-background/40" />
-      <div className="grain absolute inset-0" />
+      {/* Transparent — shows the fixed page background (balloons) */}
 
       {/* Logo on top of the image */}
       <div className="absolute top-0 left-0 right-0 z-10 pt-6 md:pt-10 flex justify-center pointer-events-none">
