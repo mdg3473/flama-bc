@@ -13,13 +13,11 @@ const sermons = [
 export const Sermons = () => (
   <section id="sermoes" className="relative py-24 md:py-32 bg-background/80 backdrop-blur-sm border-y border-border">
     <div className="container">
-      <div className="flex flex-wrap items-end justify-between gap-6 mb-14">
-        <div className="text-left">
-          <h2 className="font-display text-5xl md:text-7xl leading-[0.9]">
-            PALAVRA <span className="text-flame">QUE QUEIMA</span>
-          </h2>
-        </div>
-        <a href="#" className="mono text-sm tracking-widest text-primary hover:underline underline-offset-4">
+      <div className="mb-14 text-center">
+        <h2 className="font-display text-5xl md:text-7xl leading-[0.9]">
+          PALAVRA <span className="text-flame">QUE QUEIMA</span>
+        </h2>
+        <a href="#" className="inline-block mt-4 mono text-sm tracking-widest text-primary hover:underline underline-offset-4">
           VER TODOS →
         </a>
       </div>

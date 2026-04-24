@@ -9,11 +9,12 @@ const pillars = [
 
 export const About = () => (
   <section id="sobre" className="relative py-24 md:py-32 overflow-hidden bg-background/80 backdrop-blur-sm">
-    <div className="container relative grid lg:grid-cols-2 gap-16 items-center">
+    <div className="container relative">
+      <h2 className="font-display text-5xl md:text-7xl leading-[0.9] mb-12 text-center">
+        QUEM NÓS <span className="text-flame">SOMOS</span>
+      </h2>
+      <div className="grid lg:grid-cols-2 gap-16 items-center">
       <div>
-        <h2 className="font-display text-5xl md:text-7xl leading-[0.9] mb-6 text-left">
-          QUEM NÓS <span className="text-flame">SOMOS</span>
-        </h2>
         <p className="text-muted-foreground text-lg leading-relaxed mb-6">
           A FLAMA nasceu do desejo de uma juventude que cansou de viver pela metade. A gente acredita
           que o evangelho é radical, vivo, e cabe em qualquer estilo, em qualquer beco.
@@ -28,6 +29,7 @@ export const About = () => (
         {pillars.map((p, i) => (
           <PillarCard key={p.title} pillar={p} index={i} />
         ))}
+      </div>
       </div>
     </div>
   </section>

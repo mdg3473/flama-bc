@@ -13,15 +13,13 @@ const products = [
 export const Shop = () => (
   <section id="loja" className="relative py-24 md:py-32 overflow-hidden bg-background/80 backdrop-blur-sm">
     <div className="container">
-      <div className="flex flex-wrap items-end justify-between gap-6 mb-14">
-        <div className="text-left">
-          <h2 className="font-display text-5xl md:text-7xl leading-[0.9]">
-            VESTE <span className="text-flame">A CHAMA</span>
-          </h2>
-          <p className="text-muted-foreground mt-4 max-w-md">
-            Mercadoria oficial da FLAMA. Cada peça apoia diretamente os projetos sociais do ministério.
-          </p>
-        </div>
+      <div className="mb-14 text-center">
+        <h2 className="font-display text-5xl md:text-7xl leading-[0.9]">
+          VESTE <span className="text-flame">A CHAMA</span>
+        </h2>
+        <p className="text-muted-foreground mt-4 max-w-md mx-auto">
+          Mercadoria oficial da FLAMA. Cada peça apoia diretamente os projetos sociais do ministério.
+        </p>
       </div>
 
       <div className="grid md:grid-cols-3 gap-6">
