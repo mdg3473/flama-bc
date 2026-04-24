@@ -74,11 +74,9 @@
     scroll-behavior: smooth;
   }
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply text-foreground antialiased;
+    background-color: transparent;
     font-family: 'Inter', system-ui, sans-serif;
-    background-image:
-      radial-gradient(ellipse 80% 50% at 50% -10%, hsl(var(--primary) / 0.10), transparent),
-      radial-gradient(ellipse 60% 40% at 100% 100%, hsl(var(--ember) / 0.06), transparent);
   }
   h1, h2, h3, .display {
     font-family: 'Bebas Neue', 'Archivo Black', sans-serif;
