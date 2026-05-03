@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
+import { usePresence } from "@/hooks/usePresence";
 import { CHANNELS, type ChannelId } from "@/lib/channels";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
@@ -21,6 +22,7 @@ type Profile = { id: string; full_name: string; avatar_url: string | null; grade
 const Comunidade = () => {
   const nav = useNavigate();
   const { user, loading } = useAuth();
+  usePresence(user?.id);
   const [channel, setChannel] = useState<ChannelId>("6ano");
   const [messages, setMessages] = useState<Message[]>([]);
   const [profiles, setProfiles] = useState<Record<string, Profile>>({});
