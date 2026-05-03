@@ -1,4 +1,5 @@
-import { MessageSquare, Users, Sparkles } from "lucide-react";
+import { MessageSquare, Users, Sparkles, ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { usePopIn } from "@/hooks/usePopIn";
 
 export const Community = () => {
@@ -70,18 +71,18 @@ export const Community = () => {
             </div>
 
             <div className="mt-10 flex flex-wrap gap-3">
-              <button
-                disabled
-                className="mono text-xs px-5 py-3 bg-foreground text-background font-bold tracking-widest opacity-60 cursor-not-allowed"
+              <Link
+                to="/comunidade"
+                className="mono text-xs px-5 py-3 bg-primary text-primary-foreground font-bold tracking-widest hover:bg-primary-glow transition-colors inline-flex items-center gap-2"
               >
-                EM CONSTRUÇÃO
-              </button>
-              <a
-                href="#contato"
-                className="mono text-xs px-5 py-3 bg-primary text-primary-foreground font-bold tracking-widest hover:bg-primary-glow transition-colors"
+                ENTRAR NO CHAT <ArrowRight size={14} />
+              </Link>
+              <Link
+                to="/auth"
+                className="mono text-xs px-5 py-3 bg-foreground text-background font-bold tracking-widest hover:opacity-90 transition-opacity"
               >
-                QUERO SER AVISADO →
-              </a>
+                CRIAR CONTA
+              </Link>
             </div>
           </div>
         </div>
