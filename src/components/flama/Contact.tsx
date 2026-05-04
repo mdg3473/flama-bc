@@ -33,19 +33,17 @@ export const Contact = () => (
     <div className="container relative">
       <div className="text-center mb-16">
         <h2 className="font-display text-6xl md:text-9xl leading-[0.85] text-white">
-          A CHAMA <br />
-          <span className="text-flame">PRECISA DE</span> <br />
-          <span className="glitch">VOCÊ.</span>
+          É US GURI DO FLAMA
         </h2>
-        <p className="text-white/80 mt-8 max-w-xl mx-auto text-lg">
-          Toda quarta às 19h30 e domingo às 18h. Traz um amigo. Vem como você é.
+        <p className="text-white mt-8 max-w-xl mx-auto text-lg">
+          Toda sexta-feira à partir das 19:30
         </p>
       </div>
 
       <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
         <ContactCard index={0} icon={MapPin} title="Onde nos encontrar">
-          Igreja Sede — Rua das Acácias, 123<br />
-          Vila Esperança · Sua Cidade
+          Rua 18 de novembro, 135<br />
+          Porto Alegre, Rio Grande do Sul 90240-040
         </ContactCard>
         <ContactCard index={1} icon={MessageCircle} title="Fala com a gente">
           WhatsApp: (11) 99999-9999<br />
@@ -59,7 +57,7 @@ export const Contact = () => (
             key={i}
             href="#"
             aria-label="rede social"
-            className="h-14 w-14 flex items-center justify-center border-2 border-border hover:border-primary hover:bg-primary hover:text-primary-foreground transition-all"
+            className="h-14 w-14 flex items-center justify-center border-2 border-white text-white hover:border-primary hover:bg-primary hover:text-primary-foreground transition-all"
           >
             <Icon size={20} />
           </a>
