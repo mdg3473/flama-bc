@@ -19,12 +19,12 @@
     --popover-foreground: 20 14% 8%;
 
     /* FLAMA brand */
-    --primary: 16 100% 55%;        /* fiery orange */
+    --primary: 0 85% 50%;          /* red */
     --primary-foreground: 0 0% 100%;
-    --primary-glow: 30 100% 60%;
+    --primary-glow: 0 90% 60%;
 
-    --ember: 8 90% 50%;            /* deep red ember */
-    --spark: 45 100% 60%;          /* yellow spark */
+    --ember: 0 90% 40%;            /* deep red */
+    --spark: 0 95% 65%;            /* bright red */
 
     --secondary: 36 20% 94%;
     --secondary-foreground: 20 14% 8%;
@@ -32,7 +32,7 @@
     --muted: 36 16% 92%;
     --muted-foreground: 20 8% 38%;
 
-    --accent: 16 100% 55%;
+    --accent: 0 85% 50%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -40,7 +40,7 @@
 
     --border: 20 10% 88%;
     --input: 20 10% 88%;
-    --ring: 16 100% 55%;
+    --ring: 0 85% 50%;
 
     --radius: 0.25rem;
 
@@ -57,12 +57,12 @@
     /* Sidebar (unused but kept consistent) */
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 20 14% 8%;
-    --sidebar-primary: 16 100% 55%;
+    --sidebar-primary: 0 85% 50%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 36 20% 94%;
     --sidebar-accent-foreground: 20 14% 8%;
     --sidebar-border: 20 10% 88%;
-    --sidebar-ring: 16 100% 55%;
+    --sidebar-ring: 0 85% 50%;
   }
 }
 
