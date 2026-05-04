@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
+import flamaLogo from "@/assets/flama-logo.png";
 
 const links = [
   { href: "#sobre", label: "Sobre" },
@@ -24,14 +25,17 @@ export const Navbar = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-background/85 backdrop-blur-md border-b border-border" : "bg-transparent"
+        scrolled ? "bg-primary border-b border-primary" : "bg-transparent"
       }`}
     >
-      <nav className="container flex items-center justify-end py-4">
+      <nav className="container flex items-center justify-between py-4">
+        <a href="#top" className={`flex items-center transition-opacity ${scrolled ? "opacity-100" : "opacity-0 pointer-events-none"}`} aria-label="FLAMA">
+          <img src={flamaLogo} alt="FLAMA" className="h-10 w-auto object-contain [filter:brightness(0)_invert(1)]" />
+        </a>
         <button
           aria-label="menu"
           className={`transition-colors ${
-            scrolled ? "text-foreground" : "text-background drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
+            scrolled ? "text-white" : "text-background drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
           }`}
           onClick={() => setOpen(!open)}
         >

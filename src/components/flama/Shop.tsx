@@ -15,7 +15,7 @@ export const Shop = () => (
     <div className="container">
       <div className="mb-14 text-center">
         <h2 className="font-display text-5xl md:text-7xl leading-[0.9] text-white">
-          VESTE <span className="text-flame">A CHAMA</span>
+          FLAMA STORE
         </h2>
         <p className="text-white/80 mt-4 max-w-md mx-auto">
           Mercadoria oficial da FLAMA. Cada peça apoia diretamente os projetos sociais do ministério.

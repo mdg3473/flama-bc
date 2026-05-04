@@ -2,9 +2,9 @@ import { Flame, Users, Heart } from "lucide-react";
 import { usePopIn } from "@/hooks/usePopIn";
 
 const pillars = [
-  { icon: Flame, title: "Avivamento", text: "Buscamos a presença de Deus de forma autêntica, sem fórmula pronta." },
-  { icon: Users, title: "Comunidade", text: "Família que se escuta, ora junto e caminha na mesma direção." },
-  { icon: Heart, title: "Missão", text: "Levar Jesus pra escola, pro trampo, pra rua — com verdade e amor." },
+  { icon: Flame, title: "", text: "" },
+  { icon: Users, title: "", text: "" },
+  { icon: Heart, title: "", text: "" },
 ];
 
 export const About = () => (
@@ -15,13 +15,8 @@ export const About = () => (
       </h2>
       <div className="grid lg:grid-cols-2 gap-16 items-center">
       <div>
-        <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-          A FLAMA nasceu do desejo de uma juventude que cansou de viver pela metade. A gente acredita
-          que o evangelho é radical, vivo, e cabe em qualquer estilo, em qualquer beco.
-        </p>
-        <p className="text-muted-foreground text-lg leading-relaxed">
-          Aqui você é chamado pelo nome, é desafiado, é amado de verdade. Sem máscara, sem palco —
-          só Cristo no centro de tudo.
+        <p className="text-white text-lg leading-relaxed mb-6">
+          O FLAMA ............
         </p>
       </div>
 

@@ -1,13 +1,13 @@
-import s1 from "@/assets/sermon-1.jpg";
-import s2 from "@/assets/sermon-2.jpg";
-import s3 from "@/assets/sermon-3.jpg";
+import s1 from "@/assets/bible-1.jpg";
+import s2 from "@/assets/bible-2.jpg";
+import s3 from "@/assets/bible-3.jpg";
 import { Play, Clock } from "lucide-react";
 import { usePopIn } from "@/hooks/usePopIn";
 
 const sermons = [
-  { img: s1, title: "Não tenha medo do fogo", speaker: "Léo Crocoli", duration: "42 min", tag: "Avivamento" },
-  { img: s2, title: "A geração do deserto", speaker: "Pra. Ana Beatriz", duration: "38 min", tag: "Identidade" },
-  { img: s3, title: "Quando Deus silencia", speaker: "Pr. Caio Ribeiro", duration: "51 min", tag: "Fé" },
+  { img: s1, title: "Não tenha medo do fogo", speaker: "Léo Crocoli", duration: "1 min", tag: "" },
+  { img: s2, title: "A geração do deserto", speaker: "Léo Crocoli", duration: "1 min", tag: "" },
+  { img: s3, title: "Quando Deus silencia", speaker: "Léo Crocoli", duration: "1 min", tag: "" },
 ];
 
 export const Sermons = () => (
@@ -15,7 +15,7 @@ export const Sermons = () => (
     <div className="container">
       <div className="mb-14 text-center">
         <h2 className="font-display text-5xl md:text-7xl leading-[0.9] text-white">
-          PALAVRA <span className="text-flame">QUE QUEIMA</span>
+          MENSAGENS
         </h2>
         <a href="#" className="inline-block mt-4 mono text-sm tracking-widest text-primary hover:underline underline-offset-4">
           VER TODOS →
@@ -54,9 +54,11 @@ const SermonCard = ({ sermon: s, index }: { sermon: typeof sermons[number]; inde
                   <Play className="h-8 w-8 text-primary-foreground fill-current ml-1" />
                 </div>
               </div>
-              <span className="absolute top-4 left-4 mono text-xs px-3 py-1 bg-primary text-primary-foreground font-bold tracking-wider">
-                {s.tag}
-              </span>
+              {s.tag && (
+                <span className="absolute top-4 left-4 mono text-xs px-3 py-1 bg-primary text-primary-foreground font-bold tracking-wider">
+                  {s.tag}
+                </span>
+              )}
             </div>
             <div className="p-6">
               <h3 className="font-display text-2xl tracking-wide mb-2 group-hover:text-primary transition-colors">
