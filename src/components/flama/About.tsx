@@ -1,5 +1,6 @@
 import { Flame, Users, Heart } from "lucide-react";
 import { usePopIn } from "@/hooks/usePopIn";
+import flamaGroup from "@/assets/flama-group.png";
 
 const pillars = [
   { icon: Flame, title: "", text: "" },
@@ -14,17 +15,24 @@ export const About = () => (
         QUEM NÓS <span className="text-flame">SOMOS</span>
       </h2>
       <div className="grid lg:grid-cols-2 gap-16 items-center">
-      <div>
-        <p className="text-white text-lg leading-relaxed mb-6">
-          O FLAMA ............
-        </p>
-      </div>
+        <div>
+          <div className="relative overflow-hidden border-2 border-border mb-8">
+            <img
+              src={flamaGroup}
+              alt="Galera FLAMA"
+              className="w-full h-auto object-cover"
+            />
+          </div>
+          <p className="text-white text-lg leading-relaxed mb-6">
+            O FLAMA ............
+          </p>
+        </div>
 
-      <div className="grid gap-4">
-        {pillars.map((p, i) => (
-          <PillarCard key={p.title} pillar={p} index={i} />
-        ))}
-      </div>
+        <div className="grid gap-4">
+          {pillars.map((p, i) => (
+            <PillarCard key={i} pillar={p} index={i} />
+          ))}
+        </div>
       </div>
     </div>
   </section>

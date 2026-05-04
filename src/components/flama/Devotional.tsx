@@ -16,10 +16,10 @@ export const Devotional = () => {
         <div className="grid lg:grid-cols-12 gap-10 items-stretch">
           {/* Left vertical label */}
           <div className="lg:col-span-2 flex lg:flex-col items-start justify-start gap-4">
-            <div className="hidden lg:block writing-vertical font-display text-6xl tracking-widest text-muted-foreground/40" style={{ writingMode: 'vertical-rl' }}>
+            <div className="hidden lg:block writing-vertical font-display text-6xl tracking-widest text-white/70" style={{ writingMode: 'vertical-rl' }}>
               DEVOCIONAL
             </div>
-            <div className="mono text-xs text-muted-foreground tracking-[0.4em]">DIÁRIO</div>
+            <div className="mono text-xs text-white tracking-[0.4em]">DIÁRIO</div>
           </div>
 
           {/* Card */}
