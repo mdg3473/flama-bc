@@ -66,14 +66,14 @@ export const Contact = () => (
     </div>
 
     {/* Footer */}
-    <footer className="container mt-24 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
+    <footer className="container mt-24 pt-8 border-t border-white/30 flex flex-col md:flex-row items-center justify-between gap-4">
       <div className="flex items-center gap-2">
-        <img src={flamaLogo} alt="FLAMA" width={80} height={48} className="h-8 w-auto object-contain" />
-        <span className="mono text-xs text-muted-foreground tracking-widest">
+        <img src={flamaLogo} alt="FLAMA" width={80} height={48} className="h-8 w-auto object-contain [filter:brightness(0)_invert(1)]" />
+        <span className="mono text-xs text-white tracking-widest">
           © {new Date().getFullYear()} FLAMA · MINISTÉRIO JOVEM
         </span>
       </div>
-      <span className="mono text-xs text-muted-foreground tracking-widest">
+      <span className="mono text-xs text-white tracking-widest">
         FEITO COM FOGO 🔥
       </span>
     </footer>

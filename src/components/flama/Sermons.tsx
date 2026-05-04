@@ -17,7 +17,7 @@ export const Sermons = () => (
         <h2 className="font-display text-5xl md:text-7xl leading-[0.9] text-white">
           MENSAGENS
         </h2>
-        <a href="#" className="inline-block mt-4 mono text-sm tracking-widest text-primary hover:underline underline-offset-4">
+        <a href="#" className="inline-block mt-4 mono text-sm tracking-widest text-white hover:underline underline-offset-4">
           VER TODOS →
         </a>
       </div>

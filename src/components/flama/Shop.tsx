@@ -31,7 +31,7 @@ export const Shop = () => (
       <div className="mt-12 text-center">
         <a
           href="#"
-          className="inline-flex items-center gap-3 px-8 py-4 border-2 border-foreground text-foreground font-bold uppercase tracking-widest text-sm hover:bg-foreground hover:text-background transition-colors"
+          className="inline-flex items-center gap-3 px-8 py-4 border-2 border-white text-white font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-background transition-colors"
         >
           Ver loja completa
         </a>
