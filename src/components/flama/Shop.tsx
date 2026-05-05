@@ -1,13 +1,13 @@
 import tee from "@/assets/shop-tee.jpg";
 import hoodie from "@/assets/shop-hoodie.jpg";
-import cap from "@/assets/shop-cap.jpg";
+import burger from "@/assets/shop-burger.jpg";
 import { ShoppingBag } from "lucide-react";
 import { usePopIn } from "@/hooks/usePopIn";
 
 const products = [
-  { img: tee, name: "Camiseta FLAMA Fire", price: "R$ 89,90", tag: "NOVO" },
-  { img: hoodie, name: "Moletom Black Ember", price: "R$ 199,90", tag: "DROP" },
-  { img: cap, name: "Boné Logo Bordado", price: "R$ 79,90", tag: "" },
+  { img: tee, name: "Camiseta FLAMA Fire", price: "R$ 10,00", tag: "NOVO" },
+  { img: hoodie, name: "Moletom Black Ember", price: "R$ 10,00", tag: "DROP" },
+  { img: burger, name: "Hamburger FLAMA", price: "R$ 10,00", tag: "" },
 ];
 
 export const Shop = () => (
@@ -67,8 +67,8 @@ const ProductCard = ({ product: p, index }: { product: typeof products[number]; 
               </button>
             </div>
             <div className="pt-4 flex items-baseline justify-between">
-              <h3 className="font-display text-xl tracking-wide">{p.name}</h3>
-              <span className="mono text-primary font-bold">{p.price}</span>
+              <h3 className="font-display text-xl tracking-wide text-white">{p.name}</h3>
+              <span className="mono text-white font-bold">{p.price}</span>
             </div>
     </div>
   );

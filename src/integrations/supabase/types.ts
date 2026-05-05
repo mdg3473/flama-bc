@@ -47,6 +47,7 @@ export type Database = {
           grade: string
           id: string
           parents_names: string | null
+          phone: string | null
           updated_at: string
         }
         Insert: {
@@ -57,6 +58,7 @@ export type Database = {
           grade: string
           id: string
           parents_names?: string | null
+          phone?: string | null
           updated_at?: string
         }
         Update: {
@@ -67,6 +69,7 @@ export type Database = {
           grade?: string
           id?: string
           parents_names?: string | null
+          phone?: string | null
           updated_at?: string
         }
         Relationships: []

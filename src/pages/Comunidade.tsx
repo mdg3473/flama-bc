@@ -8,6 +8,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Hash, LogOut, Send, Flame, Menu, X } from "lucide-react";
+import { Avatar as A2, AvatarFallback as AF2, AvatarImage as AI2 } from "@/components/ui/avatar";
+import { ProfileDialog } from "@/components/ProfileDialog";
 
 type Message = {
   id: string;
@@ -29,6 +31,8 @@ const Comunidade = () => {
   const [text, setText] = useState("");
   const [sending, setSending] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [profileOpen, setProfileOpen] = useState(false);
+  const [me, setMe] = useState<Profile | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -38,6 +42,16 @@ const Comunidade = () => {
   useEffect(() => {
     if (!loading && !user) nav("/auth", { replace: true });
   }, [loading, user, nav]);
+
+  useEffect(() => {
+    if (!user) return;
+    supabase
+      .from("profiles")
+      .select("id, full_name, avatar_url, grade")
+      .eq("id", user.id)
+      .maybeSingle()
+      .then(({ data }) => { if (data) setMe(data as Profile); });
+  }, [user, profileOpen]);
 
   // Load messages + realtime
   useEffect(() => {
@@ -163,6 +177,14 @@ const Comunidade = () => {
           <button className="md:hidden" onClick={() => setSidebarOpen(true)} aria-label="menu">
             <Menu size={22} />
           </button>
+          <button onClick={() => setProfileOpen(true)} aria-label="Editar perfil" className="shrink-0">
+            <A2 className="h-8 w-8 ring-2 ring-primary hover:ring-primary-glow transition">
+              {me?.avatar_url && <AI2 src={me.avatar_url} alt={me.full_name} />}
+              <AF2 className="bg-primary text-primary-foreground text-xs">
+                {(me?.full_name ?? "?").split(" ").map((s) => s[0]).slice(0, 2).join("").toUpperCase()}
+              </AF2>
+            </A2>
+          </button>
           <Hash size={18} className="text-primary" />
           <h1 className="font-display text-2xl tracking-wider">{channelLabel}</h1>
         </header>
@@ -209,6 +231,7 @@ const Comunidade = () => {
           </Button>
         </form>
       </section>
+      {user && <ProfileDialog open={profileOpen} onOpenChange={setProfileOpen} userId={user.id} />}
     </main>
   );
 };

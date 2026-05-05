@@ -14,26 +14,24 @@ export const About = () => (
       <h2 className="font-display text-5xl md:text-7xl leading-[0.9] mb-12 text-center text-white">
         QUEM NÓS <span className="text-flame">SOMOS</span>
       </h2>
-      <div className="grid lg:grid-cols-2 gap-16 items-center">
-        <div>
-          <div className="relative overflow-hidden border-2 border-border mb-8">
-            <img
-              src={flamaGroup}
-              alt="Galera FLAMA"
-              className="w-full h-auto object-cover"
-            />
-          </div>
-          <p className="text-white text-lg leading-relaxed mb-6">
-            O FLAMA ............
-          </p>
-        </div>
+      <p className="text-white text-lg leading-relaxed mb-10 max-w-3xl">
+        O FLAMA ............
+      </p>
 
-        <div className="grid gap-4">
-          {pillars.map((p, i) => (
-            <PillarCard key={i} pillar={p} index={i} />
-          ))}
-        </div>
+      <div className="grid lg:grid-cols-3 gap-6 mb-10">
+        {pillars.map((p, i) => (
+          <PillarCard key={i} pillar={p} index={i} />
+        ))}
       </div>
+    </div>
+
+    {/* Full-bleed image stretched edge-to-edge */}
+    <div className="w-screen relative left-1/2 -translate-x-1/2 mt-8">
+      <img
+        src={flamaGroup}
+        alt="Galera FLAMA"
+        className="w-full h-auto object-cover"
+      />
     </div>
   </section>
 );
