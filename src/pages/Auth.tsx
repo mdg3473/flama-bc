@@ -15,6 +15,7 @@ const signupSchema = z.object({
   parents_names: z.string().trim().min(2, "Informe o nome dos pais").max(200),
   birth_date: z.string().min(1, "Informe a data"),
   grade: z.string().min(1, "Selecione o ano"),
+  phone: z.string().trim().min(8, "Informe o telefone").max(30),
   email: z.string().trim().email("Email inválido").max(255),
   password: z.string().min(8, "Mínimo 8 caracteres").max(72),
 });
@@ -33,6 +34,7 @@ const Auth = () => {
   const [parents, setParents] = useState("");
   const [birth, setBirth] = useState("");
   const [grade, setGrade] = useState<string>("6ano");
+  const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [pwd, setPwd] = useState("");
   const [avatar, setAvatar] = useState<File | null>(null);
@@ -59,7 +61,7 @@ const Auth = () => {
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
     const parsed = signupSchema.safeParse({
-      full_name: fullName, parents_names: parents, birth_date: birth, grade, email, password: pwd,
+      full_name: fullName, parents_names: parents, birth_date: birth, grade, phone, email, password: pwd,
     });
     if (!parsed.success) {
       return toast({ title: "Verifique os campos", description: parsed.error.issues[0].message, variant: "destructive" });
@@ -71,7 +73,7 @@ const Auth = () => {
       password: pwd,
       options: {
         emailRedirectTo: `${window.location.origin}/comunidade`,
-        data: { full_name: fullName, parents_names: parents, birth_date: birth, grade },
+        data: { full_name: fullName, parents_names: parents, birth_date: birth, grade, phone },
       },
     });
     if (error || !data.user) {
@@ -156,6 +158,10 @@ const Auth = () => {
                 <div>
                   <Label htmlFor="av">Foto de perfil</Label>
                   <Input id="av" type="file" accept="image/*" onChange={(e) => setAvatar(e.target.files?.[0] ?? null)} />
+                </div>
+                <div>
+                  <Label htmlFor="ph">Telefone</Label>
+                  <Input id="ph" type="tel" required value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="(51) 99999-9999" />
                 </div>
                 <div>
                   <Label htmlFor="se">Email</Label>
