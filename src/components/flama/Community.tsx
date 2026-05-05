@@ -1,11 +1,18 @@
 import { MessageSquare, Users, Sparkles, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { usePopIn } from "@/hooks/usePopIn";
+import communityBg from "@/assets/community-bg.png";
 
 export const Community = () => {
   const pop = usePopIn<HTMLDivElement>();
   return (
     <section id="community" className="relative py-24 md:py-32 overflow-hidden">
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-cover bg-center pointer-events-none"
+        style={{ backgroundImage: `url(${communityBg})` }}
+      />
+      <div className="absolute inset-0 bg-black/60 pointer-events-none" />
       <div className="absolute inset-0 bg-gradient-radial opacity-40 pointer-events-none" />
       <div className="container relative">
         <div className="mb-14 text-center">
