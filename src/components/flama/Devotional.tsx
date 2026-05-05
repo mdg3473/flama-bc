@@ -1,4 +1,4 @@
-import { BookOpen, Calendar } from "lucide-react";
+import { Calendar } from "lucide-react";
 import { usePopIn } from "@/hooks/usePopIn";
 import bibleStickers from "@/assets/bible-stickers.jpg";
 
