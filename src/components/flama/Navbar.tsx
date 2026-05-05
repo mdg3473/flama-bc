@@ -28,10 +28,15 @@ export const Navbar = () => {
         scrolled ? "bg-primary border-b border-primary" : "bg-transparent"
       }`}
     >
-      <nav className="container flex items-center justify-between py-4">
-        <a href="#top" className={`flex items-center transition-opacity ${scrolled ? "opacity-100" : "opacity-0 pointer-events-none"}`} aria-label="FLAMA">
-          <img src={flamaLogo} alt="FLAMA" className="h-10 w-auto object-contain [filter:brightness(0)_invert(1)]" />
+      <nav className="container relative flex items-center justify-between py-4">
+        <a
+          href="#top"
+          className={`absolute left-1/2 -translate-x-1/2 flex items-center transition-opacity ${scrolled ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+          aria-label="FLAMA"
+        >
+          <img src={flamaLogo} alt="FLAMA" className="h-14 md:h-16 w-auto object-contain [filter:brightness(0)_invert(1)]" />
         </a>
+        <span aria-hidden className="w-7" />
         <button
           aria-label="menu"
           className={`transition-colors ${

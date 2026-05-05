@@ -12,7 +12,7 @@ export const Hero = () => {
           alt="FLAMA"
           width={520}
           height={360}
-          className="h-28 sm:h-32 md:h-40 lg:h-52 w-auto object-contain animate-flicker drop-shadow-[0_8px_24px_rgba(0,0,0,0.5)] invert"
+          className="h-40 sm:h-48 md:h-56 lg:h-72 w-auto object-contain animate-flicker drop-shadow-[0_8px_24px_rgba(0,0,0,0.5)] invert"
         />
       </div>
     </section>
