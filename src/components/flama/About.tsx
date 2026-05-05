@@ -30,7 +30,7 @@ export const About = () => (
       <img
         src={flamaGroup}
         alt="Galera FLAMA"
-        className="w-full h-auto object-cover"
+        className="w-full h-[420px] md:h-[580px] object-cover"
       />
     </div>
   </section>
