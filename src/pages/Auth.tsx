@@ -17,7 +17,7 @@ const signupSchema = z.object({
   grade: z.string().min(1, "Selecione o ano"),
   phone: z.string().trim().min(8, "Informe o telefone").max(30),
   email: z.string().trim().email("Email inválido").max(255),
-  password: z.string().min(8, "Mínimo 8 caracteres").max(72),
+  password: z.string().min(1, "Informe uma senha").max(72),
 });
 
 const calcAge = (iso: string) => {
