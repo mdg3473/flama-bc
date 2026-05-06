@@ -6,29 +6,28 @@ import communityBg from "@/assets/community-bg.png";
 export const Community = () => {
   const pop = usePopIn<HTMLDivElement>();
   return (
-    <section id="community" className="relative py-24 md:py-32 overflow-hidden">
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 bg-cover bg-center pointer-events-none"
-        style={{ backgroundImage: `url(${communityBg})` }}
-      />
-      <div className="absolute inset-0 bg-black/60 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-radial opacity-40 pointer-events-none" />
+    <section id="community" className="relative py-24 md:py-32 overflow-hidden bg-white text-neutral-900">
       <div className="container relative">
         <div className="mb-14 text-center">
-          <h2 className="font-display text-5xl md:text-7xl leading-[0.9] text-white">
+          <h2 className="font-display text-5xl md:text-7xl leading-[0.9] text-neutral-900">
             COMMUNITY
           </h2>
         </div>
 
-        <div
-          ref={pop.ref}
-          className={`${pop.className} relative max-w-4xl mx-auto`}
-        >
-          {/* Offset shadow frame */}
-          <div className="absolute -top-3 -left-3 right-3 bottom-3 border-2 border-primary -z-0" />
+        <div className="grid lg:grid-cols-2 gap-10 items-center">
+          {/* Image left, blended */}
+          <div className="relative">
+            <img
+              src={communityBg}
+              alt="Comunidade Flama"
+              className="w-full h-auto object-cover mix-blend-multiply"
+            />
+          </div>
 
-          <div className="relative bg-card border-2 border-border p-8 md:p-14">
+          {/* Card right */}
+          <div ref={pop.ref} className={`${pop.className} relative`}>
+            <div className="absolute -top-3 -left-3 right-3 bottom-3 border-2 border-primary -z-0" />
+            <div className="relative bg-card border-2 border-border p-8 md:p-12 text-foreground">
             <div className="flex items-center gap-3 mono text-xs text-muted-foreground mb-8 uppercase tracking-widest">
               <Sparkles size={14} className="text-primary" /> Em breve
             </div>
@@ -90,6 +89,7 @@ export const Community = () => {
               >
                 CRIAR CONTA
               </Link>
+            </div>
             </div>
           </div>
         </div>
