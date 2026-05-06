@@ -108,7 +108,7 @@ const Auth = () => {
 
     setLoading(false);
     toast({ title: "Bem-vindo à Flama!", description: "Cadastro realizado." });
-    nav("/comunidade", { replace: true });
+    nav("/", { replace: true });
   };
 
   return (
