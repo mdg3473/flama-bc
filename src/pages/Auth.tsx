@@ -149,22 +149,24 @@ const Auth = () => {
                   <Label htmlFor="fn">Nome completo</Label>
                   <Input id="fn" required value={fullName} onChange={(e) => setFullName(e.target.value)} />
                 </div>
-                <div className="grid grid-cols-2 gap-3">
+                <div className={calcAge(birth) > 19 ? "" : "grid grid-cols-2 gap-3"}>
                   <div>
                     <Label htmlFor="bd">Nascimento</Label>
                     <Input id="bd" type="date" required value={birth} onChange={(e) => setBirth(e.target.value)} />
                   </div>
-                  <div>
-                    <Label htmlFor="gr">Ano</Label>
-                    <select
-                      id="gr"
-                      value={grade}
-                      onChange={(e) => setGrade(e.target.value)}
-                      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
-                    >
-                      {CHANNELS.map((c) => <option key={c.id} value={c.id}>{c.label}</option>)}
-                    </select>
-                  </div>
+                  {!(calcAge(birth) > 19) && (
+                    <div>
+                      <Label htmlFor="gr">Ano</Label>
+                      <select
+                        id="gr"
+                        value={grade}
+                        onChange={(e) => setGrade(e.target.value)}
+                        className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+                      >
+                        {CHANNELS.map((c) => <option key={c.id} value={c.id}>{c.label}</option>)}
+                      </select>
+                    </div>
+                  )}
                 </div>
                 {birth && calcAge(birth) > 0 && calcAge(birth) < 18 && (
                   <div>
