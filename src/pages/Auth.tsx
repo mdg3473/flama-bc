@@ -187,7 +187,7 @@ const Auth = () => {
                   <Input id="se" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} />
                 </div>
                 <div>
-                  <Label htmlFor="sp">Senha (mín. 8)</Label>
+                  <Label htmlFor="sp">Senha</Label>
                   <Input id="sp" type="password" required value={pwd} onChange={(e) => setPwd(e.target.value)} />
                 </div>
                 <Button type="submit" disabled={loading} className="w-full">
