@@ -17,7 +17,7 @@ const signupSchema = z.object({
   grade: z.string().min(1, "Selecione o ano"),
   phone: z.string().trim().min(8, "Informe o telefone").max(30),
   email: z.string().trim().email("Email inválido").max(255),
-  password: z.string().min(8, "Mínimo 8 caracteres").max(72),
+  password: z.string().min(1, "Informe uma senha").max(72),
 });
 
 const calcAge = (iso: string) => {
@@ -187,7 +187,7 @@ const Auth = () => {
                   <Input id="se" type="email" required value={email} onChange={(e) => setEmail(e.target.value)} />
                 </div>
                 <div>
-                  <Label htmlFor="sp">Senha (mín. 8)</Label>
+                  <Label htmlFor="sp">Senha</Label>
                   <Input id="sp" type="password" required value={pwd} onChange={(e) => setPwd(e.target.value)} />
                 </div>
                 <Button type="submit" disabled={loading} className="w-full">
