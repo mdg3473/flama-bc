@@ -12,13 +12,23 @@ import { Flame, Loader2 } from "lucide-react";
 
 const signupSchema = z.object({
   full_name: z.string().trim().min(2, "Informe seu nome").max(120),
-  parents_names: z.string().trim().min(2, "Informe o nome dos pais").max(200),
+  parents_names: z.string().trim().max(200).optional(),
   birth_date: z.string().min(1, "Informe a data"),
   grade: z.string().min(1, "Selecione o ano"),
   phone: z.string().trim().min(8, "Informe o telefone").max(30),
   email: z.string().trim().email("Email inválido").max(255),
   password: z.string().min(8, "Mínimo 8 caracteres").max(72),
 });
+
+const calcAge = (iso: string) => {
+  if (!iso) return 0;
+  const b = new Date(iso);
+  const t = new Date();
+  let a = t.getFullYear() - b.getFullYear();
+  const m = t.getMonth() - b.getMonth();
+  if (m < 0 || (m === 0 && t.getDate() < b.getDate())) a--;
+  return a;
+};
 
 const Auth = () => {
   const nav = useNavigate();
@@ -60,8 +70,13 @@ const Auth = () => {
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault();
+    const age = calcAge(birth);
+    const isMinor = age > 0 && age < 18;
+    if (isMinor && parents.trim().length < 2) {
+      return toast({ title: "Verifique os campos", description: "Informe o nome dos pais", variant: "destructive" });
+    }
     const parsed = signupSchema.safeParse({
-      full_name: fullName, parents_names: parents, birth_date: birth, grade, phone, email, password: pwd,
+      full_name: fullName, parents_names: parents || undefined, birth_date: birth, grade, phone, email, password: pwd,
     });
     if (!parsed.success) {
       return toast({ title: "Verifique os campos", description: parsed.error.issues[0].message, variant: "destructive" });
@@ -134,10 +149,6 @@ const Auth = () => {
                   <Label htmlFor="fn">Nome completo</Label>
                   <Input id="fn" required value={fullName} onChange={(e) => setFullName(e.target.value)} />
                 </div>
-                <div>
-                  <Label htmlFor="pn">Nome dos pais / responsáveis</Label>
-                  <Input id="pn" required value={parents} onChange={(e) => setParents(e.target.value)} />
-                </div>
                 <div className="grid grid-cols-2 gap-3">
                   <div>
                     <Label htmlFor="bd">Nascimento</Label>
@@ -155,6 +166,12 @@ const Auth = () => {
                     </select>
                   </div>
                 </div>
+                {birth && calcAge(birth) > 0 && calcAge(birth) < 18 && (
+                  <div>
+                    <Label htmlFor="pn">Nome dos pais / responsáveis</Label>
+                    <Input id="pn" required value={parents} onChange={(e) => setParents(e.target.value)} />
+                  </div>
+                )}
                 <div>
                   <Label htmlFor="av">Foto de perfil</Label>
                   <Input id="av" type="file" accept="image/*" onChange={(e) => setAvatar(e.target.files?.[0] ?? null)} />
