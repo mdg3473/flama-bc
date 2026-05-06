@@ -20,7 +20,7 @@ export const Community = () => {
             <img
               src={communityBg}
               alt="Comunidade Flama"
-              className="w-full h-auto object-cover mix-blend-multiply"
+              className="w-full h-auto object-cover"
             />
           </div>
 
