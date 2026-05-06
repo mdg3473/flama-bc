@@ -6,10 +6,10 @@ import communityBg from "@/assets/community-bg.png";
 export const Community = () => {
   const pop = usePopIn<HTMLDivElement>();
   return (
-    <section id="community" className="relative py-24 md:py-32 overflow-hidden bg-white text-neutral-900">
+    <section id="community" className="relative py-24 md:py-32 overflow-hidden bg-primary text-white">
       <div className="container relative">
         <div className="mb-14 text-center">
-          <h2 className="font-display text-5xl md:text-7xl leading-[0.9] text-neutral-900">
+          <h2 className="font-display text-5xl md:text-7xl leading-[0.9] text-white">
             COMMUNITY
           </h2>
         </div>
