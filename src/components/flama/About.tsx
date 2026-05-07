@@ -9,7 +9,7 @@ const pillars = [
 ];
 
 export const About = () => (
-  <section id="sobre" className="relative py-24 md:py-32 overflow-hidden">
+  <section id="sobre" className="relative pt-24 md:pt-32 pb-0 overflow-hidden">
     <div className="container relative">
       <h2 className="font-display text-5xl md:text-7xl leading-[0.9] mb-12 text-center text-white">
         QUEM NÓS <span className="text-flame">SOMOS</span>
@@ -25,12 +25,12 @@ export const About = () => (
       </div>
     </div>
 
-    {/* Full-bleed image stretched edge-to-edge */}
-    <div className="w-screen relative left-1/2 -translate-x-1/2 mt-8">
+    {/* Full-bleed image stretched edge-to-edge, flush with next section */}
+    <div className="w-screen relative left-1/2 -translate-x-1/2 mt-8 block">
       <img
         src={flamaGroup}
         alt="Galera FLAMA"
-        className="w-full h-[420px] md:h-[580px] object-cover"
+        className="w-full h-[420px] md:h-[580px] object-cover block align-bottom"
       />
     </div>
   </section>
