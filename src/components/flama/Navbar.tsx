@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ShoppingBag } from "lucide-react";
+import { Link } from "react-router-dom";
 import flamaLogo from "@/assets/flama-logo.png";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
@@ -11,7 +12,6 @@ const links = [
   { href: "#sermoes", label: "Sermões" },
   { href: "#devocional", label: "Devocional" },
   { href: "#galeria", label: "Galeria" },
-  { href: "#loja", label: "Loja" },
   { href: "#community", label: "Community" },
   { href: "#contato", label: "Contato" },
 ];
@@ -85,6 +85,16 @@ export const Navbar = () => {
                 </a>
               </li>
             ))}
+            <li>
+              <Link
+                to="/loja"
+                onClick={() => setOpen(false)}
+                aria-label="Loja"
+                className="inline-flex py-2 text-foreground hover:text-primary"
+              >
+                <ShoppingBag size={28} />
+              </Link>
+            </li>
           </ul>
         </div>
       )}

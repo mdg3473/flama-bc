@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound.tsx";
 import Auth from "./pages/Auth.tsx";
 import Comunidade from "./pages/Comunidade.tsx";
 import Admin from "./pages/Admin.tsx";
+import Loja from "./pages/Loja.tsx";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const App = () => (
           <Route path="/auth" element={<Auth />} />
           <Route path="/comunidade" element={<Comunidade />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/loja" element={<Loja />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

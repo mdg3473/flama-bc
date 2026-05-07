@@ -5,7 +5,6 @@ import { About } from "@/components/flama/About";
 import { Sermons } from "@/components/flama/Sermons";
 import { Devotional } from "@/components/flama/Devotional";
 import { Gallery } from "@/components/flama/Gallery";
-import { Shop } from "@/components/flama/Shop";
 import { Community } from "@/components/flama/Community";
 import { Contact } from "@/components/flama/Contact";
 import balloonsBg from "@/assets/balloons-bg.jpg";
@@ -28,7 +27,6 @@ const Index = () => {
       <Sermons />
       <Devotional />
       <Gallery />
-      <Shop />
       <Community />
       <Contact />
     </main>
