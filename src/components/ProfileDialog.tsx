@@ -80,6 +80,19 @@ export const ProfileDialog = ({ open, onOpenChange, userId }: Props) => {
 
   const initials = fullName.split(" ").map((s) => s[0]).slice(0, 2).join("").toUpperCase();
 
+  const calcAge = (iso: string) => {
+    if (!iso) return 0;
+    const b = new Date(iso);
+    const t = new Date();
+    let a = t.getFullYear() - b.getFullYear();
+    const m = t.getMonth() - b.getMonth();
+    if (m < 0 || (m === 0 && t.getDate() < b.getDate())) a--;
+    return a;
+  };
+  const age = calcAge(birth);
+  const isAdult = age > 18;
+  const hideGrade = age > 19;
+
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-md">
@@ -101,25 +114,29 @@ export const ProfileDialog = ({ open, onOpenChange, userId }: Props) => {
               <Label>Nome completo</Label>
               <Input value={fullName} onChange={(e) => setFullName(e.target.value)} required />
             </div>
-            <div>
-              <Label>Nome dos pais</Label>
-              <Input value={parents} onChange={(e) => setParents(e.target.value)} />
-            </div>
+            {!isAdult && (
+              <div>
+                <Label>Nome dos pais</Label>
+                <Input value={parents} onChange={(e) => setParents(e.target.value)} />
+              </div>
+            )}
             <div className="grid grid-cols-2 gap-3">
               <div>
                 <Label>Nascimento</Label>
                 <Input type="date" value={birth} onChange={(e) => setBirth(e.target.value)} />
               </div>
-              <div>
-                <Label>Ano</Label>
-                <select
-                  value={grade}
-                  onChange={(e) => setGrade(e.target.value)}
-                  className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
-                >
-                  {CHANNELS.map((c) => <option key={c.id} value={c.id}>{c.label}</option>)}
-                </select>
-              </div>
+              {!hideGrade && (
+                <div>
+                  <Label>Ano</Label>
+                  <select
+                    value={grade}
+                    onChange={(e) => setGrade(e.target.value)}
+                    className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm"
+                  >
+                    {CHANNELS.map((c) => <option key={c.id} value={c.id}>{c.label}</option>)}
+                  </select>
+                </div>
+              )}
             </div>
             <div>
               <Label>Telefone</Label>
