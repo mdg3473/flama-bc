@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useSearchParams } from "react-router-dom";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -32,7 +32,9 @@ const calcAge = (iso: string) => {
 
 const Auth = () => {
   const nav = useNavigate();
-  const [tab, setTab] = useState("login");
+  const [params] = useSearchParams();
+  const initialTab = params.get("mode") === "signup" ? "signup" : "login";
+  const [tab, setTab] = useState(initialTab);
   const [loading, setLoading] = useState(false);
 
   // login

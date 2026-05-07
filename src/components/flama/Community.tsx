@@ -2,9 +2,11 @@ import { MessageSquare, Users, Sparkles, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { usePopIn } from "@/hooks/usePopIn";
 import communityBg from "@/assets/community-bg.png";
+import { useAuth } from "@/hooks/useAuth";
 
 export const Community = () => {
   const pop = usePopIn<HTMLDivElement>();
+  const { user } = useAuth();
   return (
     <section id="community" className="relative py-24 md:py-32 overflow-hidden bg-primary text-white">
       <div className="container relative">
@@ -76,20 +78,33 @@ export const Community = () => {
               </div>
             </div>
 
-            <div className="mt-10 flex flex-wrap gap-3">
-              <Link
-                to="/comunidade"
-                className="mono text-xs px-5 py-3 bg-primary text-primary-foreground font-bold tracking-widest hover:bg-primary-glow transition-colors inline-flex items-center gap-2"
-              >
-                ENTRAR NO CHAT <ArrowRight size={14} />
-              </Link>
-              <Link
-                to="/auth"
-                className="mono text-xs px-5 py-3 bg-foreground text-background font-bold tracking-widest hover:opacity-90 transition-opacity"
-              >
-                CRIAR CONTA
-              </Link>
-            </div>
+            {user ? (
+              <div className="mt-10 flex flex-wrap gap-3">
+                <Link
+                  to="/comunidade"
+                  className="mono text-xs px-5 py-3 bg-primary text-primary-foreground font-bold tracking-widest hover:bg-primary-glow transition-colors inline-flex items-center gap-2"
+                >
+                  ENTRAR NO CHAT <ArrowRight size={14} />
+                </Link>
+              </div>
+            ) : (
+              <div className="mt-10">
+                <div className="flex flex-wrap gap-3">
+                  <Link
+                    to="/auth?mode=login"
+                    className="mono text-xs px-5 py-3 bg-primary text-primary-foreground font-bold tracking-widest hover:bg-primary-glow transition-colors inline-flex items-center gap-2"
+                  >
+                    LOGIN <ArrowRight size={14} />
+                  </Link>
+                </div>
+                <p className="mono text-xs text-muted-foreground mt-4">
+                  Ainda não tem conta?{" "}
+                  <Link to="/auth?mode=signup" className="underline text-primary hover:text-primary-glow">
+                    Faça seu cadastro
+                  </Link>
+                </p>
+              </div>
+            )}
             </div>
           </div>
         </div>
