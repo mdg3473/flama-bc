@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Menu, X, ShoppingBag } from "lucide-react";
+import { Menu, X, ShoppingBag, Image, Mic } from "lucide-react";
 import { Link } from "react-router-dom";
 import flamaLogo from "@/assets/flama-logo.png";
 import { useAuth } from "@/hooks/useAuth";
@@ -9,9 +9,7 @@ import { ProfileDialog } from "@/components/ProfileDialog";
 
 const links = [
   { href: "#sobre", label: "Sobre" },
-  { href: "#sermoes", label: "Sermões" },
   { href: "#devocional", label: "Devocional" },
-  { href: "#galeria", label: "Galeria" },
   { href: "#community", label: "Community" },
   { href: "#contato", label: "Contato" },
 ];
@@ -93,6 +91,26 @@ export const Navbar = () => {
                 className="inline-flex py-2 text-foreground hover:text-primary"
               >
                 <ShoppingBag size={28} />
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/momentos"
+                onClick={() => setOpen(false)}
+                aria-label="Momentos"
+                className="inline-flex py-2 text-foreground hover:text-primary"
+              >
+                <Image size={28} />
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/mensagens"
+                onClick={() => setOpen(false)}
+                aria-label="Mensagens"
+                className="inline-flex py-2 text-foreground hover:text-primary"
+              >
+                <Mic size={28} />
               </Link>
             </li>
           </ul>

@@ -9,6 +9,8 @@ import Auth from "./pages/Auth.tsx";
 import Comunidade from "./pages/Comunidade.tsx";
 import Admin from "./pages/Admin.tsx";
 import Loja from "./pages/Loja.tsx";
+import Momentos from "./pages/Momentos.tsx";
+import Mensagens from "./pages/Mensagens.tsx";
 
 const queryClient = new QueryClient();
 
@@ -24,6 +26,8 @@ const App = () => (
           <Route path="/comunidade" element={<Comunidade />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/loja" element={<Loja />} />
+          <Route path="/momentos" element={<Momentos />} />
+          <Route path="/mensagens" element={<Mensagens />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
