@@ -2,9 +2,7 @@ import { Navbar } from "@/components/flama/Navbar";
 import { Hero } from "@/components/flama/Hero";
 import { Marquee } from "@/components/flama/Marquee";
 import { About } from "@/components/flama/About";
-import { Sermons } from "@/components/flama/Sermons";
 import { Devotional } from "@/components/flama/Devotional";
-import { Gallery } from "@/components/flama/Gallery";
 import { Community } from "@/components/flama/Community";
 import { Contact } from "@/components/flama/Contact";
 import balloonsBg from "@/assets/balloons-bg.jpg";
@@ -24,9 +22,7 @@ const Index = () => {
       <Hero />
       <Marquee />
       <About />
-      <Sermons />
       <Devotional />
-      <Gallery />
       <Community />
       <Contact />
     </main>

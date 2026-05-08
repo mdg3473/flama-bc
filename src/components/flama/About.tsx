@@ -1,12 +1,4 @@
-import { Flame, Users, Heart } from "lucide-react";
-import { usePopIn } from "@/hooks/usePopIn";
 import flamaGroup from "@/assets/flama-group.png";
-
-const pillars = [
-  { icon: Flame, title: "", text: "" },
-  { icon: Users, title: "", text: "" },
-  { icon: Heart, title: "", text: "" },
-];
 
 export const About = () => (
   <section id="sobre" className="relative pt-24 md:pt-32 pb-0 overflow-hidden">
@@ -14,14 +6,23 @@ export const About = () => (
       <h2 className="font-display text-5xl md:text-7xl leading-[0.9] mb-12 text-center text-white">
         QUEM NÓS <span className="text-primary">SOMOS</span>
       </h2>
-      <p className="text-muted-foreground text-lg leading-relaxed mb-10 max-w-3xl">
-        O FLAMA ............
-      </p>
-
-      <div className="grid lg:grid-cols-3 gap-6 mb-10">
-        {pillars.map((p, i) => (
-          <PillarCard key={i} pillar={p} index={i} />
-        ))}
+      <div className="text-white text-lg leading-relaxed mb-10 max-w-3xl mx-auto space-y-5">
+        <p>A gente vive num mundo cheio de vozes.</p>
+        <p>Todo mundo quer dizer quem você é, o que você tem que ser, pra onde você tem que ir.</p>
+        <p>
+          Mas Jesus disse:<br />
+          <em>"As minhas ovelhas ouvem a minha voz; eu as conheço e elas me seguem." (João 10:27)</em>
+        </p>
+        <p>O Flama existe por isso.</p>
+        <p>
+          Aqui, a gente aprende a reconhecer a voz do Bom Pastor no meio do barulho. A gente acredita que fé não é hype, não é regra vazia, não é coisa de um dia só. É relacionamento. É caminhada. É vida real.
+        </p>
+        <p>Jesus não veio roubar nossa juventude. Ele veio dar vida em abundância.</p>
+        <p>
+          Aqui tem espaço para perguntas, para riso, para choro, para amizade verdadeira e, principalmente, para crescermos juntos em amor por Jesus.
+        </p>
+        <p className="font-display text-2xl">O Bom Pastor está chamando.</p>
+        <p className="font-display text-2xl text-primary">E o Flama é sobre responder.</p>
       </div>
     </div>
 
@@ -35,19 +36,3 @@ export const About = () => (
     </div>
   </section>
 );
-
-const PillarCard = ({ pillar: p, index: i }: { pillar: (typeof pillars)[number]; index: number }) => {
-  const pop = usePopIn<HTMLDivElement>();
-  return (
-    <div
-      ref={pop.ref}
-      style={{ transitionDelay: `${i * 120}ms` }}
-      className={`${pop.className} group relative p-6 md:p-8 border-2 border-border bg-card hover:border-primary transition-all hover:-translate-y-1 hover:shadow-flame`}
-    >
-      <div className="absolute top-4 right-6 mono text-xs text-muted-foreground">0{i + 1}</div>
-      <p.icon className="h-10 w-10 text-primary mb-4 group-hover:animate-flicker" />
-      <h3 className="font-display text-3xl tracking-wider mb-2">{p.title}</h3>
-      <p className="text-muted-foreground">{p.text}</p>
-    </div>
-  );
-};
