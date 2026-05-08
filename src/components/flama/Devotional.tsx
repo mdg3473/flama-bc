@@ -29,8 +29,8 @@ export const Devotional = () => {
               <div className="flex items-center justify-end gap-2 mono text-[10px] text-neutral-500 mb-4 uppercase tracking-widest">
                 <Calendar size={14} /> {today}
               </div>
-              <div className="mono text-xs text-primary mb-3">SALMOS 27:1</div>
-              <p className="font-display text-2xl md:text-3xl leading-tight mb-6">
+              <div className="mono text-xs text-white bg-primary inline-block px-2 py-1 mb-3">SALMOS 27:1</div>
+              <p className="font-display text-2xl md:text-3xl leading-tight mb-6 text-primary">
                 "O Senhor é a minha luz e a minha salvação; a quem temerei?"
               </p>
               <h3 className="font-display text-lg tracking-wide mb-2 text-primary">REFLEXÃO</h3>
