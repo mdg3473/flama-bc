@@ -9,12 +9,12 @@ const pillars = [
 ];
 
 export const About = () => (
-  <section id="sobre" className="relative pt-24 md:pt-32 pb-0 overflow-hidden bg-primary">
+  <section id="sobre" className="relative pt-24 md:pt-32 pb-0 overflow-hidden">
     <div className="container relative">
       <h2 className="font-display text-5xl md:text-7xl leading-[0.9] mb-12 text-center text-white">
-        QUEM NÓS <span className="text-white">SOMOS</span>
+        QUEM NÓS <span className="text-primary">SOMOS</span>
       </h2>
-      <p className="text-white text-lg leading-relaxed mb-10 max-w-3xl">
+      <p className="text-muted-foreground text-lg leading-relaxed mb-10 max-w-3xl">
         O FLAMA ............
       </p>
 
