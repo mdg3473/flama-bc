@@ -1,12 +1,17 @@
 import flamaGroup from "@/assets/flama-group.png";
+import { usePopIn } from "@/hooks/usePopIn";
 
-export const About = () => (
+export const About = () => {
+  const head = usePopIn<HTMLHeadingElement>();
+  const text = usePopIn<HTMLDivElement>();
+  const img = usePopIn<HTMLDivElement>();
+  return (
   <section id="sobre" className="relative pt-24 md:pt-32 pb-0 overflow-hidden">
     <div className="container relative">
-      <h2 className="font-display text-5xl md:text-7xl leading-[0.9] mb-12 text-center text-white">
+      <h2 ref={head.ref} className={`${head.className} font-display text-5xl md:text-7xl leading-[0.9] mb-12 text-center text-white`}>
         QUEM NÓS <span className="text-primary">SOMOS</span>
       </h2>
-      <div className="text-white text-lg leading-relaxed mb-10 max-w-3xl mx-auto space-y-5">
+      <div ref={text.ref} className={`${text.className} text-white text-lg leading-relaxed mb-10 max-w-3xl mx-auto space-y-5`}>
         <p>A gente vive num mundo cheio de vozes.</p>
         <p>Todo mundo quer dizer quem você é, o que você tem que ser, pra onde você tem que ir.</p>
         <p>
@@ -27,7 +32,7 @@ export const About = () => (
     </div>
 
     {/* Full-bleed image stretched edge-to-edge, flush with next section */}
-    <div className="w-screen relative left-1/2 -translate-x-1/2 mt-8 block">
+    <div ref={img.ref} className={`${img.className} w-screen relative left-1/2 -translate-x-1/2 mt-8 block`}>
       <img
         src={flamaGroup}
         alt="Galera FLAMA"
@@ -36,3 +41,4 @@ export const About = () => (
     </div>
   </section>
 );
+};
