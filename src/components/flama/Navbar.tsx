@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Menu, X, ShoppingBag, Image, Mic, BookOpen } from "lucide-react";
+import { Menu, X, ShoppingBag, Image as ImageIcon, Youtube, BookOpen, Info, Users, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 import flamaLogo from "@/assets/flama-logo.png";
 import { useAuth } from "@/hooks/useAuth";
@@ -8,9 +8,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ProfileDialog } from "@/components/ProfileDialog";
 
 const links = [
-  { href: "#sobre", label: "Sobre" },
-  { href: "#community", label: "Community" },
-  { href: "#contato", label: "Contato" },
+  { href: "#sobre", label: "Sobre", icon: Info },
+  { href: "#community", label: "Community", icon: Users },
 ];
 
 export const Navbar = () => {
@@ -71,56 +70,64 @@ export const Navbar = () => {
       {open && (
         <div className="bg-background/95 backdrop-blur-lg border-t border-border">
           <ul className="container py-6 flex flex-col gap-4">
-            {links.map((l) => (
-              <li key={l.href}>
-                <a
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  className="block py-2 font-display text-2xl tracking-wider hover:text-primary"
-                >
-                  {l.label}
-                </a>
-              </li>
-            ))}
+            {links.map((l) => {
+              const Icon = l.icon;
+              return (
+                <li key={l.href}>
+                  <a
+                    href={l.href}
+                    onClick={() => setOpen(false)}
+                    className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider hover:text-primary"
+                  >
+                    <Icon size={26} /> {l.label}
+                  </a>
+                </li>
+              );
+            })}
             <li>
               <Link
                 to="/loja"
                 onClick={() => setOpen(false)}
-                aria-label="Loja"
-                className="inline-flex py-2 text-foreground hover:text-primary"
+                className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider text-foreground hover:text-primary"
               >
-                <ShoppingBag size={28} />
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/momentos"
-                onClick={() => setOpen(false)}
-                aria-label="Momentos"
-                className="inline-flex py-2 text-foreground hover:text-primary"
-              >
-                <Image size={28} />
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/mensagens"
-                onClick={() => setOpen(false)}
-                aria-label="Mensagens"
-                className="inline-flex py-2 text-foreground hover:text-primary"
-              >
-                <Mic size={28} />
+                <ShoppingBag size={26} /> Loja
               </Link>
             </li>
             <li>
               <Link
                 to="/devocional"
                 onClick={() => setOpen(false)}
-                aria-label="Devocional"
-                className="inline-flex py-2 text-foreground hover:text-primary"
+                className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider text-foreground hover:text-primary"
               >
-                <BookOpen size={28} />
+                <BookOpen size={26} /> Devocional
               </Link>
+            </li>
+            <li>
+              <Link
+                to="/momentos"
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider text-foreground hover:text-primary"
+              >
+                <ImageIcon size={26} /> Galeria
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/mensagens"
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider text-foreground hover:text-primary"
+              >
+                <Youtube size={26} /> Shorts
+              </Link>
+            </li>
+            <li>
+              <a
+                href="#contato"
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider hover:text-primary"
+              >
+                <Mail size={26} /> Contato
+              </a>
             </li>
           </ul>
         </div>

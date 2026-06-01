@@ -7,7 +7,8 @@ import { CHANNELS, type ChannelId } from "@/lib/channels";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Hash, LogOut, Send, Flame, Menu, X } from "lucide-react";
+import { Hash, LogOut, Send, Menu, X } from "lucide-react";
+import flamaLogo from "@/assets/flama-logo.png";
 import { Avatar as A2, AvatarFallback as AF2, AvatarImage as AI2 } from "@/components/ui/avatar";
 import { ProfileDialog } from "@/components/ProfileDialog";
 
@@ -140,9 +141,8 @@ const Comunidade = () => {
         className={`${sidebarOpen ? "translate-x-0" : "-translate-x-full"} md:translate-x-0 fixed md:static inset-y-0 left-0 z-40 w-64 bg-card border-r-2 border-border flex flex-col transition-transform`}
       >
         <div className="p-4 border-b-2 border-border flex items-center justify-between">
-          <Link to="/" className="flex items-center gap-2 text-primary">
-            <Flame size={20} />
-            <span className="font-display text-2xl tracking-wider">FLAMA</span>
+          <Link to="/" className="flex items-center" aria-label="FLAMA">
+            <img src={flamaLogo} alt="FLAMA" className="h-10 w-auto object-contain" />
           </Link>
           <button className="md:hidden" onClick={() => setSidebarOpen(false)} aria-label="fechar">
             <X size={20} />
