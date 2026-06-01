@@ -11,6 +11,7 @@ import Admin from "./pages/Admin.tsx";
 import Loja from "./pages/Loja.tsx";
 import Momentos from "./pages/Momentos.tsx";
 import Mensagens from "./pages/Mensagens.tsx";
+import Devocional from "./pages/Devocional.tsx";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,7 @@ const App = () => (
           <Route path="/loja" element={<Loja />} />
           <Route path="/momentos" element={<Momentos />} />
           <Route path="/mensagens" element={<Mensagens />} />
+          <Route path="/devocional" element={<Devocional />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

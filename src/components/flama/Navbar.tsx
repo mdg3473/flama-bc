@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Menu, X, ShoppingBag, Image, Mic } from "lucide-react";
+import { Menu, X, ShoppingBag, Image, Mic, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
 import flamaLogo from "@/assets/flama-logo.png";
 import { useAuth } from "@/hooks/useAuth";
@@ -9,7 +9,6 @@ import { ProfileDialog } from "@/components/ProfileDialog";
 
 const links = [
   { href: "#sobre", label: "Sobre" },
-  { href: "#devocional", label: "Devocional" },
   { href: "#community", label: "Community" },
   { href: "#contato", label: "Contato" },
 ];
@@ -111,6 +110,16 @@ export const Navbar = () => {
                 className="inline-flex py-2 text-foreground hover:text-primary"
               >
                 <Mic size={28} />
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/devocional"
+                onClick={() => setOpen(false)}
+                aria-label="Devocional"
+                className="inline-flex py-2 text-foreground hover:text-primary"
+              >
+                <BookOpen size={28} />
               </Link>
             </li>
           </ul>
