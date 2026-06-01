@@ -27,11 +27,14 @@ const ContactCard = ({
   );
 };
 
-export const Contact = () => (
+export const Contact = () => {
+  const head = usePopIn<HTMLDivElement>();
+  const socials = usePopIn<HTMLDivElement>();
+  return (
   <section id="contato" className="relative py-24 md:py-32 overflow-hidden">
     <div className="absolute inset-0 bg-gradient-radial opacity-50" />
     <div className="container relative">
-      <div className="text-center mb-16">
+      <div ref={head.ref} className={`${head.className} text-center mb-16`}>
         <h2 className="font-display text-6xl md:text-9xl leading-[0.85] text-white">
           É US GURI DO FLAMA
         </h2>
@@ -51,7 +54,7 @@ export const Contact = () => (
         </ContactCard>
       </div>
 
-      <div className="mt-16 flex justify-center gap-4">
+      <div ref={socials.ref} className={`${socials.className} mt-16 flex justify-center gap-4`}>
         {[Instagram, Youtube, MessageCircle].map((Icon, i) => (
           <a
             key={i}
@@ -79,3 +82,4 @@ export const Contact = () => (
     </footer>
   </section>
 );
+};

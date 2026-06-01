@@ -6,19 +6,21 @@ import { useAuth } from "@/hooks/useAuth";
 
 export const Community = () => {
   const pop = usePopIn<HTMLDivElement>();
+  const head = usePopIn<HTMLHeadingElement>();
+  const img = usePopIn<HTMLDivElement>();
   const { user } = useAuth();
   return (
     <section id="community" className="relative py-24 md:py-32 overflow-hidden bg-primary text-white">
       <div className="container relative">
         <div className="mb-14 text-center">
-          <h2 className="font-display text-5xl md:text-7xl leading-[0.9] text-white">
+          <h2 ref={head.ref} className={`${head.className} font-display text-5xl md:text-7xl leading-[0.9] text-white`}>
             COMMUNITY
           </h2>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-10 items-center">
           {/* Image left, blended */}
-          <div className="relative">
+          <div ref={img.ref} className={`${img.className} relative`}>
             <img
               src={communityBg}
               alt="Comunidade Flama"
