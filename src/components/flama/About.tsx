@@ -4,7 +4,6 @@ import { usePopIn } from "@/hooks/usePopIn";
 export const About = () => {
   const head = usePopIn<HTMLHeadingElement>();
   const text = usePopIn<HTMLDivElement>();
-  const img = usePopIn<HTMLDivElement>();
   return (
   <section id="sobre" className="relative pt-24 md:pt-32 pb-0 overflow-hidden">
     <div className="container relative">
@@ -32,7 +31,7 @@ export const About = () => {
     </div>
 
     {/* Full-bleed image stretched edge-to-edge, flush with next section */}
-    <div ref={img.ref} className={`${img.className} w-screen relative left-1/2 -translate-x-1/2 mt-8 block`}>
+    <div className="w-screen relative left-1/2 -translate-x-1/2 mt-8 block bg-primary">
       <img
         src={flamaGroup}
         alt="Galera FLAMA"
