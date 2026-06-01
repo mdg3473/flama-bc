@@ -2,10 +2,9 @@ import { Navbar } from "@/components/flama/Navbar";
 import { Hero } from "@/components/flama/Hero";
 import { Marquee } from "@/components/flama/Marquee";
 import { About } from "@/components/flama/About";
-import { Devotional } from "@/components/flama/Devotional";
 import { Community } from "@/components/flama/Community";
 import { Contact } from "@/components/flama/Contact";
-import balloonsBg from "@/assets/balloons-bg.jpg";
+import bgImg from "@/assets/flama-running.png.asset.json";
 
 const Index = () => {
   return (
@@ -14,7 +13,7 @@ const Index = () => {
       <div
         aria-hidden="true"
         className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${balloonsBg})` }}
+        style={{ backgroundImage: `url(${bgImg.url})` }}
       />
       {/* No overlay — keep balloons image fully visible */}
 
@@ -22,7 +21,6 @@ const Index = () => {
       <Hero />
       <Marquee />
       <About />
-      <Devotional />
       <Community />
       <Contact />
     </main>
