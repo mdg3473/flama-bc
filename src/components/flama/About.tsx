@@ -6,6 +6,9 @@ export const About = () => {
   const text = usePopIn<HTMLDivElement>();
   return (
   <section id="sobre" className="relative pt-24 md:pt-32 pb-0 overflow-hidden">
+    {/* Dark overlay for background readability */}
+    <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/30 pointer-events-none" />
+
     <div className="container relative">
       <h2 ref={head.ref} className={`${head.className} font-display text-5xl md:text-7xl leading-[0.9] mb-12 text-center text-white`}>
         QUEM NÓS <span className="text-primary">SOMOS</span>
