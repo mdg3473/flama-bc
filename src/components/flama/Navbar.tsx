@@ -38,7 +38,7 @@ export const Navbar = () => {
         scrolled ? "bg-primary border-b border-primary" : "bg-transparent"
       }`}
     >
-      <nav className="container relative flex items-center justify-between py-4">
+      <nav className="container relative z-50 flex items-center justify-between py-4">
         {user ? (
           <button onClick={() => setProfileOpen(true)} aria-label="Perfil" className="relative z-10">
             <Avatar className="h-10 w-10 border-2 border-white">
@@ -58,7 +58,7 @@ export const Navbar = () => {
         </a>
         <button
           aria-label="menu"
-          className={`transition-colors ${
+          className={`relative z-50 transition-colors ${
             scrolled ? "text-white" : "text-background drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
           }`}
           onClick={() => setOpen(!open)}
