@@ -68,8 +68,8 @@ export const Navbar = () => {
       </nav>
 
       {open && (
-        <div className="bg-background/95 backdrop-blur-lg border-t border-border">
-          <ul className="container py-6 flex flex-col gap-4">
+        <div className={`bg-primary ${scrolled ? "border-t border-primary" : "fixed inset-0 top-0 z-40 pt-20"}`}>
+          <ul className="container py-6 flex flex-col gap-4 text-primary-foreground">
             {links.map((l) => {
               const Icon = l.icon;
               return (
@@ -77,7 +77,7 @@ export const Navbar = () => {
                   <a
                     href={l.href}
                     onClick={() => setOpen(false)}
-                    className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider hover:text-primary"
+                    className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider hover:opacity-80"
                   >
                     <Icon size={26} /> {l.label}
                   </a>
@@ -88,7 +88,7 @@ export const Navbar = () => {
               <Link
                 to="/loja"
                 onClick={() => setOpen(false)}
-                className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider text-foreground hover:text-primary"
+                className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider hover:opacity-80"
               >
                 <ShoppingBag size={26} /> Loja
               </Link>
@@ -97,7 +97,7 @@ export const Navbar = () => {
               <Link
                 to="/devocional"
                 onClick={() => setOpen(false)}
-                className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider text-foreground hover:text-primary"
+                className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider hover:opacity-80"
               >
                 <BookOpen size={26} /> Devocional
               </Link>
@@ -106,7 +106,7 @@ export const Navbar = () => {
               <Link
                 to="/momentos"
                 onClick={() => setOpen(false)}
-                className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider text-foreground hover:text-primary"
+                className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider hover:opacity-80"
               >
                 <ImageIcon size={26} /> Galeria
               </Link>
@@ -115,7 +115,7 @@ export const Navbar = () => {
               <Link
                 to="/mensagens"
                 onClick={() => setOpen(false)}
-                className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider text-foreground hover:text-primary"
+                className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider hover:opacity-80"
               >
                 <Youtube size={26} /> Shorts
               </Link>
@@ -124,7 +124,7 @@ export const Navbar = () => {
               <a
                 href="#contato"
                 onClick={() => setOpen(false)}
-                className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider hover:text-primary"
+                className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider hover:opacity-80"
               >
                 <Mail size={26} /> Contato
               </a>
