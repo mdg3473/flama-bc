@@ -8,7 +8,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ProfileDialog } from "@/components/ProfileDialog";
 
 const links = [
-  { href: "#sobre", label: "Sobre", icon: Info },
   { href: "#community", label: "Community", icon: Users },
 ];
 
@@ -70,6 +69,15 @@ export const Navbar = () => {
       {open && (
         <div className={`bg-primary ${scrolled ? "border-t border-primary" : "fixed inset-0 top-0 z-40 pt-20"}`}>
           <ul className="container py-6 flex flex-col gap-4 text-primary-foreground">
+            <li>
+              <Link
+                to="/sobre"
+                onClick={() => setOpen(false)}
+                className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider hover:opacity-80"
+              >
+                <Info size={26} /> Sobre
+              </Link>
+            </li>
             {links.map((l) => {
               const Icon = l.icon;
               return (
