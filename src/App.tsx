@@ -12,6 +12,7 @@ import Loja from "./pages/Loja.tsx";
 import Momentos from "./pages/Momentos.tsx";
 import Mensagens from "./pages/Mensagens.tsx";
 import Devocional from "./pages/Devocional.tsx";
+import Sobre from "./pages/Sobre.tsx";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/momentos" element={<Momentos />} />
           <Route path="/mensagens" element={<Mensagens />} />
           <Route path="/devocional" element={<Devocional />} />
+          <Route path="/sobre" element={<Sobre />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
