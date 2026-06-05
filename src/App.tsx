@@ -13,6 +13,7 @@ import Momentos from "./pages/Momentos.tsx";
 import Mensagens from "./pages/Mensagens.tsx";
 import Devocional from "./pages/Devocional.tsx";
 import Sobre from "./pages/Sobre.tsx";
+import Contato from "./pages/Contato.tsx";
 
 const queryClient = new QueryClient();
 
