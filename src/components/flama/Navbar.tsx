@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X, ShoppingBag, Image as ImageIcon, Youtube, BookOpen, Info, Users, Mail } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import flamaLogo from "@/assets/flama-logo.png";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
@@ -8,7 +8,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ProfileDialog } from "@/components/ProfileDialog";
 
 const links = [
-  { href: "#community", label: "Community", icon: Users },
+  { to: "/comunidade", label: "Community", icon: Users },
 ];
 
 export const Navbar = () => {
@@ -18,6 +18,8 @@ export const Navbar = () => {
   const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
   const [name, setName] = useState("");
   const [profileOpen, setProfileOpen] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === "/";
 
   useEffect(() => {
     if (!user) { setAvatarUrl(null); setName(""); return; }
@@ -31,6 +33,8 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const showRedBar = !isHome || scrolled || open;
+
   const handleNav = () => {
     setOpen(false);
     setScrolled(true);
@@ -39,7 +43,7 @@ export const Navbar = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-primary border-b border-primary" : "bg-transparent"
+        showRedBar ? "bg-primary border-b border-primary" : "bg-transparent"
       }`}
     >
       <nav className="container relative z-50 flex items-center justify-between py-4">
@@ -53,17 +57,18 @@ export const Navbar = () => {
         ) : (
           <span aria-hidden className="w-7" />
         )}
-        <a
-          href="#top"
-          className={`absolute left-1/2 -translate-x-1/2 flex items-center transition-opacity ${scrolled ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+        <Link
+          to="/"
+          onClick={() => { setOpen(false); }}
+          className={`absolute left-1/2 -translate-x-1/2 flex items-center transition-opacity ${showRedBar ? "opacity-100" : "opacity-0 pointer-events-none"}`}
           aria-label="FLAMA"
         >
           <img src={flamaLogo} alt="FLAMA" className="h-14 md:h-16 w-auto object-contain [filter:brightness(0)_invert(1)]" />
-        </a>
+        </Link>
         <button
           aria-label="menu"
           className={`relative z-50 transition-colors ${
-            scrolled ? "text-white" : "text-background drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
+            showRedBar ? "text-white" : "text-background drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
           }`}
           onClick={() => setOpen(!open)}
         >
@@ -72,7 +77,7 @@ export const Navbar = () => {
       </nav>
 
       {open && (
-        <div className={`bg-primary ${scrolled ? "border-t border-primary" : "fixed inset-0 top-0 z-40 pt-20"}`}>
+        <div className={`bg-primary ${showRedBar ? "border-t border-primary" : "fixed inset-0 top-0 z-40 pt-20"}`}>
           <ul className="container py-6 flex flex-col gap-4 text-primary-foreground">
             <li>
               <Link
@@ -86,14 +91,14 @@ export const Navbar = () => {
             {links.map((l) => {
               const Icon = l.icon;
               return (
-                <li key={l.href}>
-                  <a
-                    href={l.href}
+                <li key={l.to}>
+                  <Link
+                    to={l.to}
                     onClick={handleNav}
                     className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider hover:opacity-80"
                   >
                     <Icon size={26} /> {l.label}
-                  </a>
+                  </Link>
                 </li>
               );
             })}
@@ -134,13 +139,13 @@ export const Navbar = () => {
               </Link>
             </li>
             <li>
-              <a
-                href="#contato"
+              <Link
+                to="/contato"
                 onClick={handleNav}
                 className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider hover:opacity-80"
               >
                 <Mail size={26} /> Contato
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
