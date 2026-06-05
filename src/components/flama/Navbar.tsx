@@ -31,6 +31,11 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const handleNav = () => {
+    setOpen(false);
+    setScrolled(true);
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -72,7 +77,7 @@ export const Navbar = () => {
             <li>
               <Link
                 to="/sobre"
-                onClick={() => setOpen(false)}
+                onClick={handleNav}
                 className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider hover:opacity-80"
               >
                 <Info size={26} /> Sobre
@@ -84,7 +89,7 @@ export const Navbar = () => {
                 <li key={l.href}>
                   <a
                     href={l.href}
-                    onClick={() => setOpen(false)}
+                    onClick={handleNav}
                     className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider hover:opacity-80"
                   >
                     <Icon size={26} /> {l.label}
@@ -95,7 +100,7 @@ export const Navbar = () => {
             <li>
               <Link
                 to="/loja"
-                onClick={() => setOpen(false)}
+                onClick={handleNav}
                 className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider hover:opacity-80"
               >
                 <ShoppingBag size={26} /> Loja
@@ -104,7 +109,7 @@ export const Navbar = () => {
             <li>
               <Link
                 to="/devocional"
-                onClick={() => setOpen(false)}
+                onClick={handleNav}
                 className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider hover:opacity-80"
               >
                 <BookOpen size={26} /> Devocional
@@ -113,7 +118,7 @@ export const Navbar = () => {
             <li>
               <Link
                 to="/momentos"
-                onClick={() => setOpen(false)}
+                onClick={handleNav}
                 className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider hover:opacity-80"
               >
                 <ImageIcon size={26} /> Galeria
@@ -122,7 +127,7 @@ export const Navbar = () => {
             <li>
               <Link
                 to="/mensagens"
-                onClick={() => setOpen(false)}
+                onClick={handleNav}
                 className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider hover:opacity-80"
               >
                 <Youtube size={26} /> Shorts
@@ -131,7 +136,7 @@ export const Navbar = () => {
             <li>
               <a
                 href="#contato"
-                onClick={() => setOpen(false)}
+                onClick={handleNav}
                 className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider hover:opacity-80"
               >
                 <Mail size={26} /> Contato
