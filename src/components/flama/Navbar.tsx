@@ -43,7 +43,7 @@ export const Navbar = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        showRedBar ? "bg-primary border-b border-primary" : "bg-transparent"
+        showRedBar ? "bg-primary" : "bg-transparent"
       }`}
     >
       <nav className="container relative z-50 flex items-center justify-between py-4">
