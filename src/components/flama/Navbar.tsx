@@ -77,7 +77,7 @@ export const Navbar = () => {
       </nav>
 
       {open && (
-        <div className={`bg-primary ${showRedBar ? "border-t border-primary" : "fixed inset-0 top-0 z-40 pt-20"}`}>
+        <div className={`bg-primary ${showRedBar ? "" : "fixed inset-0 top-0 z-40 pt-20"}`}>
           <ul className="container py-6 flex flex-col gap-4 text-primary-foreground">
             <li>
               <Link
