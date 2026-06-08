@@ -4,7 +4,7 @@ import { usePopIn } from "@/hooks/usePopIn";
 export const Gallery = () => {
   const pop = usePopIn<HTMLDivElement>();
   return (
-    <section id="galeria" className="relative py-24 md:py-32 border-y border-border">
+    <section id="galeria" className="relative py-24 md:py-32">
       <div className="container">
         <div className="mb-14 text-center">
           <h2 className="font-display text-5xl md:text-7xl leading-[0.9] text-white">
