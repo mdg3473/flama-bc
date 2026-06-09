@@ -95,9 +95,7 @@ const Comunidade = () => {
     const missing = Array.from(new Set(messages.map((m) => m.user_id))).filter((id) => !profiles[id]);
     if (missing.length === 0) return;
     supabase
-      .from("profiles")
-      .select("id, full_name, avatar_url, grade")
-      .in("id", missing)
+      .rpc("get_public_profiles", { _ids: missing })
       .then(({ data }) => {
         if (!data) return;
         setProfiles((p) => {
