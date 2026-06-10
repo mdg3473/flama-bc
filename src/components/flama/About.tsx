@@ -1,9 +1,33 @@
 import flamaGroup from "@/assets/flama-group.png";
 import { usePopIn } from "@/hooks/usePopIn";
+import { useEffect, useRef, useState } from "react";
 
 export const About = () => {
   const head = usePopIn<HTMLHeadingElement>();
   const text = usePopIn<HTMLDivElement>();
+  const imgWrapRef = useRef<HTMLDivElement>(null);
+  const [offset, setOffset] = useState(0);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const el = imgWrapRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const vh = window.innerHeight;
+      // Start moving when the image enters the viewport, stop when it leaves the top
+      const progress = Math.min(Math.max((vh - rect.top) / (vh + rect.height), 0), 1);
+      // Translate upward up to 140px as the user scrolls past it
+      setOffset(progress * 140);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+
   return (
   <section id="sobre" className="relative pt-24 md:pt-32 pb-0 overflow-hidden">
     {/* Dark overlay for background readability */}
@@ -34,11 +58,15 @@ export const About = () => {
     </div>
 
     {/* Full-bleed image stretched edge-to-edge, flush with next section */}
-    <div className="w-screen relative left-1/2 -translate-x-1/2 mt-8 block bg-primary">
+    <div
+      ref={imgWrapRef}
+      className="w-screen relative left-1/2 -translate-x-1/2 mt-8 block bg-primary overflow-hidden"
+    >
       <img
         src={flamaGroup}
         alt="Galera FLAMA"
-        className="w-full h-[420px] md:h-[580px] object-cover block align-bottom"
+        style={{ transform: `translate3d(0, ${-offset}px, 0)`, willChange: "transform" }}
+        className="w-full h-[420px] md:h-[580px] object-cover block align-bottom transition-transform duration-100 ease-out"
       />
     </div>
   </section>
