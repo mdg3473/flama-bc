@@ -49,9 +49,9 @@ export const Navbar = () => {
       <nav className="container relative z-50 flex items-center justify-between py-4">
         {user ? (
           <button onClick={() => setProfileOpen(true)} aria-label="Perfil" className="relative z-10">
-            <Avatar className="h-10 w-10 border-2 border-white">
+            <Avatar className="h-10 w-10 border-2 border-white bg-transparent">
               {avatarUrl && <AvatarImage src={avatarUrl} />}
-              <AvatarFallback>{name.split(" ").map(s => s[0]).slice(0,2).join("").toUpperCase() || "?"}</AvatarFallback>
+              <AvatarFallback className="bg-transparent text-transparent" />
             </Avatar>
           </button>
         ) : (
