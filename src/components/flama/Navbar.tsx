@@ -1,24 +1,31 @@
 import { useEffect, useState } from "react";
-import { Menu, X, ShoppingBag, Image as ImageIcon, Youtube, BookOpen, Info, Users, Mail } from "lucide-react";
-import { Link, useLocation } from "react-router-dom";
+import { ShoppingBag, Image as ImageIcon, Youtube, BookOpen, Info, Users, Mail, LogIn, LogOut } from "lucide-react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import flamaLogo from "@/assets/flama-logo.png";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { ProfileDialog } from "@/components/ProfileDialog";
+import { toast } from "@/hooks/use-toast";
 
-const links = [
+const navItems = [
+  { to: "/sobre", label: "Sobre", icon: Info },
   { to: "/comunidade", label: "Community", icon: Users },
+  { to: "/loja", label: "Loja", icon: ShoppingBag },
+  { to: "/devocional", label: "Devocional", icon: BookOpen },
+  { to: "/momentos", label: "Galeria", icon: ImageIcon },
+  { to: "/mensagens", label: "Shorts", icon: Youtube },
+  { to: "/contato", label: "Contato", icon: Mail },
 ];
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
   const { user } = useAuth();
   const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
   const [name, setName] = useState("");
   const [profileOpen, setProfileOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
   const isHome = location.pathname === "/";
 
   useEffect(() => {
@@ -33,124 +40,88 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const showRedBar = !isHome || scrolled || open;
+  const showRedBar = !isHome || scrolled;
 
-  const handleNav = () => {
-    setOpen(false);
-    setScrolled(true);
+  const handleLogout = async () => {
+    await supabase.auth.signOut();
+    toast({ title: "Até logo!" });
+    navigate("/");
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        showRedBar ? "bg-primary" : "bg-transparent"
-      }`}
-    >
-      <nav className="container relative z-50 flex items-center justify-between py-4">
-        {user ? (
-          <button onClick={() => setProfileOpen(true)} aria-label="Perfil" className="relative z-10">
-            <Avatar className="h-10 w-10 border-2 border-white bg-transparent">
-              {avatarUrl && <AvatarImage src={avatarUrl} />}
-              <AvatarFallback className="bg-transparent text-transparent" />
-            </Avatar>
-          </button>
-        ) : (
-          <span aria-hidden className="w-7" />
-        )}
-        <Link
-          to="/"
-          onClick={() => { setOpen(false); }}
-          className={`absolute left-1/2 -translate-x-1/2 flex items-center transition-opacity ${showRedBar ? "opacity-100" : "opacity-0 pointer-events-none"}`}
-          aria-label="FLAMA"
-        >
-          <img src={flamaLogo} alt="FLAMA" className="h-14 md:h-16 w-auto object-contain [filter:brightness(0)_invert(1)]" />
-        </Link>
-        <button
-          aria-label="menu"
-          className={`relative z-50 transition-colors ${
-            showRedBar ? "text-white" : "text-background drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)]"
-          }`}
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <X size={28} /> : <Menu size={28} />}
-        </button>
-      </nav>
+    <>
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          showRedBar ? "bg-primary" : "bg-transparent"
+        }`}
+      >
+        <nav className="container relative z-50 flex items-center justify-between py-4">
+          {user ? (
+            <button onClick={() => setProfileOpen(true)} aria-label="Perfil" className="relative z-10">
+              <Avatar className="h-10 w-10 border-2 border-white bg-transparent">
+                {avatarUrl && <AvatarImage src={avatarUrl} />}
+                <AvatarFallback className="bg-transparent text-transparent" />
+              </Avatar>
+            </button>
+          ) : (
+            <span aria-hidden className="w-7" />
+          )}
+          <Link
+            to="/"
+            className={`absolute left-1/2 -translate-x-1/2 flex items-center transition-opacity ${showRedBar ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+            aria-label="FLAMA"
+          >
+            <img src={flamaLogo} alt="FLAMA" className="h-14 md:h-16 w-auto object-contain [filter:brightness(0)_invert(1)]" />
+          </Link>
+          <span aria-hidden className="w-10" />
+        </nav>
+        {user && <ProfileDialog open={profileOpen} onOpenChange={setProfileOpen} userId={user.id} />}
+      </header>
 
-      {open && (
-        <div className={`bg-primary ${showRedBar ? "" : "fixed inset-0 top-0 z-40 pt-20"}`}>
-          <ul className="container py-6 flex flex-col gap-4 text-primary-foreground">
-            <li>
+      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 px-3 max-w-[calc(100vw-1rem)]">
+        <nav className="flex items-center gap-1 sm:gap-2 bg-primary text-primary-foreground rounded-full shadow-xl px-3 py-2 border border-white/10">
+          {navItems.map((item) => {
+            const Icon = item.icon;
+            const active = location.pathname === item.to;
+            return (
               <Link
-                to="/sobre"
-                onClick={handleNav}
-                className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider hover:opacity-80"
+                key={item.to}
+                to={item.to}
+                aria-label={item.label}
+                title={item.label}
+                className={`flex flex-col items-center justify-center rounded-full transition-all px-2.5 py-1.5 sm:px-3 hover:bg-white/15 ${
+                  active ? "bg-white/20" : ""
+                }`}
               >
-                <Info size={26} /> Sobre
+                <Icon size={20} />
+                <span className="hidden sm:block text-[10px] mt-0.5 tracking-wide uppercase">{item.label}</span>
               </Link>
-            </li>
-            {links.map((l) => {
-              const Icon = l.icon;
-              return (
-                <li key={l.to}>
-                  <Link
-                    to={l.to}
-                    onClick={handleNav}
-                    className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider hover:opacity-80"
-                  >
-                    <Icon size={26} /> {l.label}
-                  </Link>
-                </li>
-              );
-            })}
-            <li>
-              <Link
-                to="/loja"
-                onClick={handleNav}
-                className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider hover:opacity-80"
-              >
-                <ShoppingBag size={26} /> Loja
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/devocional"
-                onClick={handleNav}
-                className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider hover:opacity-80"
-              >
-                <BookOpen size={26} /> Devocional
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/momentos"
-                onClick={handleNav}
-                className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider hover:opacity-80"
-              >
-                <ImageIcon size={26} /> Galeria
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/mensagens"
-                onClick={handleNav}
-                className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider hover:opacity-80"
-              >
-                <Youtube size={26} /> Shorts
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/contato"
-                onClick={handleNav}
-                className="flex items-center gap-3 py-2 font-display text-2xl tracking-wider hover:opacity-80"
-              >
-                <Mail size={26} /> Contato
-              </Link>
-            </li>
-          </ul>
-        </div>
-      )}
-      {user && <ProfileDialog open={profileOpen} onOpenChange={setProfileOpen} userId={user.id} />}
-    </header>
+            );
+          })}
+          <span className="w-px h-8 bg-white/25 mx-1" />
+          {user ? (
+            <button
+              onClick={handleLogout}
+              aria-label="Sair"
+              title="Sair"
+              className="flex flex-col items-center justify-center rounded-full transition-all px-2.5 py-1.5 sm:px-3 hover:bg-white/15"
+            >
+              <LogOut size={20} />
+              <span className="hidden sm:block text-[10px] mt-0.5 tracking-wide uppercase">Sair</span>
+            </button>
+          ) : (
+            <Link
+              to="/auth"
+              aria-label="Entrar"
+              title="Entrar"
+              className="flex flex-col items-center justify-center rounded-full transition-all px-2.5 py-1.5 sm:px-3 hover:bg-white/15"
+            >
+              <LogIn size={20} />
+              <span className="hidden sm:block text-[10px] mt-0.5 tracking-wide uppercase">Entrar</span>
+            </Link>
+          )}
+        </nav>
+      </div>
+    </>
   );
 };
