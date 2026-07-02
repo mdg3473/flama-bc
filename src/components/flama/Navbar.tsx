@@ -78,7 +78,7 @@ export const Navbar = () => {
         {user && <ProfileDialog open={profileOpen} onOpenChange={setProfileOpen} userId={user.id} />}
       </header>
 
-      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 px-3 max-w-[calc(100vw-1rem)]">
+      <div className="fixed bottom-8 left-1/2 -translate-x-1/2 z-50 px-3 max-w-[calc(100vw-1rem)]">
         <nav className="flex items-center gap-1 sm:gap-2 bg-primary text-primary-foreground rounded-full shadow-xl px-3 py-2 border border-white/10">
           {navItems.map((item) => {
             const Icon = item.icon;
