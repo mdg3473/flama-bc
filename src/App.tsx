@@ -14,6 +14,8 @@ import Mensagens from "./pages/Mensagens.tsx";
 import Devocional from "./pages/Devocional.tsx";
 import Sobre from "./pages/Sobre.tsx";
 import Contato from "./pages/Contato.tsx";
+import MeusQRCodes from "./pages/MeusQRCodes.tsx";
+import Validar from "./pages/Validar.tsx";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +36,8 @@ const App = () => (
           <Route path="/devocional" element={<Devocional />} />
           <Route path="/sobre" element={<Sobre />} />
           <Route path="/contato" element={<Contato />} />
+          <Route path="/meus-qrcodes" element={<MeusQRCodes />} />
+          <Route path="/validar/:token" element={<Validar />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
