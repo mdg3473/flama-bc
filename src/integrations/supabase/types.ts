@@ -74,6 +74,42 @@ export type Database = {
         }
         Relationships: []
       }
+      purchases: {
+        Row: {
+          created_at: string
+          id: string
+          product_name: string
+          product_slug: string
+          redeemed_at: string | null
+          status: string
+          token: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          product_name: string
+          product_slug: string
+          redeemed_at?: string | null
+          status?: string
+          token?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          product_name?: string
+          product_slug?: string
+          redeemed_at?: string | null
+          status?: string
+          token?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
@@ -115,6 +151,19 @@ export type Database = {
           _user_id: string
         }
         Returns: boolean
+      }
+      redeem_purchase: { Args: { _token: string }; Returns: boolean }
+      validate_purchase: {
+        Args: { _token: string }
+        Returns: {
+          buyer_name: string
+          created_at: string
+          id: string
+          product_name: string
+          product_slug: string
+          redeemed_at: string
+          status: string
+        }[]
       }
     }
     Enums: {
