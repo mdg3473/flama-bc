@@ -20,7 +20,7 @@ const Devocional = () => {
         style={{ backgroundImage: `url(${bibleStickers})` }}
       />
       <div aria-hidden="true" className="fixed inset-0 -z-10 bg-white/40" />
-      <link rel="preload" as="image" href={bibleStickers} />
+      <img src={bibleStickers} alt="" aria-hidden="true" className="hidden" fetchPriority="high" />
       <Navbar />
       <section className="pt-32 pb-16">
         <div className="container">
