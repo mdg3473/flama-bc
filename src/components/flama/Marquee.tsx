@@ -5,7 +5,7 @@ const items = [
 ];
 
 export const Marquee = () => (
-  <div className="relative bg-primary text-white py-5 overflow-hidden border-y-2 border-primary mt-8">
+  <div className="relative bg-primary text-white py-5 overflow-hidden border-y-2 border-primary mt-16">
     <div className="marquee">
       {[...items, ...items, ...items, ...items, ...items, ...items].map((t, i) => (
         <div key={i} className="flex items-center gap-6 shrink-0">
