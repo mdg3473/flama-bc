@@ -13,20 +13,20 @@ const devocionais = [
 
 const Devocional = () => {
   return (
-    <main className="relative min-h-screen bg-white text-neutral-900">
+    <main className="relative min-h-screen text-neutral-900">
+      <div
+        aria-hidden="true"
+        className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url(${bibleStickers})` }}
+      />
+      <div aria-hidden="true" className="fixed inset-0 -z-10 bg-white/40" />
+      <img src={bibleStickers} alt="" aria-hidden="true" className="hidden" fetchPriority="high" />
       <Navbar />
       <section className="pt-32 pb-16">
         <div className="container">
-          <h1 className="font-display text-5xl md:text-7xl leading-[0.9] text-center text-primary mb-10">
+          <h1 className="font-display text-5xl md:text-7xl leading-[0.9] text-center text-primary mb-10 drop-shadow">
             DEVOCIONAL
           </h1>
-          <div className="max-w-3xl mx-auto">
-            <img
-              src={bibleStickers}
-              alt="Bíblia com adesivos"
-              className="w-full h-auto object-cover mix-blend-multiply"
-            />
-          </div>
         </div>
       </section>
 
