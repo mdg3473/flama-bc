@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/flama/Navbar";
-import bibleStickers from "@/assets/bible-stickers.jpg";
 import devocionalEp02 from "@/assets/devocional-ep02.pdf.asset.json";
+import bgVideo from "@/assets/bg-devocional.mp4.asset.json";
 
 const devocionais = [
   {
@@ -14,13 +14,17 @@ const devocionais = [
 const Devocional = () => {
   return (
     <main className="relative min-h-screen text-neutral-900">
-      <div
+      <video
         aria-hidden="true"
-        className="fixed inset-0 -z-10 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${bibleStickers})` }}
-      />
-      <div aria-hidden="true" className="fixed inset-0 -z-10 bg-white/40" />
-      <img src={bibleStickers} alt="" aria-hidden="true" className="hidden" fetchPriority="high" />
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        className="fixed inset-0 -z-10 w-full h-full object-cover"
+      >
+        <source src={bgVideo.url} type="video/mp4" />
+      </video>
       <Navbar />
       <section className="pt-32 pb-16">
         <div className="container">
