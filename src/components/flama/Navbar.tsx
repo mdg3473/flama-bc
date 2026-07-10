@@ -40,7 +40,7 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const showRedBar = !isHome || scrolled;
+  const showRedBar = !isHome || !scrolled;
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
