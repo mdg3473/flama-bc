@@ -21,7 +21,7 @@ const Devocional = () => {
         loop
         playsInline
         preload="auto"
-        className="fixed inset-0 -z-10 w-full h-full object-cover"
+        className="fixed inset-0 -z-10 w-full h-full object-contain bg-black"
       >
         <source src={bgVideo.url} type="video/mp4" />
       </video>
