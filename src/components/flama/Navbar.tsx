@@ -42,7 +42,6 @@ export const Navbar = () => {
 
   const showRedBar = !isHome || !scrolled;
 
-
   const handleLogout = async () => {
     await supabase.auth.signOut();
     toast({ title: "Até logo!" });
