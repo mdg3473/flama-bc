@@ -14,7 +14,10 @@ export const usePopIn = <T extends HTMLElement = HTMLDivElement>(
     const el = ref.current;
     if (!el) return;
     const obs = new IntersectionObserver(([entry]) => {
-      setActive(entry.isIntersecting);
+      if (entry.isIntersecting) {
+        setActive(true);
+        obs.disconnect();
+      }
     }, options);
     obs.observe(el);
     return () => obs.disconnect();
