@@ -6,6 +6,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
 import Gate from "./pages/Gate.tsx";
+import Countdown from "./pages/Countdown.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import Auth from "./pages/Auth.tsx";
 import Comunidade from "./pages/Comunidade.tsx";
@@ -32,7 +33,8 @@ const App = () => {
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={unlocked ? <Index /> : <Gate onUnlock={() => setUnlocked(true)} />} />
+          <Route path="/" element={unlocked ? <Countdown /> : <Gate onUnlock={() => setUnlocked(true)} />} />
+          <Route path="/home" element={<Index />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/comunidade" element={<Comunidade />} />
           <Route path="/admin" element={<Admin />} />
