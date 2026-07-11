@@ -1,9 +1,11 @@
+import { useState } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Index from "./pages/Index.tsx";
+import Gate from "./pages/Gate.tsx";
 import NotFound from "./pages/NotFound.tsx";
 import Auth from "./pages/Auth.tsx";
 import Comunidade from "./pages/Comunidade.tsx";
@@ -19,14 +21,18 @@ import Validar from "./pages/Validar.tsx";
 
 const queryClient = new QueryClient();
 
-const App = () => (
+const App = () => {
+  const [unlocked, setUnlocked] = useState(
+    () => typeof window !== "undefined" && sessionStorage.getItem("flama_gate") === "1"
+  );
+  return (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
+          <Route path="/" element={unlocked ? <Index /> : <Gate onUnlock={() => setUnlocked(true)} />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/comunidade" element={<Comunidade />} />
           <Route path="/admin" element={<Admin />} />
@@ -44,6 +50,7 @@ const App = () => (
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
-);
+  );
+};
 
 export default App;
