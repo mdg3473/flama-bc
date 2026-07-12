@@ -31,14 +31,14 @@ export const Contact = () => {
   const head = usePopIn<HTMLDivElement>();
   const socials = usePopIn<HTMLDivElement>();
   return (
-  <section id="contato" className="relative py-24 md:py-32 overflow-hidden">
+  <section id="contato" className="relative py-24 md:py-32 overflow-hidden bg-background text-foreground">
     <div className="absolute inset-0 bg-gradient-radial opacity-50" />
     <div className="container relative">
       <div ref={head.ref} className={`${head.className} text-center mb-16`}>
-        <h2 className="font-display text-6xl md:text-9xl leading-[0.85] text-white">
+        <h2 className="font-display text-6xl md:text-9xl leading-[0.85] text-foreground">
           É US GURI DO FLAMA
         </h2>
-        <p className="text-white mt-8 max-w-xl mx-auto text-lg">
+        <p className="text-muted-foreground mt-8 max-w-xl mx-auto text-lg">
           Toda sexta-feira à partir das 19:30
         </p>
       </div>
@@ -60,7 +60,7 @@ export const Contact = () => {
             key={i}
             href="#"
             aria-label="rede social"
-            className="h-14 w-14 flex items-center justify-center border-2 border-white text-white hover:border-primary hover:bg-primary hover:text-primary-foreground transition-all"
+            className="h-14 w-14 flex items-center justify-center border-2 border-foreground text-foreground hover:border-primary hover:bg-primary hover:text-primary-foreground transition-all"
           >
             <Icon size={20} />
           </a>
@@ -69,14 +69,14 @@ export const Contact = () => {
     </div>
 
     {/* Footer */}
-    <footer className="container mt-24 pt-8 border-t border-white/30 flex flex-col md:flex-row items-center justify-between gap-4">
+    <footer className="container mt-24 pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
       <div className="flex items-center gap-2">
-        <img src={flamaLogo} alt="FLAMA" width={80} height={48} className="h-8 w-auto object-contain [filter:brightness(0)_invert(1)]" />
-        <span className="mono text-xs text-white tracking-widest">
+        <img src={flamaLogo} alt="FLAMA" width={80} height={48} className="h-8 w-auto object-contain" />
+        <span className="mono text-xs text-muted-foreground tracking-widest">
           © {new Date().getFullYear()} FLAMA · MINISTÉRIO JOVEM
         </span>
       </div>
-      <span className="mono text-xs text-white tracking-widest">
+      <span className="mono text-xs text-muted-foreground tracking-widest">
         FEITO COM FOGO 🔥
       </span>
     </footer>
