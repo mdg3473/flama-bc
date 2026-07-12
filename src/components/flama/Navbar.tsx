@@ -101,7 +101,7 @@ export const Navbar = () => {
                   active ? "bg-white/20" : ""
                 }`}
               >
-                <Icon size={20} className="transition-transform duration-200 group-hover:scale-150" />
+                <Icon size={20} className="transition-transform duration-300 group-hover:scale-[2.5] group-hover:-translate-y-2" />
                 <span className="hidden sm:block text-[10px] mt-0.5 tracking-wide uppercase">{item.label}</span>
               </Link>
             );
@@ -114,7 +114,7 @@ export const Navbar = () => {
               title="Sair"
               className="group flex flex-col items-center justify-center rounded-full transition-all px-2.5 py-1.5 sm:px-3 hover:bg-white/15"
             >
-              <LogOut size={20} className="transition-transform duration-200 group-hover:scale-150" />
+              <LogOut size={20} className="transition-transform duration-300 group-hover:scale-[2.5] group-hover:-translate-y-2" />
               <span className="hidden sm:block text-[10px] mt-0.5 tracking-wide uppercase">Sair</span>
             </button>
           ) : (
@@ -124,7 +124,7 @@ export const Navbar = () => {
               title="Entrar"
               className="group flex flex-col items-center justify-center rounded-full transition-all px-2.5 py-1.5 sm:px-3 hover:bg-white/15"
             >
-              <LogIn size={20} className="transition-transform duration-200 group-hover:scale-150" />
+              <LogIn size={20} className="transition-transform duration-300 group-hover:scale-[2.5] group-hover:-translate-y-2" />
               <span className="hidden sm:block text-[10px] mt-0.5 tracking-wide uppercase">Entrar</span>
             </Link>
           )}
