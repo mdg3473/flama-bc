@@ -81,8 +81,10 @@ export const Navbar = () => {
       </header>
 
       <div
-        className={`fixed bottom-4 left-1/2 -translate-x-1/2 z-50 px-3 max-w-[calc(100vw-1rem)] transition-all duration-500 ${
-          showBottomNav ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8 pointer-events-none"
+        className={`fixed bottom-4 left-1/2 z-50 px-3 max-w-[calc(100vw-1rem)] transition-all duration-700 ${
+          showBottomNav
+            ? "opacity-100 -translate-x-1/2 translate-y-0 scale-100 [transition-timing-function:cubic-bezier(0.34,1.56,0.64,1)]"
+            : "opacity-0 -translate-x-1/2 translate-y-16 scale-75 pointer-events-none"
         }`}
       >
         <nav className="flex items-center gap-1 sm:gap-2 bg-primary text-primary-foreground rounded-full shadow-xl px-3 py-2 border border-white/10">
@@ -95,11 +97,11 @@ export const Navbar = () => {
                 to={item.to}
                 aria-label={item.label}
                 title={item.label}
-                className={`flex flex-col items-center justify-center rounded-full transition-all px-2.5 py-1.5 sm:px-3 hover:bg-white/15 ${
+                className={`group flex flex-col items-center justify-center rounded-full transition-all px-2.5 py-1.5 sm:px-3 hover:bg-white/15 ${
                   active ? "bg-white/20" : ""
                 }`}
               >
-                <Icon size={20} />
+                <Icon size={20} className="transition-transform duration-200 group-hover:scale-150" />
                 <span className="hidden sm:block text-[10px] mt-0.5 tracking-wide uppercase">{item.label}</span>
               </Link>
             );
@@ -110,9 +112,9 @@ export const Navbar = () => {
               onClick={handleLogout}
               aria-label="Sair"
               title="Sair"
-              className="flex flex-col items-center justify-center rounded-full transition-all px-2.5 py-1.5 sm:px-3 hover:bg-white/15"
+              className="group flex flex-col items-center justify-center rounded-full transition-all px-2.5 py-1.5 sm:px-3 hover:bg-white/15"
             >
-              <LogOut size={20} />
+              <LogOut size={20} className="transition-transform duration-200 group-hover:scale-150" />
               <span className="hidden sm:block text-[10px] mt-0.5 tracking-wide uppercase">Sair</span>
             </button>
           ) : (
@@ -120,9 +122,9 @@ export const Navbar = () => {
               to="/auth"
               aria-label="Entrar"
               title="Entrar"
-              className="flex flex-col items-center justify-center rounded-full transition-all px-2.5 py-1.5 sm:px-3 hover:bg-white/15"
+              className="group flex flex-col items-center justify-center rounded-full transition-all px-2.5 py-1.5 sm:px-3 hover:bg-white/15"
             >
-              <LogIn size={20} />
+              <LogIn size={20} className="transition-transform duration-200 group-hover:scale-150" />
               <span className="hidden sm:block text-[10px] mt-0.5 tracking-wide uppercase">Entrar</span>
             </Link>
           )}
