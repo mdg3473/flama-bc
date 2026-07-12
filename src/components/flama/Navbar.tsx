@@ -27,6 +27,7 @@ export const Navbar = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const isHome = location.pathname === "/";
+  const isIndex = location.pathname === "/home" || location.pathname === "/";
 
   useEffect(() => {
     if (!user) { setAvatarUrl(null); setName(""); return; }
@@ -40,7 +41,8 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const showRedBar = !isHome;
+  const showRedBar = !isHome && !(location.pathname === "/home");
+  const showBottomNav = !isIndex || scrolled;
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
@@ -78,7 +80,11 @@ export const Navbar = () => {
         {user && <ProfileDialog open={profileOpen} onOpenChange={setProfileOpen} userId={user.id} />}
       </header>
 
-      <div className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 px-3 max-w-[calc(100vw-1rem)]">
+      <div
+        className={`fixed bottom-4 left-1/2 -translate-x-1/2 z-50 px-3 max-w-[calc(100vw-1rem)] transition-all duration-500 ${
+          showBottomNav ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8 pointer-events-none"
+        }`}
+      >
         <nav className="flex items-center gap-1 sm:gap-2 bg-primary text-primary-foreground rounded-full shadow-xl px-3 py-2 border border-white/10">
           {navItems.map((item) => {
             const Icon = item.icon;
