@@ -76,7 +76,11 @@ export const Navbar = () => {
             }`}
             aria-label="FLAMA"
           >
-            <img src={flamaLogo} alt="FLAMA" className="h-14 md:h-16 w-auto object-contain [filter:brightness(0)_invert(1)]" />
+            <img
+              src={flamaLogo}
+              alt="FLAMA"
+              className="h-20 md:h-28 w-auto object-contain drop-shadow-[0_8px_24px_rgba(0,0,0,0.45)] [filter:brightness(0)_invert(1)]"
+            />
           </Link>
           <span aria-hidden className="w-10" />
         </nav>
