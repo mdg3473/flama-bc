@@ -71,7 +71,7 @@ export const Navbar = () => {
           )}
           <Link
             to="/"
-            className={`absolute left-1/2 -translate-x-1/2 flex items-center transition-all duration-500 ${
+            className={`absolute left-1/2 -translate-x-1/2 top-6 md:top-10 flex items-center transition-all duration-500 ${
               showLogo ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3 pointer-events-none"
             }`}
             aria-label="FLAMA"
@@ -79,7 +79,7 @@ export const Navbar = () => {
             <img
               src={flamaLogo}
               alt="FLAMA"
-              className="h-20 md:h-28 w-auto object-contain drop-shadow-[0_8px_24px_rgba(0,0,0,0.45)] [filter:brightness(0)_invert(1)]"
+              className="h-32 md:h-44 w-auto object-contain drop-shadow-[0_8px_24px_rgba(0,0,0,0.45)] [filter:brightness(0)_invert(1)]"
             />
           </Link>
           <span aria-hidden className="w-10" />
