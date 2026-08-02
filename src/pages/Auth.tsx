@@ -115,8 +115,8 @@ const Auth = () => {
 
   return (
     <main className="min-h-screen flex items-center justify-center p-4 bg-background">
-      <div className="w-full max-w-md bg-card border-2 border-border p-8 relative">
-        <div className="absolute -top-2 -left-2 right-2 bottom-2 border-2 border-primary -z-0" />
+      <div className="w-full max-w-md bg-card border-2 border-border rounded-3xl p-8 relative">
+        <div className="absolute -top-2 -left-2 right-2 bottom-2 border-2 border-primary rounded-3xl -z-0" />
         <div className="relative">
           <Link to="/" className="inline-flex items-center gap-2 mb-6 text-primary hover:opacity-80">
             <Flame size={20} /> <span className="mono text-xs tracking-widest">FLAMA</span>

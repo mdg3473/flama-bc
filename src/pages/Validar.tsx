@@ -82,7 +82,7 @@ const Validar = () => {
                 <p className="text-muted-foreground">Compra válida e confirmada.</p>
               </>
             )}
-            <div className="mt-8 border-2 border-border rounded-lg p-6 text-left space-y-2">
+            <div className="mt-8 border-2 border-border rounded-3xl p-6 text-left space-y-2">
               <div><span className="mono text-xs text-muted-foreground">PRODUTO</span><div className="font-display text-xl">{info.product_name}</div></div>
               {info.buyer_name && <div><span className="mono text-xs text-muted-foreground">COMPRADOR</span><div>{info.buyer_name}</div></div>}
               <div><span className="mono text-xs text-muted-foreground">DATA</span><div>{new Date(info.created_at).toLocaleString("pt-BR")}</div></div>
