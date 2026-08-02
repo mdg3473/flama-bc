@@ -12,7 +12,7 @@ export const Gallery = () => {
           </h2>
         </div>
 
-        <div ref={pop.ref} className={`${pop.className} relative aspect-square max-w-2xl mx-auto overflow-hidden border-2 border-border`}>
+        <div ref={pop.ref} className={`${pop.className} relative aspect-square max-w-2xl mx-auto overflow-hidden rounded-3xl border-2 border-border`}>
           <img
             src={balloonsBg}
             alt="FLAMA - Balões"
