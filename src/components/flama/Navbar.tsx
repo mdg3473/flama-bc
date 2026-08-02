@@ -43,6 +43,7 @@ export const Navbar = () => {
 
   const showRedBar = !isHome && !(location.pathname === "/home");
   const showBottomNav = !isIndex || scrolled;
+  const showLogo = showRedBar || (isIndex && scrolled);
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
@@ -70,7 +71,9 @@ export const Navbar = () => {
           )}
           <Link
             to="/"
-            className={`absolute left-1/2 -translate-x-1/2 flex items-center transition-opacity ${showRedBar ? "opacity-100" : "opacity-0 pointer-events-none"}`}
+            className={`absolute left-1/2 -translate-x-1/2 flex items-center transition-all duration-500 ${
+              showLogo ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-3 pointer-events-none"
+            }`}
             aria-label="FLAMA"
           >
             <img src={flamaLogo} alt="FLAMA" className="h-14 md:h-16 w-auto object-contain [filter:brightness(0)_invert(1)]" />
@@ -87,7 +90,7 @@ export const Navbar = () => {
             : "opacity-0 -translate-x-1/2 translate-y-16 scale-75 pointer-events-none"
         }`}
       >
-        <nav className="flex items-center gap-1 sm:gap-2 bg-primary text-primary-foreground rounded-full shadow-xl px-3 py-2 border border-white/10">
+        <nav className="flex items-center gap-1 sm:gap-2 bg-primary text-primary-foreground rounded-[1.5rem] shadow-xl px-3 py-2 border border-white/10">
           {navItems.map((item) => {
             const Icon = item.icon;
             const active = location.pathname === item.to;
@@ -97,7 +100,7 @@ export const Navbar = () => {
                 to={item.to}
                 aria-label={item.label}
                 title={item.label}
-                className={`group flex flex-col items-center justify-center rounded-full transition-all px-2.5 py-1.5 sm:px-3 hover:bg-white/15 ${
+                className={`group flex flex-col items-center justify-center rounded-2xl transition-all px-2.5 py-1.5 sm:px-3 hover:bg-white/15 ${
                   active ? "bg-white/20" : ""
                 }`}
               >
@@ -112,7 +115,7 @@ export const Navbar = () => {
               onClick={handleLogout}
               aria-label="Sair"
               title="Sair"
-              className="group flex flex-col items-center justify-center rounded-full transition-all px-2.5 py-1.5 sm:px-3 hover:bg-white/15"
+              className="group flex flex-col items-center justify-center rounded-2xl transition-all px-2.5 py-1.5 sm:px-3 hover:bg-white/15"
             >
               <LogOut size={20} className="transition-transform duration-300 group-hover:scale-[2.5] group-hover:-translate-y-2" />
               <span className="hidden sm:block text-[10px] mt-0.5 tracking-wide uppercase">Sair</span>
@@ -122,7 +125,7 @@ export const Navbar = () => {
               to="/auth"
               aria-label="Entrar"
               title="Entrar"
-              className="group flex flex-col items-center justify-center rounded-full transition-all px-2.5 py-1.5 sm:px-3 hover:bg-white/15"
+              className="group flex flex-col items-center justify-center rounded-2xl transition-all px-2.5 py-1.5 sm:px-3 hover:bg-white/15"
             >
               <LogIn size={20} className="transition-transform duration-300 group-hover:scale-[2.5] group-hover:-translate-y-2" />
               <span className="hidden sm:block text-[10px] mt-0.5 tracking-wide uppercase">Entrar</span>
