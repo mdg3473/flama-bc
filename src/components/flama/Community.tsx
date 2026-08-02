@@ -24,14 +24,14 @@ export const Community = () => {
             <img
               src={communityBg}
               alt="Comunidade Flama"
-              className="w-full h-auto object-cover"
+              className="w-full h-auto object-cover rounded-3xl"
             />
           </div>
 
           {/* Card right */}
           <div ref={pop.ref} className={`${pop.className} relative`}>
-            <div className="absolute -top-3 -left-3 right-3 bottom-3 border-2 border-primary -z-0" />
-            <div className="relative bg-card border-2 border-border p-8 md:p-12 text-foreground">
+            <div className="absolute -top-3 -left-3 right-3 bottom-3 border-2 border-primary rounded-3xl -z-0" />
+            <div className="relative bg-card border-2 border-border rounded-3xl p-8 md:p-12 text-foreground">
             <div className="flex items-center gap-3 mono text-xs text-muted-foreground mb-8 uppercase tracking-widest">
               <Sparkles size={14} className="text-primary" /> Em breve
             </div>
@@ -84,7 +84,7 @@ export const Community = () => {
               <div className="mt-10 flex flex-wrap gap-3">
                 <Link
                   to="/comunidade"
-                  className="mono text-xs px-5 py-3 bg-primary text-primary-foreground font-bold tracking-widest hover:bg-primary-glow transition-colors inline-flex items-center gap-2"
+                  className="mono text-xs px-5 py-3 rounded-full bg-primary text-primary-foreground font-bold tracking-widest hover:bg-primary-glow transition-colors inline-flex items-center gap-2"
                 >
                   ENTRAR NO CHAT <ArrowRight size={14} />
                 </Link>
@@ -94,7 +94,7 @@ export const Community = () => {
                 <div className="flex flex-wrap gap-3">
                   <Link
                     to="/auth?mode=login"
-                    className="mono text-xs px-5 py-3 bg-primary text-primary-foreground font-bold tracking-widest hover:bg-primary-glow transition-colors inline-flex items-center gap-2"
+                    className="mono text-xs px-5 py-3 rounded-full bg-primary text-primary-foreground font-bold tracking-widest hover:bg-primary-glow transition-colors inline-flex items-center gap-2"
                   >
                     LOGIN <ArrowRight size={14} />
                   </Link>

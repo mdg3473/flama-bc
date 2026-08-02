@@ -37,9 +37,9 @@ const SermonCard = ({ sermon: s, index }: { sermon: typeof sermons[number]; inde
     <article
       ref={pop.ref}
       style={{ transitionDelay: `${index * 100}ms` }}
-      className={`${pop.className} group relative overflow-hidden border-2 border-border hover:border-primary bg-background cursor-pointer transition-all`}
+      className={`${pop.className} group relative overflow-hidden rounded-3xl border-2 border-border hover:border-primary bg-background cursor-pointer transition-all`}
     >
-            <div className="relative aspect-[4/5] overflow-hidden">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
               <img
                 src={s.img}
                 alt={s.title}
@@ -55,7 +55,7 @@ const SermonCard = ({ sermon: s, index }: { sermon: typeof sermons[number]; inde
                 </div>
               </div>
               {s.tag && (
-                <span className="absolute top-4 left-4 mono text-xs px-3 py-1 bg-primary text-primary-foreground font-bold tracking-wider">
+                <span className="absolute top-4 left-4 mono text-xs px-3 py-1 rounded-full bg-primary text-primary-foreground font-bold tracking-wider">
                   {s.tag}
                 </span>
               )}
