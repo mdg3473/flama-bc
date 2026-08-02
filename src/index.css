@@ -42,7 +42,7 @@
     --input: 20 10% 88%;
     --ring: 354 70% 54%;
 
-    --radius: 0.25rem;
+    --radius: 1rem;
 
     /* Gradients */
     --gradient-flame: linear-gradient(135deg, hsl(var(--ember)) 0%, hsl(var(--primary)) 50%, hsl(var(--spark)) 100%);

@@ -121,14 +121,14 @@ const Admin = () => {
       <div className="container py-10 space-y-10">
         {/* Stats */}
         <div className="grid sm:grid-cols-2 gap-4">
-          <div className="bg-card border-2 border-border p-6 flex items-center gap-4">
+          <div className="bg-card border-2 border-border rounded-3xl p-6 flex items-center gap-4">
             <Users className="text-primary" size={36} />
             <div>
               <div className="mono text-xs uppercase tracking-widest text-muted-foreground">Cadastrados</div>
               <div className="font-display text-5xl leading-none">{profiles.length}</div>
             </div>
           </div>
-          <div className="bg-card border-2 border-border p-6 flex items-center gap-4">
+          <div className="bg-card border-2 border-border rounded-3xl p-6 flex items-center gap-4">
             <Wifi className="text-primary" size={36} />
             <div>
               <div className="mono text-xs uppercase tracking-widest text-muted-foreground">Online agora</div>
@@ -145,7 +145,7 @@ const Admin = () => {
           ) : (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
               {online.map((p) => (
-                <div key={p.id} className="bg-card border-2 border-border p-3 flex items-center gap-3">
+                <div key={p.id} className="bg-card border-2 border-border rounded-2xl p-3 flex items-center gap-3">
                   <div className="relative">
                     <Avatar className="h-10 w-10">
                       {p.avatar_url && <AvatarImage src={p.avatar_url} alt={p.full_name} />}
@@ -168,7 +168,7 @@ const Admin = () => {
         {/* All members */}
         <section>
           <h2 className="font-display text-3xl mb-4">TODOS OS CADASTROS</h2>
-          <div className="bg-card border-2 border-border overflow-x-auto">
+          <div className="bg-card border-2 border-border rounded-3xl overflow-hidden overflow-x-auto">
             <table className="w-full text-sm">
               <thead className="bg-muted">
                 <tr className="text-left">

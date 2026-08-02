@@ -60,13 +60,13 @@ export const About = () => {
     {/* Full-bleed image stretched edge-to-edge, flush with next section */}
     <div
       ref={imgWrapRef}
-      className="w-screen relative left-1/2 -translate-x-1/2 mt-8 block bg-primary overflow-hidden"
+      className="w-screen relative left-1/2 -translate-x-1/2 mt-8 block bg-primary overflow-hidden rounded-t-[2.5rem]"
     >
       <img
         src={flamaGroup}
         alt="Galera FLAMA"
         style={{ transform: `translate3d(0, ${-offset}px, 0)`, willChange: "transform" }}
-        className="w-full h-[420px] md:h-[580px] object-cover block align-bottom transition-transform duration-100 ease-out"
+        className="w-full h-[420px] md:h-[580px] object-cover block align-bottom rounded-t-[2.5rem] transition-transform duration-100 ease-out"
       />
     </div>
   </section>

@@ -154,7 +154,7 @@ const Comunidade = () => {
             <button
               key={c.id}
               onClick={() => { setChannel(c.id); setSidebarOpen(false); }}
-              className={`w-full flex items-center gap-2 px-3 py-2 text-left rounded transition-colors ${
+              className={`w-full flex items-center gap-2 px-3 py-2 text-left rounded-full transition-colors ${
                 channel === c.id ? "bg-primary text-primary-foreground" : "hover:bg-muted"
               }`}
             >

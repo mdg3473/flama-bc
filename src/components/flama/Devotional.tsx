@@ -19,7 +19,7 @@ export const Devotional = () => {
             <img
               src={bibleStickers}
               alt="Bíblia com adesivos"
-              className="w-full h-auto object-cover mix-blend-multiply"
+              className="w-full h-auto object-cover mix-blend-multiply rounded-3xl"
             />
           </div>
 
@@ -29,7 +29,7 @@ export const Devotional = () => {
               <div className="flex items-center justify-end gap-2 mono text-[10px] text-neutral-500 mb-4 uppercase tracking-widest">
                 <Calendar size={14} /> {today}
               </div>
-              <div className="mono text-xs text-white bg-primary inline-block px-2 py-1 mb-3">SALMOS 27:1</div>
+              <div className="mono text-xs text-white bg-primary rounded-full inline-block px-3 py-1 mb-3">SALMOS 27:1</div>
               <p className="font-display text-2xl md:text-3xl leading-tight mb-6 text-primary">
                 "O Senhor é a minha luz e a minha salvação; a quem temerei?"
               </p>
@@ -39,10 +39,10 @@ export const Devotional = () => {
                 <em> Deus é luz</em>. Quem caminha com Ele não tropeça no escuro.
               </p>
               <div className="flex flex-wrap gap-2 justify-end">
-                <a href="#" className="mono text-[10px] px-3 py-2 bg-neutral-900 text-white font-bold tracking-widest hover:bg-primary transition-colors">
+                <a href="#" className="mono text-[10px] px-4 py-2 rounded-full bg-neutral-900 text-white font-bold tracking-widest hover:bg-primary transition-colors">
                   ← ONTEM
                 </a>
-                <a href="#" className="mono text-[10px] px-3 py-2 bg-primary text-primary-foreground font-bold tracking-widest hover:bg-primary-glow transition-colors">
+                <a href="#" className="mono text-[10px] px-4 py-2 rounded-full bg-primary text-primary-foreground font-bold tracking-widest hover:bg-primary-glow transition-colors">
                   ARQUIVO COMPLETO
                 </a>
               </div>
