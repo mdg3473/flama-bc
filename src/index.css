@@ -66,6 +66,34 @@
   }
 }
 
+/* Discord-style dark scope used by the Community app */
+@layer base {
+  .dc {
+    --background: 223 7% 21%;      /* channel area */
+    --foreground: 220 13% 91%;
+    --card: 220 7% 17%;            /* sidebar */
+    --card-foreground: 220 13% 91%;
+    --popover: 220 8% 12%;
+    --popover-foreground: 220 13% 91%;
+    --secondary: 220 7% 26%;
+    --secondary-foreground: 220 13% 91%;
+    --muted: 220 7% 26%;
+    --muted-foreground: 218 5% 65%;
+    --accent: 220 7% 30%;
+    --accent-foreground: 0 0% 100%;
+    --border: 220 8% 14%;
+    --input: 220 8% 14%;
+    --ring: 354 70% 54%;
+    --dc-rail: 220 8% 10%;         /* server rail */
+    --dc-hover: 220 7% 25%;
+    --dc-active: 220 7% 30%;
+    --dc-online: 139 47% 44%;
+    --dc-idle: 38 96% 54%;
+    --dc-offline: 214 8% 47%;
+    --dc-mention: 354 70% 54%;
+  }
+}
+
 @layer base {
   * {
     @apply border-border;
