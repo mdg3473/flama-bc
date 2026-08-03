@@ -16,27 +16,44 @@ export type Database = {
     Tables: {
       messages: {
         Row: {
+          attachment_url: string | null
           channel: string
           content: string
           created_at: string
+          edited_at: string | null
           id: string
+          reply_to: string | null
           user_id: string
         }
         Insert: {
+          attachment_url?: string | null
           channel: string
           content: string
           created_at?: string
+          edited_at?: string | null
           id?: string
+          reply_to?: string | null
           user_id: string
         }
         Update: {
+          attachment_url?: string | null
           channel?: string
           content?: string
           created_at?: string
+          edited_at?: string | null
           id?: string
+          reply_to?: string | null
           user_id?: string
         }
-        Relationships: []
+        Relationships: [
+          {
+            foreignKeyName: "messages_reply_to_fkey"
+            columns: ["reply_to"]
+            isOneToOne: false
+            referencedRelation: "messages"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       profiles: {
         Row: {
