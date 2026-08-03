@@ -20,6 +20,7 @@ const navItems = [
 
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [pastIntro, setPastIntro] = useState(false);
   const { user } = useAuth();
   const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
   const [name, setName] = useState("");
@@ -36,14 +37,18 @@ export const Navbar = () => {
   }, [user, profileOpen]);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 20);
+      setPastIntro(window.scrollY > window.innerHeight * 1.05);
+    };
+    onScroll();
     window.addEventListener("scroll", onScroll);
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const showRedBar = !isHome && !(location.pathname === "/home");
+  const showRedBar = false;
   const showBottomNav = !isIndex || scrolled;
-  const showLogo = showRedBar || (isIndex && scrolled);
+  const showLogo = isIndex && scrolled && !pastIntro;
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
