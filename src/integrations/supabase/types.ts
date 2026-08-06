@@ -14,6 +14,45 @@ export type Database = {
   }
   public: {
     Tables: {
+      gallery_images: {
+        Row: {
+          content_type: string | null
+          created_at: string
+          height: number | null
+          id: string
+          path: string
+          size_bytes: number | null
+          title: string | null
+          updated_at: string
+          uploaded_by: string | null
+          width: number | null
+        }
+        Insert: {
+          content_type?: string | null
+          created_at?: string
+          height?: number | null
+          id?: string
+          path: string
+          size_bytes?: number | null
+          title?: string | null
+          updated_at?: string
+          uploaded_by?: string | null
+          width?: number | null
+        }
+        Update: {
+          content_type?: string | null
+          created_at?: string
+          height?: number | null
+          id?: string
+          path?: string
+          size_bytes?: number | null
+          title?: string | null
+          updated_at?: string
+          uploaded_by?: string | null
+          width?: number | null
+        }
+        Relationships: []
+      }
       messages: {
         Row: {
           attachment_url: string | null
