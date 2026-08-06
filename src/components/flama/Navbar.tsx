@@ -21,6 +21,7 @@ const navItems = [
 export const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [pastIntro, setPastIntro] = useState(false);
+  const [pastCommunity, setPastCommunity] = useState(false);
   const { user } = useAuth();
   const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
   const [name, setName] = useState("");
@@ -40,6 +41,10 @@ export const Navbar = () => {
     const onScroll = () => {
       setScrolled(window.scrollY > 20);
       setPastIntro(window.scrollY > window.innerHeight * 1.05);
+      const community = document.getElementById("community");
+      setPastCommunity(
+        !!community && community.getBoundingClientRect().top <= window.innerHeight * 0.6
+      );
     };
     onScroll();
     window.addEventListener("scroll", onScroll);
@@ -47,7 +52,7 @@ export const Navbar = () => {
   }, []);
 
   const showRedBar = false;
-  const showBottomNav = !isIndex || scrolled;
+  const showBottomNav = !isIndex || (scrolled && !pastCommunity);
   const showLogo = isIndex && scrolled && !pastIntro;
 
   const handleLogout = async () => {
