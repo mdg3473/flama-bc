@@ -180,11 +180,11 @@ export const Gallery = () => {
                   onClick={() => setLightbox(img)}
                 />
                 <div className="absolute bottom-2 right-2 flex gap-2 opacity-0 transition-opacity group-hover:opacity-100">
-                  <Button size="icon" className="rounded-full" onClick={() => download(img)} aria-label="Baixar">
+                  <Button size="icon" className="rounded-xl" onClick={() => download(img)} aria-label="Baixar">
                     <Download size={16} />
                   </Button>
                   {isAdmin && (
-                    <Button size="icon" variant="destructive" className="rounded-full" onClick={() => remove(img)} aria-label="Apagar">
+                    <Button size="icon" variant="destructive" className="rounded-xl" onClick={() => remove(img)} aria-label="Apagar">
                       <Trash2 size={16} />
                     </Button>
                   )}

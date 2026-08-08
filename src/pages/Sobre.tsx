@@ -46,7 +46,7 @@ const Sobre = () => {
               key={i}
               onClick={() => setSelectedLeader(i)}
               aria-label={`Líder ${i + 1}`}
-              className="aspect-square rounded-full bg-primary/80 hover:bg-primary hover:scale-110 transition-all duration-200 ring-1 ring-primary/40 hover:ring-2 hover:ring-primary"
+              className="aspect-square rounded-xl bg-primary/80 hover:bg-primary hover:scale-110 transition-all duration-200 ring-1 ring-primary/40 hover:ring-2 hover:ring-primary"
             />
           ))}
         </div>
