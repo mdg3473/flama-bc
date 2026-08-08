@@ -72,7 +72,7 @@ export const Shop = () => {
       <div className="mt-12 text-center">
         <button
           onClick={() => navigate("/meus-qrcodes")}
-          className="inline-flex items-center gap-3 px-8 py-4 rounded-full border-2 border-white text-white font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-background transition-colors"
+          className="inline-flex items-center gap-3 px-8 py-4 rounded-lg border-2 border-white text-white font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-background transition-colors"
         >
           Meus QR Codes
         </button>
@@ -130,7 +130,7 @@ const ProductCard = ({
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               {p.tag && (
-                <span className="absolute top-4 left-4 mono text-xs px-3 py-1 rounded-full bg-primary text-primary-foreground font-bold tracking-wider">
+                <span className="absolute top-4 left-4 mono text-xs px-3 py-1 rounded-lg bg-primary text-primary-foreground font-bold tracking-wider">
                   {p.tag}
                 </span>
               )}

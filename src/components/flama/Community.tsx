@@ -84,7 +84,7 @@ export const Community = () => {
               <div className="mt-10 flex flex-wrap gap-3">
                 <Link
                   to="/comunidade"
-                  className="mono text-xs px-5 py-3 rounded-full bg-primary text-primary-foreground font-bold tracking-widest hover:bg-primary-glow transition-colors inline-flex items-center gap-2"
+                  className="mono text-xs px-5 py-3 rounded-lg bg-primary text-primary-foreground font-bold tracking-widest hover:bg-primary-glow transition-colors inline-flex items-center gap-2"
                 >
                   ENTRAR NO CHAT <ArrowRight size={14} />
                 </Link>
@@ -94,7 +94,7 @@ export const Community = () => {
                 <div className="flex flex-wrap gap-3">
                   <Link
                     to="/auth?mode=login"
-                    className="mono text-xs px-5 py-3 rounded-full bg-primary text-primary-foreground font-bold tracking-widest hover:bg-primary-glow transition-colors inline-flex items-center gap-2"
+                    className="mono text-xs px-5 py-3 rounded-lg bg-primary text-primary-foreground font-bold tracking-widest hover:bg-primary-glow transition-colors inline-flex items-center gap-2"
                   >
                     LOGIN <ArrowRight size={14} />
                   </Link>

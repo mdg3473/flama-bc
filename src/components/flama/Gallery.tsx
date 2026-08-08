@@ -148,7 +148,7 @@ export const Gallery = () => {
               onChange={(e) => onUpload(e.target.files)}
             />
             <Button
-              className="rounded-full"
+              className="rounded-lg"
               disabled={!!uploading}
               onClick={() => fileRef.current?.click()}
             >
@@ -207,10 +207,10 @@ export const Gallery = () => {
             onClick={(e) => e.stopPropagation()}
           />
           <div className="absolute bottom-6 flex gap-3">
-            <Button className="rounded-full" onClick={(e) => { e.stopPropagation(); download(lightbox); }}>
+            <Button className="rounded-lg" onClick={(e) => { e.stopPropagation(); download(lightbox); }}>
               <Download size={16} /> Baixar original
             </Button>
-            <Button variant="secondary" className="rounded-full" onClick={() => setLightbox(null)}>
+            <Button variant="secondary" className="rounded-lg" onClick={() => setLightbox(null)}>
               <X size={16} /> Fechar
             </Button>
           </div>

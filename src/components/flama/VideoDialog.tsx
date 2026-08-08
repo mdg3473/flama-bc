@@ -169,7 +169,7 @@ export const VideoDialog = ({ open, onOpenChange, video, userId, onSaved }: Prop
                   key={o.v}
                   type="button"
                   variant={kind === o.v ? "default" : "secondary"}
-                  className="rounded-full"
+                  className="rounded-lg"
                   onClick={() => setKind(o.v)}
                 >
                   {o.l}
@@ -205,10 +205,10 @@ export const VideoDialog = ({ open, onOpenChange, video, userId, onSaved }: Prop
         </div>
 
         <DialogFooter>
-          <Button variant="secondary" className="rounded-full" onClick={() => onOpenChange(false)} disabled={saving}>
+          <Button variant="secondary" className="rounded-lg" onClick={() => onOpenChange(false)} disabled={saving}>
             Cancelar
           </Button>
-          <Button className="rounded-full" onClick={save} disabled={saving}>
+          <Button className="rounded-lg" onClick={save} disabled={saving}>
             {saving ? <><Loader2 className="animate-spin" size={16} /> Salvando…</> : <><Upload size={16} /> Salvar</>}
           </Button>
         </DialogFooter>
