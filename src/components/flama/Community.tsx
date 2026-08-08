@@ -24,14 +24,14 @@ export const Community = () => {
             <img
               src={communityBg}
               alt="Comunidade Flama"
-              className="w-full h-auto object-cover rounded-3xl"
+              className="w-full h-auto object-cover rounded-lg"
             />
           </div>
 
           {/* Card right */}
           <div ref={pop.ref} className={`${pop.className} relative`}>
-            <div className="absolute -top-3 -left-3 right-3 bottom-3 border-2 border-primary rounded-3xl -z-0" />
-            <div className="relative bg-card border-2 border-border rounded-3xl p-8 md:p-12 text-foreground">
+            <div className="absolute -top-3 -left-3 right-3 bottom-3 border-2 border-primary rounded-lg -z-0" />
+            <div className="relative bg-card border-2 border-border rounded-lg p-8 md:p-12 text-foreground">
             <div className="flex items-center gap-3 mono text-xs text-muted-foreground mb-8 uppercase tracking-widest">
               <Sparkles size={14} className="text-primary" /> Em breve
             </div>

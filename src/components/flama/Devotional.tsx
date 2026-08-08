@@ -19,7 +19,7 @@ export const Devotional = () => {
             <img
               src={bibleStickers}
               alt="Bíblia com adesivos"
-              className="w-full h-auto object-cover mix-blend-multiply rounded-3xl"
+              className="w-full h-auto object-cover mix-blend-multiply rounded-lg"
             />
           </div>
 

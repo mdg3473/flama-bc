@@ -236,14 +236,14 @@ const Comunidade = () => {
     <main className="dc h-[100dvh] w-full flex bg-background text-foreground overflow-hidden">
       {/* Server rail */}
       <div className="hidden md:flex w-[72px] shrink-0 flex-col items-center gap-2 bg-[hsl(var(--dc-rail))] py-3">
-        <Link to="/home" className="group relative grid h-12 w-12 place-items-center rounded-xl bg-primary transition-all hover:rounded-lg" title="FLAMA">
+        <Link to="/home" className="group relative grid h-12 w-12 place-items-center rounded-lg bg-primary transition-all hover:rounded-lg" title="FLAMA">
           <img src={flamaLogo} alt="FLAMA" className="h-8 w-8 object-contain [filter:brightness(0)_invert(1)]" />
         </Link>
         <div className="h-px w-8 bg-white/10" />
-        <Link to="/home" className="grid h-12 w-12 place-items-center rounded-xl bg-[hsl(var(--card))] text-muted-foreground transition-all hover:rounded-lg hover:bg-primary hover:text-primary-foreground" title="Voltar ao site">
+        <Link to="/home" className="grid h-12 w-12 place-items-center rounded-lg bg-[hsl(var(--card))] text-muted-foreground transition-all hover:rounded-lg hover:bg-primary hover:text-primary-foreground" title="Voltar ao site">
           <Home size={20} />
         </Link>
-        <button className="grid h-12 w-12 place-items-center rounded-xl bg-[hsl(var(--card))] text-[hsl(var(--dc-online))] transition-all hover:rounded-lg hover:bg-[hsl(var(--dc-online))] hover:text-white" title="Em breve">
+        <button className="grid h-12 w-12 place-items-center rounded-lg bg-[hsl(var(--card))] text-[hsl(var(--dc-online))] transition-all hover:rounded-lg hover:bg-[hsl(var(--dc-online))] hover:text-white" title="Em breve">
           <Plus size={20} />
         </button>
       </div>
@@ -413,7 +413,7 @@ const Comunidade = () => {
 
             <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-4">
               <div className="mb-6 pt-4">
-                <div className="mb-2 grid h-16 w-16 place-items-center rounded-2xl bg-[hsl(var(--dc-hover))]">
+                <div className="mb-2 grid h-16 w-16 place-items-center rounded-lg bg-[hsl(var(--dc-hover))]">
                   <Hash size={32} />
                 </div>
                 <h2 className="text-2xl font-bold">Bem-vindo ao #{channelLabel}</h2>
@@ -540,11 +540,11 @@ const Comunidade = () => {
                   className="mb-0.5 text-muted-foreground transition-colors hover:text-foreground">
                   <Smile size={20} />
                 </button>
-                <Button size="icon" className="mb-0.5 h-8 w-8 rounded-xl" disabled={sending || !text.trim()} onClick={() => void send()}>
+                <Button size="icon" className="mb-0.5 h-8 w-8 rounded-lg" disabled={sending || !text.trim()} onClick={() => void send()}>
                   <Send size={15} />
                 </Button>
                 {emojiOpen && (
-                  <div className="absolute bottom-14 right-0 z-20 grid w-64 grid-cols-7 gap-1 rounded-xl border border-border bg-popover p-2 shadow-xl">
+                  <div className="absolute bottom-14 right-0 z-20 grid w-64 grid-cols-7 gap-1 rounded-lg border border-border bg-popover p-2 shadow-xl">
                     {EMOJIS.map((e) => (
                       <button key={e} className="rounded-md p-1 text-xl hover:bg-[hsl(var(--dc-hover))]"
                         onClick={() => { setText((t) => t + e); setEmojiOpen(false); }}>

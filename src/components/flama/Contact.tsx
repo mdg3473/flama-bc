@@ -18,7 +18,7 @@ const ContactCard = ({
     <div
       ref={pop.ref}
       style={{ transitionDelay: `${index * 120}ms` }}
-      className={`${pop.className} p-8 rounded-3xl border-2 border-card bg-card hover:border-primary transition-colors`}
+      className={`${pop.className} p-8 rounded-lg border-2 border-card bg-card hover:border-primary transition-colors`}
     >
       <Icon className="h-8 w-8 text-primary mb-4" />
       <h3 className="font-display text-2xl tracking-wide mb-2 text-primary">{title}</h3>
@@ -59,7 +59,7 @@ export const Contact = () => {
             key={i}
             href="#"
             aria-label="rede social"
-            className="h-14 w-14 rounded-2xl flex items-center justify-center border-2 border-white text-white hover:bg-white hover:text-primary transition-all"
+            className="h-14 w-14 rounded-lg flex items-center justify-center border-2 border-white text-white hover:bg-white hover:text-primary transition-all"
           >
             <Icon size={20} />
           </a>

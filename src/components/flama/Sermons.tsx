@@ -119,7 +119,7 @@ export const Sermons = () => {
               controls
               autoPlay
               playsInline
-              className="max-h-[85vh] w-full max-w-5xl rounded-2xl"
+              className="max-h-[85vh] w-full max-w-5xl rounded-lg"
               onClick={(e) => e.stopPropagation()}
             />
           ) : playing.external_url ? (
@@ -128,7 +128,7 @@ export const Sermons = () => {
               title={playing.title}
               allow="autoplay; fullscreen; picture-in-picture"
               allowFullScreen
-              className="aspect-video w-full max-w-5xl rounded-2xl"
+              className="aspect-video w-full max-w-5xl rounded-lg"
               onClick={(e) => e.stopPropagation()}
             />
           ) : null}
@@ -173,9 +173,9 @@ const VideoCard = ({
     <article
       ref={pop.ref}
       style={{ transitionDelay: `${index * 100}ms` }}
-      className={`${pop.className} group relative overflow-hidden rounded-3xl border-2 border-border bg-background transition-all hover:border-primary`}
+      className={`${pop.className} group relative overflow-hidden rounded-lg border-2 border-border bg-background transition-all hover:border-primary`}
     >
-      <div className="relative aspect-[4/5] cursor-pointer overflow-hidden rounded-3xl bg-black" onClick={onPlay}>
+      <div className="relative aspect-[4/5] cursor-pointer overflow-hidden rounded-lg bg-black" onClick={onPlay}>
         {src ? (
           <video src={`${src}#t=1`} muted playsInline preload="metadata" className="h-full w-full object-cover" />
         ) : (
@@ -183,7 +183,7 @@ const VideoCard = ({
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
         <div className="absolute inset-0 flex items-center justify-center bg-background/30 opacity-0 transition-opacity group-hover:opacity-100">
-          <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-primary shadow-flame">
+          <div className="flex h-20 w-20 items-center justify-center rounded-lg bg-primary shadow-flame">
             <Play className="ml-1 h-8 w-8 fill-current text-primary-foreground" />
           </div>
         </div>
@@ -197,10 +197,10 @@ const VideoCard = ({
         )}
         {isAdmin && (
           <div className="absolute bottom-3 right-3 flex gap-2 opacity-0 transition-opacity group-hover:opacity-100">
-            <Button size="icon" className="rounded-xl" onClick={(e) => { e.stopPropagation(); onEdit(); }} aria-label="Editar">
+            <Button size="icon" className="rounded-lg" onClick={(e) => { e.stopPropagation(); onEdit(); }} aria-label="Editar">
               <Pencil size={16} />
             </Button>
-            <Button size="icon" variant="destructive" className="rounded-xl" onClick={(e) => { e.stopPropagation(); onDelete(); }} aria-label="Apagar">
+            <Button size="icon" variant="destructive" className="rounded-lg" onClick={(e) => { e.stopPropagation(); onDelete(); }} aria-label="Apagar">
               <Trash2 size={16} />
             </Button>
           </div>

@@ -38,7 +38,7 @@ const RemoteMedia = ({
     .toUpperCase();
 
   return (
-    <div className="relative aspect-video rounded-2xl bg-[hsl(var(--dc-rail))] overflow-hidden flex items-center justify-center">
+    <div className="relative aspect-video rounded-lg bg-[hsl(var(--dc-rail))] overflow-hidden flex items-center justify-center">
       <audio ref={audioRef} autoPlay />
       {hasVideo ? (
         <video ref={videoRef} autoPlay playsInline className="h-full w-full object-contain" />
@@ -84,7 +84,7 @@ export const VoiceStage = ({
   return (
     <div className="grid gap-3 p-3 sm:grid-cols-2 xl:grid-cols-3">
       {selfSharing && (
-        <div className="relative aspect-video rounded-2xl overflow-hidden bg-[hsl(var(--dc-rail))]">
+        <div className="relative aspect-video rounded-lg overflow-hidden bg-[hsl(var(--dc-rail))]">
           <video ref={selfVideo} autoPlay muted playsInline className="h-full w-full object-contain" />
           <div className="absolute bottom-2 left-2 flex items-center gap-1.5 rounded-full bg-black/60 px-2.5 py-1 text-xs text-white">
             <MonitorUp size={12} /> Sua tela
@@ -99,7 +99,7 @@ export const VoiceStage = ({
           return (
             <div
               key={p.id}
-              className="relative aspect-video rounded-2xl bg-[hsl(var(--dc-rail))] flex items-center justify-center"
+              className="relative aspect-video rounded-lg bg-[hsl(var(--dc-rail))] flex items-center justify-center"
             >
               <Avatar className="h-20 w-20 animate-pulse">
                 {prof?.avatar_url && <AvatarImage src={prof.avatar_url} alt={prof.full_name} />}

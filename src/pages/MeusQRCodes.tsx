@@ -55,8 +55,8 @@ const MeusQRCodes = () => {
         ) : (
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
             {items.map((p) => (
-              <div key={p.id} className="border-2 border-border rounded-3xl p-4 bg-card flex flex-col items-center">
-                <img src={p.qr} alt={`QR ${p.product_name}`} className="w-full max-w-[240px] rounded-2xl" />
+              <div key={p.id} className="border-2 border-border rounded-lg p-4 bg-card flex flex-col items-center">
+                <img src={p.qr} alt={`QR ${p.product_name}`} className="w-full max-w-[240px] rounded-lg" />
                 <h3 className="font-display text-lg mt-3 text-center">{p.product_name}</h3>
                 <p className="mono text-[10px] text-muted-foreground break-all text-center mt-1">{p.token}</p>
                 <span
