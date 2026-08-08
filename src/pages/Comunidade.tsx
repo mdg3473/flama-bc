@@ -263,6 +263,35 @@ const Comunidade = () => {
     if (error) toast({ title: "Não foi possível apagar", variant: "destructive" });
   };
 
+  const isStaff = isAdmin || isMod;
+  const myMute = mutes.find((m) => m.user_id === user?.id) ?? null;
+  const pinned = messages.filter((m) => m.pinned);
+
+  const togglePin = async (m: Message) => {
+    const { error } = await supabase.from("messages").update({ pinned: !m.pinned }).eq("id", m.id);
+    if (error) toast({ title: "Não foi possível fixar", variant: "destructive" });
+  };
+
+  const muteUser = async (userId: string, minutes: number | null, reason?: string) => {
+    if (!user) return;
+    const { error } = await supabase.from("community_mutes").insert({
+      user_id: userId,
+      muted_by: user.id,
+      reason: reason ?? null,
+      expires_at: minutes ? new Date(Date.now() + minutes * 60000).toISOString() : null,
+    });
+    if (error) toast({ title: "Não foi possível silenciar", variant: "destructive" });
+    else { toast({ title: "Membro silenciado" }); void loadModeration(); }
+    setMuteTarget(null);
+  };
+
+  const unmuteUser = async (userId: string) => {
+    const { error } = await supabase.from("community_mutes").delete().eq("user_id", userId);
+    if (error) toast({ title: "Não foi possível remover o silenciamento", variant: "destructive" });
+    else { toast({ title: "Silenciamento removido" }); void loadModeration(); }
+    setMuteTarget(null);
+  };
+
   const logout = async () => { await supabase.auth.signOut(); nav("/", { replace: true }); };
 
   const typingNames = Object.keys(typing)
