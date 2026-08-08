@@ -138,7 +138,7 @@ const ProductCard = ({
                 onClick={() => p.buyable && onBuy(p)}
                 disabled={loading || !p.buyable}
                 aria-label={p.buyable ? `Comprar ${p.name}` : "Indisponível"}
-                className="absolute bottom-4 right-4 h-12 w-12 rounded-full bg-foreground text-background flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors disabled:opacity-60"
+                className="absolute bottom-4 right-4 h-12 w-12 rounded-xl bg-foreground text-background flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors disabled:opacity-60"
               >
                 {loading ? <Loader2 size={18} className="animate-spin" /> : <ShoppingBag size={18} />}
               </button>

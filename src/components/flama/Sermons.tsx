@@ -183,7 +183,7 @@ const VideoCard = ({
         )}
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/20 to-transparent" />
         <div className="absolute inset-0 flex items-center justify-center bg-background/30 opacity-0 transition-opacity group-hover:opacity-100">
-          <div className="flex h-20 w-20 items-center justify-center rounded-full bg-primary shadow-flame">
+          <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-primary shadow-flame">
             <Play className="ml-1 h-8 w-8 fill-current text-primary-foreground" />
           </div>
         </div>
@@ -197,10 +197,10 @@ const VideoCard = ({
         )}
         {isAdmin && (
           <div className="absolute bottom-3 right-3 flex gap-2 opacity-0 transition-opacity group-hover:opacity-100">
-            <Button size="icon" className="rounded-full" onClick={(e) => { e.stopPropagation(); onEdit(); }} aria-label="Editar">
+            <Button size="icon" className="rounded-xl" onClick={(e) => { e.stopPropagation(); onEdit(); }} aria-label="Editar">
               <Pencil size={16} />
             </Button>
-            <Button size="icon" variant="destructive" className="rounded-full" onClick={(e) => { e.stopPropagation(); onDelete(); }} aria-label="Apagar">
+            <Button size="icon" variant="destructive" className="rounded-xl" onClick={(e) => { e.stopPropagation(); onDelete(); }} aria-label="Apagar">
               <Trash2 size={16} />
             </Button>
           </div>
