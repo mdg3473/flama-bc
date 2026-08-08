@@ -46,7 +46,7 @@ const Devocional = () => {
                 href={d.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group block border-2 border-neutral-900 rounded-3xl p-6 hover:bg-primary hover:text-white transition-colors"
+                className="group block border-2 border-neutral-900 rounded-lg p-6 hover:bg-primary hover:text-white transition-colors"
               >
                 <div className="mono text-[10px] tracking-widest text-neutral-500 group-hover:text-white mb-3">
                   PDF · DEVOCIONAL

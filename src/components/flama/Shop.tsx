@@ -72,7 +72,7 @@ export const Shop = () => {
       <div className="mt-12 text-center">
         <button
           onClick={() => navigate("/meus-qrcodes")}
-          className="inline-flex items-center gap-3 px-8 py-4 rounded-full border-2 border-white text-white font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-background transition-colors"
+          className="inline-flex items-center gap-3 px-8 py-4 rounded-lg border-2 border-white text-white font-bold uppercase tracking-widest text-sm hover:bg-white hover:text-background transition-colors"
         >
           Meus QR Codes
         </button>
@@ -89,7 +89,7 @@ export const Shop = () => {
         </DialogHeader>
         {qrDataUrl && (
           <div className="flex flex-col items-center gap-4">
-            <img src={qrDataUrl} alt="QR Code" className="w-full max-w-[280px] rounded-2xl" />
+            <img src={qrDataUrl} alt="QR Code" className="w-full max-w-[280px] rounded-lg" />
             <p className="mono text-xs text-muted-foreground break-all text-center">{qrToken}</p>
             <Button onClick={() => navigate("/meus-qrcodes")} className="w-full">
               Ver todos os meus QR codes
@@ -120,7 +120,7 @@ const ProductCard = ({
       style={{ transitionDelay: `${index * 120}ms` }}
       className={`${pop.className} group relative`}
     >
-            <div className="relative aspect-square overflow-hidden rounded-3xl border-2 border-border bg-card group-hover:border-primary transition-colors">
+            <div className="relative aspect-square overflow-hidden rounded-lg border-2 border-border bg-card group-hover:border-primary transition-colors">
               <img
                 src={p.img}
                 alt={p.name}
@@ -130,7 +130,7 @@ const ProductCard = ({
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               {p.tag && (
-                <span className="absolute top-4 left-4 mono text-xs px-3 py-1 rounded-full bg-primary text-primary-foreground font-bold tracking-wider">
+                <span className="absolute top-4 left-4 mono text-xs px-3 py-1 rounded-lg bg-primary text-primary-foreground font-bold tracking-wider">
                   {p.tag}
                 </span>
               )}
@@ -138,7 +138,7 @@ const ProductCard = ({
                 onClick={() => p.buyable && onBuy(p)}
                 disabled={loading || !p.buyable}
                 aria-label={p.buyable ? `Comprar ${p.name}` : "Indisponível"}
-                className="absolute bottom-4 right-4 h-12 w-12 rounded-xl bg-foreground text-background flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors disabled:opacity-60"
+                className="absolute bottom-4 right-4 h-12 w-12 rounded-lg bg-foreground text-background flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors disabled:opacity-60"
               >
                 {loading ? <Loader2 size={18} className="animate-spin" /> : <ShoppingBag size={18} />}
               </button>

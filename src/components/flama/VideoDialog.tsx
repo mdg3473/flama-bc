@@ -136,7 +136,7 @@ export const VideoDialog = ({ open, onOpenChange, video, userId, onSaved }: Prop
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="max-h-[90vh] overflow-y-auto rounded-3xl sm:max-w-lg">
+      <DialogContent className="max-h-[90vh] overflow-y-auto rounded-lg sm:max-w-lg">
         <DialogHeader>
           <DialogTitle className="font-display text-3xl">
             {video ? "EDITAR VÍDEO" : "NOVO VÍDEO / CLIPE"}
@@ -169,7 +169,7 @@ export const VideoDialog = ({ open, onOpenChange, video, userId, onSaved }: Prop
                   key={o.v}
                   type="button"
                   variant={kind === o.v ? "default" : "secondary"}
-                  className="rounded-full"
+                  className="rounded-lg"
                   onClick={() => setKind(o.v)}
                 >
                   {o.l}
@@ -183,14 +183,14 @@ export const VideoDialog = ({ open, onOpenChange, video, userId, onSaved }: Prop
           </div>
           <div className="space-y-2">
             <Label>Arquivo de vídeo (sem limite de duração)</Label>
-            <Input ref={fileRef} type="file" accept="video/*" className="rounded-2xl" />
+            <Input ref={fileRef} type="file" accept="video/*" className="rounded-lg" />
             {video?.storage_path && <p className="text-xs text-muted-foreground">Já existe um arquivo — envie outro só se quiser substituir.</p>}
           </div>
           <div className="space-y-2">
             <Label>Ou link externo (YouTube, Drive…)</Label>
             <Input value={externalUrl} onChange={(e) => setExternalUrl(e.target.value)} placeholder="https://…" />
           </div>
-          <div className="flex items-center justify-between rounded-2xl border border-border p-3">
+          <div className="flex items-center justify-between rounded-lg border border-border p-3">
             <Label className="cursor-pointer">Publicado</Label>
             <Switch checked={published} onCheckedChange={setPublished} />
           </div>
@@ -205,10 +205,10 @@ export const VideoDialog = ({ open, onOpenChange, video, userId, onSaved }: Prop
         </div>
 
         <DialogFooter>
-          <Button variant="secondary" className="rounded-full" onClick={() => onOpenChange(false)} disabled={saving}>
+          <Button variant="secondary" className="rounded-lg" onClick={() => onOpenChange(false)} disabled={saving}>
             Cancelar
           </Button>
-          <Button className="rounded-full" onClick={save} disabled={saving}>
+          <Button className="rounded-lg" onClick={save} disabled={saving}>
             {saving ? <><Loader2 className="animate-spin" size={16} /> Salvando…</> : <><Upload size={16} /> Salvar</>}
           </Button>
         </DialogFooter>

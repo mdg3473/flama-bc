@@ -148,7 +148,7 @@ export const Gallery = () => {
               onChange={(e) => onUpload(e.target.files)}
             />
             <Button
-              className="rounded-full"
+              className="rounded-lg"
               disabled={!!uploading}
               onClick={() => fileRef.current?.click()}
             >
@@ -170,7 +170,7 @@ export const Gallery = () => {
             {images.map((img) => (
               <div
                 key={img.id}
-                className="group relative aspect-square overflow-hidden rounded-3xl border-2 border-border bg-card"
+                className="group relative aspect-square overflow-hidden rounded-lg border-2 border-border bg-card"
               >
                 <img
                   src={urls[img.path]}
@@ -180,11 +180,11 @@ export const Gallery = () => {
                   onClick={() => setLightbox(img)}
                 />
                 <div className="absolute bottom-2 right-2 flex gap-2 opacity-0 transition-opacity group-hover:opacity-100">
-                  <Button size="icon" className="rounded-xl" onClick={() => download(img)} aria-label="Baixar">
+                  <Button size="icon" className="rounded-lg" onClick={() => download(img)} aria-label="Baixar">
                     <Download size={16} />
                   </Button>
                   {isAdmin && (
-                    <Button size="icon" variant="destructive" className="rounded-xl" onClick={() => remove(img)} aria-label="Apagar">
+                    <Button size="icon" variant="destructive" className="rounded-lg" onClick={() => remove(img)} aria-label="Apagar">
                       <Trash2 size={16} />
                     </Button>
                   )}
@@ -203,14 +203,14 @@ export const Gallery = () => {
           <img
             src={urls[lightbox.path]}
             alt={lightbox.title ?? "FLAMA"}
-            className="max-h-[85vh] max-w-full rounded-2xl object-contain"
+            className="max-h-[85vh] max-w-full rounded-lg object-contain"
             onClick={(e) => e.stopPropagation()}
           />
           <div className="absolute bottom-6 flex gap-3">
-            <Button className="rounded-full" onClick={(e) => { e.stopPropagation(); download(lightbox); }}>
+            <Button className="rounded-lg" onClick={(e) => { e.stopPropagation(); download(lightbox); }}>
               <Download size={16} /> Baixar original
             </Button>
-            <Button variant="secondary" className="rounded-full" onClick={() => setLightbox(null)}>
+            <Button variant="secondary" className="rounded-lg" onClick={() => setLightbox(null)}>
               <X size={16} /> Fechar
             </Button>
           </div>
