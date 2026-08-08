@@ -14,6 +14,36 @@ export type Database = {
   }
   public: {
     Tables: {
+      community_mutes: {
+        Row: {
+          created_at: string
+          expires_at: string | null
+          id: string
+          muted_by: string | null
+          reason: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          expires_at?: string | null
+          id?: string
+          muted_by?: string | null
+          reason?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          expires_at?: string | null
+          id?: string
+          muted_by?: string | null
+          reason?: string | null
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       gallery_images: {
         Row: {
           content_type: string | null
@@ -61,6 +91,7 @@ export type Database = {
           created_at: string
           edited_at: string | null
           id: string
+          pinned: boolean
           reply_to: string | null
           user_id: string
         }
@@ -71,6 +102,7 @@ export type Database = {
           created_at?: string
           edited_at?: string | null
           id?: string
+          pinned?: boolean
           reply_to?: string | null
           user_id: string
         }
@@ -81,6 +113,7 @@ export type Database = {
           created_at?: string
           edited_at?: string | null
           id?: string
+          pinned?: boolean
           reply_to?: string | null
           user_id?: string
         }
@@ -259,6 +292,8 @@ export type Database = {
         }
         Returns: boolean
       }
+      is_muted: { Args: { _user_id: string }; Returns: boolean }
+      is_staff: { Args: { _user_id: string }; Returns: boolean }
       redeem_purchase: { Args: { _token: string }; Returns: boolean }
       validate_purchase: {
         Args: { _token: string }
@@ -274,7 +309,7 @@ export type Database = {
       }
     }
     Enums: {
-      app_role: "admin" | "member"
+      app_role: "admin" | "member" | "moderator"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -402,7 +437,7 @@ export type CompositeTypes<
 export const Constants = {
   public: {
     Enums: {
-      app_role: ["admin", "member"],
+      app_role: ["admin", "member", "moderator"],
     },
   },
 } as const

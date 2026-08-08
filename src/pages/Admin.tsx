@@ -6,7 +6,8 @@ import { usePresence } from "@/hooks/usePresence";
 import { CHANNELS } from "@/lib/channels";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
-import { Flame, LogOut, Users, Wifi } from "lucide-react";
+import { Flame, LogOut, Users, Wifi, Shield } from "lucide-react";
+import { toast } from "@/hooks/use-toast";
 
 type Profile = {
   id: string;
@@ -26,6 +27,7 @@ const Admin = () => {
   const [authorized, setAuthorized] = useState<boolean | null>(null);
   const [profiles, setProfiles] = useState<Profile[]>([]);
   const [onlineIds, setOnlineIds] = useState<Set<string>>(new Set());
+  const [staff, setStaff] = useState<Record<string, "admin" | "moderator">>({});
 
   useEffect(() => {
     document.title = "Admin | Flama";
@@ -54,6 +56,8 @@ const Admin = () => {
       .order("created_at", { ascending: false })
       .then(({ data }) => data && setProfiles(data as Profile[]));
 
+    void loadStaff();
+
     const channel = supabase.channel("online-users");
     channel
       .on("presence", { event: "sync" }, () => {
@@ -70,6 +74,25 @@ const Admin = () => {
   const logout = async () => {
     await supabase.auth.signOut();
     nav("/", { replace: true });
+  };
+
+  async function loadStaff() {
+    const { data } = await supabase.from("user_roles").select("user_id, role").in("role", ["admin", "moderator"]);
+    const map: Record<string, "admin" | "moderator"> = {};
+    for (const r of (data ?? []) as { user_id: string; role: string }[]) {
+      if (r.role === "admin") map[r.user_id] = "admin";
+      else if (!map[r.user_id]) map[r.user_id] = "moderator";
+    }
+    setStaff(map);
+  }
+
+  const toggleMod = async (userId: string) => {
+    const isMod = staff[userId] === "moderator";
+    const { error } = isMod
+      ? await supabase.from("user_roles").delete().eq("user_id", userId).eq("role", "moderator")
+      : await supabase.from("user_roles").insert({ user_id: userId, role: "moderator" });
+    if (error) toast({ title: "Não foi possível alterar o cargo", variant: "destructive" });
+    else { toast({ title: isMod ? "Moderador removido" : "Moderador promovido" }); void loadStaff(); }
   };
 
   if (loading || authorized === null) {
@@ -179,6 +202,7 @@ const Admin = () => {
                   <th className="p-3">Ano</th>
                   <th className="p-3">Cadastro</th>
                   <th className="p-3">Status</th>
+                  <th className="p-3">Cargo</th>
                 </tr>
               </thead>
               <tbody>
@@ -209,10 +233,25 @@ const Admin = () => {
                         <span className="mono text-xs text-muted-foreground">offline</span>
                       )}
                     </td>
+                    <td className="p-3">
+                      {staff[p.id] === "admin" ? (
+                        <span className="mono text-xs text-primary">ADMIN</span>
+                      ) : (
+                        <Button
+                          size="sm"
+                          variant={staff[p.id] === "moderator" ? "default" : "secondary"}
+                          className="rounded-xl gap-1"
+                          onClick={() => void toggleMod(p.id)}
+                        >
+                          <Shield size={13} />
+                          {staff[p.id] === "moderator" ? "Moderador" : "Tornar mod"}
+                        </Button>
+                      )}
+                    </td>
                   </tr>
                 ))}
                 {profiles.length === 0 && (
-                  <tr><td colSpan={7} className="p-6 text-center text-muted-foreground">Nenhum cadastro ainda.</td></tr>
+                  <tr><td colSpan={8} className="p-6 text-center text-muted-foreground">Nenhum cadastro ainda.</td></tr>
                 )}
               </tbody>
             </table>
