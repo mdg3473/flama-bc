@@ -485,6 +485,27 @@ const Comunidade = () => {
             )}
 
             <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 py-4">
+              {pinned.length > 0 && (
+                <div className="sticky top-0 z-10 mb-3 rounded-xl border border-border bg-card/95 px-3 py-2 backdrop-blur">
+                  <button
+                    onClick={() => setShowPinned((s) => !s)}
+                    className="flex w-full items-center gap-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground"
+                  >
+                    <Pin size={14} /> {pinned.length} mensagem{pinned.length > 1 ? "s" : ""} fixada{pinned.length > 1 ? "s" : ""}
+                    <ChevronDown size={14} className={`ml-auto transition-transform ${showPinned ? "rotate-180" : ""}`} />
+                  </button>
+                  {showPinned && (
+                    <ul className="mt-2 space-y-1">
+                      {pinned.map((m) => (
+                        <li key={m.id} className="truncate text-sm">
+                          <b className="text-foreground">{profiles[m.user_id]?.full_name ?? "Membro"}:</b>{" "}
+                          <span className="text-muted-foreground">{m.content}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              )}
               <div className="mb-6 pt-4">
                 <div className="mb-2 grid h-16 w-16 place-items-center rounded-lg bg-[hsl(var(--dc-hover))]">
                   <Hash size={32} />
@@ -534,6 +555,17 @@ const Comunidade = () => {
                         {!grouped && (
                           <div className="flex items-baseline gap-2">
                             <span className="font-medium text-foreground">{p?.full_name ?? "Membro"}</span>
+                            {staffRoles[m.user_id] && (
+                              <span className={`inline-flex items-center gap-1 rounded-md px-1.5 py-0.5 text-[10px] font-bold uppercase ${
+                                staffRoles[m.user_id] === "admin"
+                                  ? "bg-primary text-primary-foreground"
+                                  : "bg-[hsl(var(--dc-active))] text-foreground"
+                              }`}>
+                                {staffRoles[m.user_id] === "admin" ? <ShieldCheck size={10} /> : <Shield size={10} />}
+                                {staffRoles[m.user_id] === "admin" ? "Admin" : "Mod"}
+                              </span>
+                            )}
+                            {m.pinned && <Pin size={12} className="text-muted-foreground" />}
                             <span className="text-[11px] text-muted-foreground">
                               {new Date(m.created_at).toLocaleString("pt-BR", { day: "2-digit", month: "2-digit", hour: "2-digit", minute: "2-digit" })}
                             </span>
@@ -576,7 +608,20 @@ const Comunidade = () => {
                             <Pencil size={15} />
                           </button>
                         )}
-                        {(mine || isAdmin) && (
+                        {isStaff && (
+                          <button title={m.pinned ? "Desafixar" : "Fixar"} onClick={() => void togglePin(m)}
+                            className={`grid h-7 w-7 place-items-center rounded-md hover:bg-[hsl(var(--dc-hover))] ${m.pinned ? "text-primary" : "text-muted-foreground hover:text-foreground"}`}>
+                            <Pin size={15} />
+                          </button>
+                        )}
+                        {isStaff && !mine && (
+                          <button title="Silenciar membro"
+                            onClick={() => setMuteTarget({ id: m.user_id, name: p?.full_name ?? "Membro" })}
+                            className="grid h-7 w-7 place-items-center rounded-md text-muted-foreground hover:bg-[hsl(var(--dc-hover))] hover:text-destructive">
+                            <VolumeX size={15} />
+                          </button>
+                        )}
+                        {(mine || isStaff) && (
                           <button title="Apagar" onClick={() => void remove(m.id)}
                             className="grid h-7 w-7 place-items-center rounded-md text-muted-foreground hover:bg-[hsl(var(--dc-hover))] hover:text-destructive">
                             <Trash2 size={15} />
