@@ -130,7 +130,7 @@ const ProductCard = ({
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               {p.tag && (
-                <span className="absolute top-4 left-4 mono text-xs px-3 py-1 rounded-lg bg-primary text-primary-foreground font-bold tracking-wider">
+                <span className="absolute top-4 left-4 mono text-xs px-3 py-1 rounded-xl bg-primary text-primary-foreground font-bold tracking-wider">
                   {p.tag}
                 </span>
               )}

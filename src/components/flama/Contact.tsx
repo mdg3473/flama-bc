@@ -59,7 +59,7 @@ export const Contact = () => {
             key={i}
             href="#"
             aria-label="rede social"
-            className="h-14 w-14 rounded-lg flex items-center justify-center border-2 border-white text-white hover:bg-white hover:text-primary transition-all"
+            className="h-14 w-14 rounded-xl flex items-center justify-center border-2 border-white text-white hover:bg-white hover:text-primary transition-all"
           >
             <Icon size={20} />
           </a>

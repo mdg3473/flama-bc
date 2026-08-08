@@ -104,7 +104,7 @@ export const Navbar = () => {
             : "opacity-0 -translate-x-1/2 translate-y-16 scale-75 pointer-events-none"
         }`}
       >
-        <nav className="flex items-center gap-1 sm:gap-2 bg-primary text-primary-foreground rounded-lg shadow-xl px-3 py-2 border border-white/10">
+        <nav className="flex items-center gap-1 sm:gap-2 bg-primary text-primary-foreground rounded-xl shadow-xl px-3 py-2 border border-white/10">
           {navItems.map((item) => {
             const Icon = item.icon;
             const active = location.pathname === item.to;
@@ -114,7 +114,7 @@ export const Navbar = () => {
                 to={item.to}
                 aria-label={item.label}
                 title={item.label}
-                className={`group flex flex-col items-center justify-center rounded-lg transition-all px-2.5 py-1.5 sm:px-3 hover:bg-white/15 ${
+                className={`group flex flex-col items-center justify-center rounded-xl transition-all px-2.5 py-1.5 sm:px-3 hover:bg-white/15 ${
                   active ? "bg-white/20" : ""
                 }`}
               >
@@ -129,7 +129,7 @@ export const Navbar = () => {
               onClick={handleLogout}
               aria-label="Sair"
               title="Sair"
-              className="group flex flex-col items-center justify-center rounded-lg transition-all px-2.5 py-1.5 sm:px-3 hover:bg-white/15"
+              className="group flex flex-col items-center justify-center rounded-xl transition-all px-2.5 py-1.5 sm:px-3 hover:bg-white/15"
             >
               <LogOut size={20} className="transition-transform duration-300 group-hover:scale-[2.5] group-hover:-translate-y-2" />
               <span className="hidden sm:block text-[10px] mt-0.5 tracking-wide uppercase">Sair</span>
@@ -139,7 +139,7 @@ export const Navbar = () => {
               to="/auth"
               aria-label="Entrar"
               title="Entrar"
-              className="group flex flex-col items-center justify-center rounded-lg transition-all px-2.5 py-1.5 sm:px-3 hover:bg-white/15"
+              className="group flex flex-col items-center justify-center rounded-xl transition-all px-2.5 py-1.5 sm:px-3 hover:bg-white/15"
             >
               <LogIn size={20} className="transition-transform duration-300 group-hover:scale-[2.5] group-hover:-translate-y-2" />
               <span className="hidden sm:block text-[10px] mt-0.5 tracking-wide uppercase">Entrar</span>

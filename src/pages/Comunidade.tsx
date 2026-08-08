@@ -526,7 +526,7 @@ const Comunidade = () => {
                   <button onClick={() => setReplyTo(null)} aria-label="cancelar resposta"><X size={14} /></button>
                 </div>
               )}
-              <div className={`relative flex items-end gap-2 bg-[hsl(var(--dc-hover))] px-3 py-2 ${replyTo ? "rounded-b-lg" : "rounded-lg"}`}>
+              <div className={`relative flex items-end gap-2 bg-[hsl(var(--dc-hover))] px-3 py-2 ${replyTo ? "rounded-b-lg" : "rounded-xl"}`}>
                 <Textarea
                   value={text}
                   onChange={(e) => { setText(e.target.value); notifyTyping(); }}
@@ -540,7 +540,7 @@ const Comunidade = () => {
                   className="mb-0.5 text-muted-foreground transition-colors hover:text-foreground">
                   <Smile size={20} />
                 </button>
-                <Button size="icon" className="mb-0.5 h-8 w-8 rounded-lg" disabled={sending || !text.trim()} onClick={() => void send()}>
+                <Button size="icon" className="mb-0.5 h-8 w-8 rounded-xl" disabled={sending || !text.trim()} onClick={() => void send()}>
                   <Send size={15} />
                 </Button>
                 {emojiOpen && (

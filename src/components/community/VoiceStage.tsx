@@ -48,7 +48,7 @@ const RemoteMedia = ({
           <AvatarFallback className="bg-primary text-primary-foreground">{initials}</AvatarFallback>
         </Avatar>
       )}
-      <div className="absolute bottom-2 left-2 flex items-center gap-1.5 rounded-lg bg-black/60 px-2.5 py-1 text-xs text-white">
+      <div className="absolute bottom-2 left-2 flex items-center gap-1.5 rounded-xl bg-black/60 px-2.5 py-1 text-xs text-white">
         {muted && <MicOff size={12} className="text-destructive" />}
         {sharing && <ScreenShare size={12} />}
         <span className="truncate max-w-[10rem]">{profile?.full_name ?? "Membro"}</span>
@@ -86,7 +86,7 @@ export const VoiceStage = ({
       {selfSharing && (
         <div className="relative aspect-video rounded-lg overflow-hidden bg-[hsl(var(--dc-rail))]">
           <video ref={selfVideo} autoPlay muted playsInline className="h-full w-full object-contain" />
-          <div className="absolute bottom-2 left-2 flex items-center gap-1.5 rounded-lg bg-black/60 px-2.5 py-1 text-xs text-white">
+          <div className="absolute bottom-2 left-2 flex items-center gap-1.5 rounded-xl bg-black/60 px-2.5 py-1 text-xs text-white">
             <MonitorUp size={12} /> Sua tela
           </div>
         </div>
@@ -105,7 +105,7 @@ export const VoiceStage = ({
                 {prof?.avatar_url && <AvatarImage src={prof.avatar_url} alt={prof.full_name} />}
                 <AvatarFallback className="bg-primary text-primary-foreground">{initials}</AvatarFallback>
               </Avatar>
-              <span className="absolute bottom-2 left-2 rounded-lg bg-black/60 px-2.5 py-1 text-xs text-white">
+              <span className="absolute bottom-2 left-2 rounded-xl bg-black/60 px-2.5 py-1 text-xs text-white">
                 conectando…
               </span>
             </div>
