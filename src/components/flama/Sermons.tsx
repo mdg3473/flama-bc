@@ -83,7 +83,7 @@ export const Sermons = () => {
 
         {isAdmin && user && (
           <div className="mb-10 flex justify-center">
-            <Button className="rounded-lg" onClick={() => { setEditing(null); setDialogOpen(true); }}>
+            <Button className="rounded-xl" onClick={() => { setEditing(null); setDialogOpen(true); }}>
               <Plus size={16} /> Adicionar vídeo / clipe
             </Button>
           </div>
@@ -132,7 +132,7 @@ export const Sermons = () => {
               onClick={(e) => e.stopPropagation()}
             />
           ) : null}
-          <Button variant="secondary" className="absolute right-6 top-6 rounded-lg" onClick={() => setPlaying(null)}>
+          <Button variant="secondary" className="absolute right-6 top-6 rounded-xl" onClick={() => setPlaying(null)}>
             <X size={16} /> Fechar
           </Button>
         </div>
@@ -187,20 +187,20 @@ const VideoCard = ({
             <Play className="ml-1 h-8 w-8 fill-current text-primary-foreground" />
           </div>
         </div>
-        <span className="mono absolute left-4 top-4 rounded-lg bg-primary px-3 py-1 text-xs font-bold tracking-wider text-primary-foreground">
+        <span className="mono absolute left-4 top-4 rounded-xl bg-primary px-3 py-1 text-xs font-bold tracking-wider text-primary-foreground">
           {v.kind === "full" ? "PREGAÇÃO" : "CLIPE"}
         </span>
         {!v.published && (
-          <span className="mono absolute right-4 top-4 rounded-lg bg-muted px-3 py-1 text-xs font-bold tracking-wider">
+          <span className="mono absolute right-4 top-4 rounded-xl bg-muted px-3 py-1 text-xs font-bold tracking-wider">
             RASCUNHO
           </span>
         )}
         {isAdmin && (
           <div className="absolute bottom-3 right-3 flex gap-2 opacity-0 transition-opacity group-hover:opacity-100">
-            <Button size="icon" className="rounded-lg" onClick={(e) => { e.stopPropagation(); onEdit(); }} aria-label="Editar">
+            <Button size="icon" className="rounded-xl" onClick={(e) => { e.stopPropagation(); onEdit(); }} aria-label="Editar">
               <Pencil size={16} />
             </Button>
-            <Button size="icon" variant="destructive" className="rounded-lg" onClick={(e) => { e.stopPropagation(); onDelete(); }} aria-label="Apagar">
+            <Button size="icon" variant="destructive" className="rounded-xl" onClick={(e) => { e.stopPropagation(); onDelete(); }} aria-label="Apagar">
               <Trash2 size={16} />
             </Button>
           </div>

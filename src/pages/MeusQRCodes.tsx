@@ -60,7 +60,7 @@ const MeusQRCodes = () => {
                 <h3 className="font-display text-lg mt-3 text-center">{p.product_name}</h3>
                 <p className="mono text-[10px] text-muted-foreground break-all text-center mt-1">{p.token}</p>
                 <span
-                  className={`mt-2 mono text-[10px] px-3 py-1 rounded-lg ${
+                  className={`mt-2 mono text-[10px] px-3 py-1 rounded-xl ${
                     p.status === "redeemed"
                       ? "bg-neutral-500 text-white"
                       : "bg-primary text-primary-foreground"

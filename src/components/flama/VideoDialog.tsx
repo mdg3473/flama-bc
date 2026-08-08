@@ -205,10 +205,10 @@ export const VideoDialog = ({ open, onOpenChange, video, userId, onSaved }: Prop
         </div>
 
         <DialogFooter>
-          <Button variant="secondary" className="rounded-lg" onClick={() => onOpenChange(false)} disabled={saving}>
+          <Button variant="secondary" className="rounded-xl" onClick={() => onOpenChange(false)} disabled={saving}>
             Cancelar
           </Button>
-          <Button className="rounded-lg" onClick={save} disabled={saving}>
+          <Button className="rounded-xl" onClick={save} disabled={saving}>
             {saving ? <><Loader2 className="animate-spin" size={16} /> Salvando…</> : <><Upload size={16} /> Salvar</>}
           </Button>
         </DialogFooter>
