@@ -636,6 +636,14 @@ const Comunidade = () => {
 
             {/* Composer */}
             <div className="shrink-0 px-4 pb-5">
+              {myMute && (
+                <div className="mb-2 flex items-center gap-2 rounded-xl border border-destructive/40 bg-destructive/10 px-3 py-2 text-xs text-destructive">
+                  <VolumeX size={14} />
+                  Você foi silenciado pela moderação
+                  {myMute.expires_at && ` até ${new Date(myMute.expires_at).toLocaleString("pt-BR")}`}
+                  {myMute.reason ? ` — ${myMute.reason}` : ""}
+                </div>
+              )}
               {replyTo && (
                 <div className="flex items-center justify-between rounded-t-lg bg-[hsl(var(--dc-hover))] px-3 py-1.5 text-xs text-muted-foreground">
                   <span className="truncate">
@@ -649,7 +657,8 @@ const Comunidade = () => {
                   value={text}
                   onChange={(e) => { setText(e.target.value); notifyTyping(); }}
                   onKeyDown={(e) => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); void send(); } }}
-                  placeholder={`Conversar em #${channelLabel}`}
+                  placeholder={myMute ? "Você está silenciado" : `Conversar em #${channelLabel}`}
+                  disabled={!!myMute}
                   maxLength={2000}
                   rows={1}
                   className="max-h-40 min-h-[24px] resize-none border-0 bg-transparent p-0 text-[15px] focus-visible:ring-0"
@@ -658,7 +667,7 @@ const Comunidade = () => {
                   className="mb-0.5 text-muted-foreground transition-colors hover:text-foreground">
                   <Smile size={20} />
                 </button>
-                <Button size="icon" className="mb-0.5 h-8 w-8 rounded-xl" disabled={sending || !text.trim()} onClick={() => void send()}>
+                <Button size="icon" className="mb-0.5 h-8 w-8 rounded-xl" disabled={sending || !text.trim() || !!myMute} onClick={() => void send()}>
                   <Send size={15} />
                 </Button>
                 {emojiOpen && (
@@ -695,6 +704,22 @@ const Comunidade = () => {
                     <span className="absolute -bottom-0.5 -right-0.5 h-3 w-3 rounded-full border-2 border-card bg-[hsl(var(--dc-online))]" />
                   </span>
                   <span className="truncate text-sm">{m.full_name}</span>
+                  {staffRoles[m.id] && (
+                    <span className={`ml-auto rounded-md px-1.5 py-0.5 text-[9px] font-bold uppercase ${
+                      staffRoles[m.id] === "admin" ? "bg-primary text-primary-foreground" : "bg-[hsl(var(--dc-active))]"
+                    }`}>
+                      {staffRoles[m.id] === "admin" ? "Admin" : "Mod"}
+                    </span>
+                  )}
+                  {isStaff && m.id !== user.id && (
+                    <button
+                      title={mutes.some((x) => x.user_id === m.id) ? "Remover silenciamento" : "Silenciar"}
+                      onClick={() => setMuteTarget({ id: m.id, name: m.full_name })}
+                      className={`ml-1 text-muted-foreground hover:text-destructive ${mutes.some((x) => x.user_id === m.id) ? "text-destructive" : ""}`}
+                    >
+                      <VolumeX size={14} />
+                    </button>
+                  )}
                 </div>
               ))}
               {members.length === 0 && <p className="px-2 text-xs text-muted-foreground">Ninguém online agora</p>}
@@ -704,6 +729,38 @@ const Comunidade = () => {
       </section>
 
       <ProfileDialog open={profileOpen} onOpenChange={setProfileOpen} userId={user.id} />
+
+      {muteTarget && (
+        <div className="fixed inset-0 z-50 grid place-items-center bg-black/60 p-4" onClick={() => setMuteTarget(null)}>
+          <div className="w-full max-w-sm rounded-xl border border-border bg-card p-5" onClick={(e) => e.stopPropagation()}>
+            <h3 className="mb-1 text-lg font-semibold">Moderar {muteTarget.name}</h3>
+            <p className="mb-4 text-sm text-muted-foreground">Escolha por quanto tempo silenciar este membro.</p>
+            <div className="grid grid-cols-2 gap-2">
+              {[
+                { label: "5 minutos", min: 5 },
+                { label: "1 hora", min: 60 },
+                { label: "1 dia", min: 1440 },
+                { label: "7 dias", min: 10080 },
+              ].map((o) => (
+                <Button key={o.min} variant="secondary" className="rounded-xl" onClick={() => void muteUser(muteTarget.id, o.min)}>
+                  {o.label}
+                </Button>
+              ))}
+            </div>
+            <Button variant="destructive" className="mt-2 w-full rounded-xl" onClick={() => void muteUser(muteTarget.id, null)}>
+              Silenciar permanentemente
+            </Button>
+            {mutes.some((x) => x.user_id === muteTarget.id) && (
+              <Button className="mt-2 w-full rounded-xl" onClick={() => void unmuteUser(muteTarget.id)}>
+                Remover silenciamento
+              </Button>
+            )}
+            <Button variant="ghost" className="mt-2 w-full rounded-xl" onClick={() => setMuteTarget(null)}>
+              Cancelar
+            </Button>
+          </div>
+        </div>
+      )}
     </main>
   );
 };
