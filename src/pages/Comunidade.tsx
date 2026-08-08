@@ -32,6 +32,10 @@ import {
   Volume2,
   ChevronDown,
   Plus,
+  Pin,
+  ShieldCheck,
+  Shield,
+  VolumeX,
 } from "lucide-react";
 import flamaLogo from "@/assets/flama-logo.png";
 
@@ -43,7 +47,10 @@ type Message = {
   created_at: string;
   edited_at: string | null;
   reply_to: string | null;
+  pinned?: boolean;
 };
+
+type Mute = { id: string; user_id: string; reason: string | null; expires_at: string | null };
 
 type Profile = { id: string; full_name: string; avatar_url: string | null; grade?: string };
 
@@ -71,6 +78,11 @@ const Comunidade = () => {
   const [profiles, setProfiles] = useState<Record<string, Profile>>({});
   const [me, setMe] = useState<Profile | null>(null);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [isMod, setIsMod] = useState(false);
+  const [staffRoles, setStaffRoles] = useState<Record<string, "admin" | "moderator">>({});
+  const [mutes, setMutes] = useState<Mute[]>([]);
+  const [muteTarget, setMuteTarget] = useState<{ id: string; name: string } | null>(null);
+  const [showPinned, setShowPinned] = useState(false);
   const [text, setText] = useState("");
   const [sending, setSending] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -102,7 +114,39 @@ const Comunidade = () => {
       .then(({ data }) => { if (data) setMe(data as Profile); });
     supabase.rpc("has_role", { _user_id: user.id, _role: "admin" })
       .then(({ data }) => setIsAdmin(!!data));
+    supabase.rpc("has_role", { _user_id: user.id, _role: "moderator" })
+      .then(({ data }) => setIsMod(!!data));
   }, [user, profileOpen]);
+
+  // staff roles (badges) + mutes
+  const loadModeration = useCallback(async () => {
+    const [{ data: roles }, { data: mts }] = await Promise.all([
+      supabase.from("user_roles").select("user_id, role").in("role", ["admin", "moderator"]),
+      supabase.from("community_mutes").select("id, user_id, reason, expires_at"),
+    ]);
+    if (roles) {
+      const map: Record<string, "admin" | "moderator"> = {};
+      for (const r of roles as { user_id: string; role: string }[]) {
+        if (r.role === "admin") map[r.user_id] = "admin";
+        else if (!map[r.user_id]) map[r.user_id] = "moderator";
+      }
+      setStaffRoles(map);
+    }
+    if (mts) {
+      const now = Date.now();
+      setMutes((mts as Mute[]).filter((m) => !m.expires_at || new Date(m.expires_at).getTime() > now));
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!user) return;
+    void loadModeration();
+    const ch = supabase
+      .channel("community_mutes")
+      .on("postgres_changes", { event: "*", schema: "public", table: "community_mutes" }, () => void loadModeration())
+      .subscribe();
+    return () => { supabase.removeChannel(ch); };
+  }, [user, loadModeration]);
 
   // messages + realtime
   useEffect(() => {
