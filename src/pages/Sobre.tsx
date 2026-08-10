@@ -6,31 +6,12 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 
 const LEADERS = Array.from({ length: 100 });
 
-/** Constelação: distribui os líderes em anéis concêntricos (espiral áurea) */
-const RINGS = [
-  { count: 8, r: 14 },
-  { count: 14, r: 25 },
-  { count: 20, r: 36 },
-  { count: 26, r: 45 },
-  { count: 32, r: 49 },
+/** 3 esteiras infinitas de bolinhas, em direções alternadas */
+const ROWS = [
+  LEADERS.map((_, i) => i).slice(0, 34),
+  LEADERS.map((_, i) => i).slice(34, 67),
+  LEADERS.map((_, i) => i).slice(67, 100),
 ];
-
-const POSITIONS = (() => {
-  const pts: { x: number; y: number; ring: number; size: number }[] = [];
-  let idx = 0;
-  RINGS.forEach((ring, ri) => {
-    for (let i = 0; i < ring.count && idx < 100; i++, idx++) {
-      const a = (i / ring.count) * Math.PI * 2 + ri * 0.4;
-      pts.push({
-        x: 50 + Math.cos(a) * ring.r,
-        y: 50 + Math.sin(a) * ring.r * 0.86,
-        ring: ri,
-        size: 1 - ri * 0.09,
-      });
-    }
-  });
-  return pts;
-})();
 
 const Sobre = () => {
   const [selectedLeader, setSelectedLeader] = useState<number | null>(null);
