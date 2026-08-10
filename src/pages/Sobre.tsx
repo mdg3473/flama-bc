@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Flame } from "lucide-react";
 import { Navbar } from "@/components/flama/Navbar";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 
+const LEADERS = Array.from({ length: 100 });
+
 const Sobre = () => {
   const [selectedLeader, setSelectedLeader] = useState<number | null>(null);
+  const [hovered, setHovered] = useState<number | null>(null);
 
   return (
     <main className="relative min-h-screen bg-background text-foreground">
@@ -40,26 +43,52 @@ const Sobre = () => {
       </section>
 
       <section className="container pb-24">
-        <div className="mx-auto grid grid-cols-10 gap-2 md:gap-3 max-w-2xl">
-          {Array.from({ length: 100 }).map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setSelectedLeader(i)}
-              aria-label={`Líder ${i + 1}`}
-              className="aspect-square rounded-xl bg-primary/80 hover:bg-primary hover:scale-110 transition-all duration-200 ring-1 ring-primary/40 hover:ring-2 hover:ring-primary"
-            />
-          ))}
+        <div className="mx-auto flex flex-wrap justify-center gap-3 md:gap-4 max-w-3xl">
+          {LEADERS.map((_, i) => {
+            const near = hovered !== null && Math.abs(hovered - i) === 1;
+            return (
+              <button
+                key={i}
+                onClick={() => setSelectedLeader(i)}
+                onMouseEnter={() => setHovered(i)}
+                onMouseLeave={() => setHovered(null)}
+                aria-label={`Líder ${i + 1}`}
+                style={{ animationDelay: `${(i % 20) * 40}ms` }}
+                className={`group relative h-12 w-12 md:h-14 md:w-14 rounded-full bg-gradient-flame text-primary-foreground
+                  ring-1 ring-primary/30 shadow-glow/0 animate-fade-in
+                  transition-[transform,box-shadow,filter] duration-300 ease-out
+                  hover:scale-125 hover:shadow-glow hover:ring-2 hover:ring-primary
+                  active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring
+                  ${near ? "scale-110" : ""}`}
+              >
+                <span className="absolute inset-0 rounded-full bg-primary/40 opacity-0 group-hover:opacity-100 group-hover:animate-ping" />
+                <span className="relative flex h-full w-full items-center justify-center font-display text-sm md:text-base opacity-80 group-hover:opacity-100">
+                  {i + 1}
+                </span>
+              </button>
+            );
+          })}
         </div>
       </section>
 
       <Dialog open={selectedLeader !== null} onOpenChange={(open) => !open && setSelectedLeader(null)}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Líder {selectedLeader !== null ? selectedLeader + 1 : ""}</DialogTitle>
-            <DialogDescription>
-              Em breve: foto, história e documentos deste líder.
+        <DialogContent className="rounded-3xl border-primary/20 text-center sm:max-w-md">
+          <div className="mx-auto -mt-14 mb-2 flex h-24 w-24 items-center justify-center rounded-full bg-gradient-flame shadow-glow animate-scale-in">
+            <Flame className="h-10 w-10 text-primary-foreground" />
+          </div>
+          <DialogHeader className="items-center">
+            <DialogTitle className="font-display text-3xl tracking-wide">
+              Líder {selectedLeader !== null ? selectedLeader + 1 : ""}
+            </DialogTitle>
+            <DialogDescription className="max-w-xs">
+              Em breve: foto, história e a chamada deste líder.
             </DialogDescription>
           </DialogHeader>
+          <div className="mt-2 flex justify-center gap-1.5">
+            {[0, 1, 2].map((d) => (
+              <span key={d} className="h-1.5 w-1.5 rounded-full bg-primary/40" />
+            ))}
+          </div>
         </DialogContent>
       </Dialog>
     </main>
