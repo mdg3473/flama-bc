@@ -49,55 +49,43 @@ const Sobre = () => {
         </div>
       </section>
 
-      <section className="container pb-24">
-        <div className="relative mx-auto aspect-square w-full max-w-[680px] md:max-w-[820px]">
-          {/* anéis guia */}
-          {[30, 52, 74, 92, 100].map((s, i) => (
-            <span
-              key={i}
-              className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border border-primary/10"
-              style={{ width: `${s}%`, height: `${s * 0.86}%` }}
-            />
-          ))}
-
-          {/* núcleo */}
-          <div className="pointer-events-none absolute left-1/2 top-1/2 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-gradient-flame shadow-glow animate-flicker md:h-28 md:w-28">
-            <Flame className="h-10 w-10 text-primary-foreground" />
+      <section className="pb-24 space-y-6 overflow-hidden">
+        {ROWS.map((row, r) => (
+          <div
+            key={r}
+            className="relative py-2"
+            onMouseEnter={() => setHovered(r)}
+            onMouseLeave={() => setHovered(null)}
+          >
+            <div
+              className="marquee"
+              style={{
+                animationDuration: `${40 + r * 12}s`,
+                animationDirection: r % 2 === 1 ? "reverse" : "normal",
+                animationPlayState: hovered === r ? "paused" : "running",
+                gap: "1.5rem",
+              }}
+            >
+              {[...row, ...row].map((i, k) => (
+                <button
+                  key={`${r}-${k}`}
+                  onClick={() => setSelectedLeader(i)}
+                  aria-label={`Líder ${i + 1}`}
+                  className="group relative h-16 w-16 shrink-0 rounded-full bg-gradient-flame text-primary-foreground
+                    ring-1 ring-primary/30 transition-transform duration-300 ease-out
+                    hover:scale-125 hover:shadow-glow hover:ring-2 hover:ring-primary
+                    active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring
+                    md:h-20 md:w-20"
+                >
+                  <span className="absolute inset-0 rounded-full bg-primary/40 opacity-0 transition-opacity group-hover:opacity-100 group-hover:animate-ping" />
+                  <span className="relative flex h-full w-full items-center justify-center">
+                    <Flame className="h-6 w-6 opacity-70 transition-opacity group-hover:opacity-100 md:h-7 md:w-7" />
+                  </span>
+                </button>
+              ))}
+            </div>
           </div>
-
-          {POSITIONS.map((p, i) => {
-            const isHover = hovered === i;
-            const dim = hovered !== null && !isHover;
-            return (
-              <button
-                key={i}
-                onClick={() => setSelectedLeader(i)}
-                onMouseEnter={() => setHovered(i)}
-                onMouseLeave={() => setHovered(null)}
-                aria-label={`Líder ${i + 1}`}
-                style={{
-                  left: `${p.x}%`,
-                  top: `${p.y}%`,
-                  width: `${p.size * 3.4}rem`,
-                  height: `${p.size * 3.4}rem`,
-                  animationDelay: `${i * 25}ms`,
-                  transitionDelay: `${(i % 12) * 15}ms`,
-                }}
-                className={`group absolute -translate-x-1/2 -translate-y-1/2 rounded-full bg-gradient-flame
-                  text-primary-foreground ring-1 ring-primary/30 animate-fade-in
-                  transition-[transform,opacity,box-shadow] duration-500 ease-out
-                  hover:z-20 hover:scale-[1.6] hover:shadow-glow hover:ring-2 hover:ring-primary
-                  active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring
-                  ${dim ? "opacity-40 scale-90" : "opacity-100"}`}
-              >
-                <span className="absolute inset-0 rounded-full bg-primary/40 opacity-0 group-hover:opacity-100 group-hover:animate-ping" />
-                <span className="relative flex h-full w-full items-center justify-center font-display text-xs opacity-0 transition-opacity group-hover:opacity-100">
-                  {i + 1}
-                </span>
-              </button>
-            );
-          })}
-        </div>
+        ))}
       </section>
 
       <Dialog open={selectedLeader !== null} onOpenChange={(open) => !open && setSelectedLeader(null)}>
