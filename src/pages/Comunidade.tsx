@@ -353,7 +353,7 @@ const Comunidade = () => {
                     className={`group w-full flex items-center gap-1.5 rounded-md px-2 py-[6px] text-[15px] transition-colors ${
                       active ? "bg-[hsl(var(--dc-active))] text-foreground" : "text-muted-foreground hover:bg-[hsl(var(--dc-hover))] hover:text-foreground"
                     } ${locked ? "cursor-not-allowed opacity-40 hover:bg-transparent hover:text-muted-foreground" : ""}`}>
-                    {locked ? <Lock size={16} className="opacity-70" /> : <Hash size={18} className="opacity-70" />}
+                    {locked ? <LockIcon size={16} className="opacity-70" /> : <Hash size={18} className="opacity-70" />}
                     <span className="truncate">{c.label}</span>
                   </button>
                 );
