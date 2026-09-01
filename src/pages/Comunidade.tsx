@@ -36,6 +36,7 @@ import {
   ShieldCheck,
   Shield,
   VolumeX,
+  Lock as LockIcon,
 } from "lucide-react";
 import flamaLogo from "@/assets/flama-logo.png";
 
