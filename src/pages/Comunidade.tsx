@@ -36,6 +36,7 @@ import {
   ShieldCheck,
   Shield,
   VolumeX,
+  Lock as LockIcon,
 } from "lucide-react";
 import flamaLogo from "@/assets/flama-logo.png";
 
@@ -117,6 +118,13 @@ const Comunidade = () => {
     supabase.rpc("has_role", { _user_id: user.id, _role: "moderator" })
       .then(({ data }) => setIsMod(!!data));
   }, [user, profileOpen]);
+
+  // non-admins are locked to the channel of their own grade
+  useEffect(() => {
+    if (isAdmin) return;
+    const g = me?.grade as ChannelId | undefined;
+    if (g && CHANNELS.some((c) => c.id === g)) setChannel(g);
+  }, [me, isAdmin]);
 
   // staff roles (badges) + mutes
   const loadModeration = useCallback(async () => {
@@ -336,13 +344,16 @@ const Comunidade = () => {
               </div>
               {CHANNELS.filter((c) => c.category === cat).map((c) => {
                 const active = c.id === channel;
+                const locked = !isAdmin && c.id !== channel;
                 return (
                   <button key={c.id}
-                    onClick={() => { setChannel(c.id); setSidebarOpen(false); }}
+                    disabled={locked}
+                    title={locked ? "Você só pode acessar a sala do seu ano" : undefined}
+                    onClick={() => { if (locked) return; setChannel(c.id); setSidebarOpen(false); }}
                     className={`group w-full flex items-center gap-1.5 rounded-md px-2 py-[6px] text-[15px] transition-colors ${
                       active ? "bg-[hsl(var(--dc-active))] text-foreground" : "text-muted-foreground hover:bg-[hsl(var(--dc-hover))] hover:text-foreground"
-                    }`}>
-                    <Hash size={18} className="opacity-70" />
+                    } ${locked ? "cursor-not-allowed opacity-40 hover:bg-transparent hover:text-muted-foreground" : ""}`}>
+                    {locked ? <LockIcon size={16} className="opacity-70" /> : <Hash size={18} className="opacity-70" />}
                     <span className="truncate">{c.label}</span>
                   </button>
                 );
