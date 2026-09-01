@@ -118,6 +118,13 @@ const Comunidade = () => {
       .then(({ data }) => setIsMod(!!data));
   }, [user, profileOpen]);
 
+  // non-admins are locked to the channel of their own grade
+  useEffect(() => {
+    if (isAdmin) return;
+    const g = me?.grade as ChannelId | undefined;
+    if (g && CHANNELS.some((c) => c.id === g)) setChannel(g);
+  }, [me, isAdmin]);
+
   // staff roles (badges) + mutes
   const loadModeration = useCallback(async () => {
     const [{ data: roles }, { data: mts }] = await Promise.all([
