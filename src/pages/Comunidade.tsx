@@ -13,7 +13,6 @@ import { ProfileDialog } from "@/components/ProfileDialog";
 import { toast } from "@/hooks/use-toast";
 import {
   Hash,
-  Home,
   Menu,
   Mic,
   MicOff,
@@ -31,7 +30,6 @@ import {
   X,
   Volume2,
   ChevronDown,
-  Plus,
   Pin,
   ShieldCheck,
   Shield,
@@ -320,13 +318,6 @@ const Comunidade = () => {
         <Link to="/home" className="group relative grid h-12 w-12 place-items-center rounded-lg bg-primary transition-all hover:rounded-lg" title="FLAMA">
           <img src={flamaLogo} alt="FLAMA" className="h-8 w-8 object-contain [filter:brightness(0)_invert(1)]" />
         </Link>
-        <div className="h-px w-8 bg-white/10" />
-        <Link to="/home" className="grid h-12 w-12 place-items-center rounded-lg bg-[hsl(var(--card))] text-muted-foreground transition-all hover:rounded-lg hover:bg-primary hover:text-primary-foreground" title="Voltar ao site">
-          <Home size={20} />
-        </Link>
-        <button className="grid h-12 w-12 place-items-center rounded-lg bg-[hsl(var(--card))] text-[hsl(var(--dc-online))] transition-all hover:rounded-lg hover:bg-[hsl(var(--dc-online))] hover:text-white" title="Em breve">
-          <Plus size={20} />
-        </button>
       </div>
 
       {/* Channel sidebar */}
