@@ -13,7 +13,6 @@ import { ProfileDialog } from "@/components/ProfileDialog";
 import { toast } from "@/hooks/use-toast";
 import {
   Hash,
-  Home,
   Menu,
   Mic,
   MicOff,
@@ -31,7 +30,6 @@ import {
   X,
   Volume2,
   ChevronDown,
-  Plus,
   Pin,
   ShieldCheck,
   Shield,
