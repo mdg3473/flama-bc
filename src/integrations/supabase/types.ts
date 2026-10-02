@@ -199,6 +199,42 @@ export type Database = {
         }
         Relationships: []
       }
+      team_members: {
+        Row: {
+          created_at: string
+          created_by: string | null
+          id: string
+          name: string
+          photo_path: string | null
+          role: string | null
+          team: string
+          testimony_path: string | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          name: string
+          photo_path?: string | null
+          role?: string | null
+          team: string
+          testimony_path?: string | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          created_by?: string | null
+          id?: string
+          name?: string
+          photo_path?: string | null
+          role?: string | null
+          team?: string
+          testimony_path?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
       user_roles: {
         Row: {
           created_at: string
