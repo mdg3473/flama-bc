@@ -15,6 +15,13 @@
       "when": 1790963566717,
       "tag": "0001_team_read",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1795102616280,
+      "tag": "0002_tighten_read_policies",
+      "breakpoints": true
     }
   ]
 }
